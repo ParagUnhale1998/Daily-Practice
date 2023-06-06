@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const app = express();
 // First Create Mongo Server
 const mongoose = require("mongoose");
-const uri = "mongodb+srv://admin-parag:parag123@todolist.7gpaqgc.mongodb.net/?retryWrites=true&w=majority";
 // mongoose.connect("mongodb://localhost:27017/todolistDB");
 mongoose.connect(uri);
 // create mongo schema for todo input value datatypes
