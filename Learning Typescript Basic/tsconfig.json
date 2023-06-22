@@ -1,0 +1,7 @@
+{
+  // remove all ffiles in compilerOptions 
+  // to learn about DEcorators in Ts
+  "compilerOptions": {
+           "experimentalDecorators": true             
+  }
+}
