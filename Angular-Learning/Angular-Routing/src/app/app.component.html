@@ -1,0 +1,37 @@
+<!-- <div class="container">
+<h1>Learning Angular Class</h1>
+<app-learning-angular></app-learning-angular>
+<app-login></app-login>
+</div> -->
+
+<div class="Routing">
+    <h1>Welcome to Angular Routing</h1>
+    <!-- <a routerLink ="login" class="Login">LoginPage</a> -->
+    <div class="Routing-Container">
+    <button routerLink ="login">LoginPage</button>
+    <button routerLink ="LearningAngular">Learning page</button>
+    <button routerLink ="/">home page</button>
+    <button routerLink="students/studentLogIn">Go To Student Login Page</button>
+    <button routerLink="students/studentSignUp">Go To Student SignUp Page</button>
+    </div>
+    <router-outlet></router-outlet>
+    <!-- <router-outlet></router-outlet>  its an angular direcctive from router library and used to insert componant match by routes to be display on the screen -->
+  </div>
+
+  <!-- Second way -->
+  <!-- this is inside app index file <router-outlet></router-outlet> 
+    add this {path:'', component : LearningAngularComponent }, to routing.moduets
+    for home path 
+
+   2 way to redirecting  from.ts file 
+
+   <button (click)="loginComponent()">login</button>
+   
+   import this to .ts file 
+   constructor(private router:Router){
+
+  }
+  loginComponent() {
+  this.router.navigateByUrl("/login")
+  }
+  -->
