@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* width: 100%; */
+}
+body{
+    background-image: linear-gradient(71deg, #0A14C8, #75BFBF);
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    flex-direction: column;
+    /* display: inline-block; */
+}
+body > app-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: column; */
+    /* flex-wrap: wrap; */
+    gap:10px;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.container{
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid white;
+    padding: 10px;
+    gap: 10px;
+
+}
+h1 , h3 {
+    color: rgb(255, 221, 0);
+}
+.Notescontainer{
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid white;
+    padding: 10px;
+    background: #00000055;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-transform: capitalize;
+    font-size: 1.5rem;  
+}
+p{
+    border: 1px solid white;
+    padding: 5px;
+   
+}
+.Practisecontainer{
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid white;
+    padding: 10px;
+    background: #000000b8;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}

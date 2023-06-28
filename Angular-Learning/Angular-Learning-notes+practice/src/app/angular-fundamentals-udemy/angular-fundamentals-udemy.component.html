@@ -1,0 +1,526 @@
+<h1>Angular Fundamentals Udemy</h1>
+<p>for applying telwind Css use => npm install -D tailwindcss@latest => npx tailwind init</p>
+<pre>
+  inside telwind.js 
+  content: [],
+ 
+
+
+
+</pre>
+<!--<div class="Container">
+    <h3>Interpolation</h3>
+    <h3>For Styling Componants name file Use psudo selector => <span>:host</span>  got to css file </h3>
+    <div class="double-Container">
+        <p>
+            Expression :: Number Expression 2+2 , Sting Expression 'hello'.toUpperCase()
+            logical Expression 100 === 100
+        </p>
+        <p>
+            Not Expression / Declaration :: var a; , function() ,if(a==b)
+        </p>
+    </div>
+   
+</div>
+    <div class="Container">
+        <h3>String Interpolation</h3>
+        <div class="double-Container voilet">
+    <p>exprassion can be inserted in templete wrigting two pair of curly brackets and inside bracket their is expression</p>
+    <p> another word for discribing these process is String Interpolation</p>
+    <p>Interpolation is the process to resplace the placeholder with sring values</p>
+    <p>For Example Hello {{ name }}</p>
+    <p> using touppercase {{name.toUpperCase() }}</p>
+    <p>using artimatic operation like 2+2 = annswer is =>{{2+2}}</p>  
+</div>
+</div>
+<div class="Container">
+    <h3>Property Binding</h3>
+    <div class="double-Container">
+        <div class="container green">
+        <p>property binding is mainly use in attribute</p>
+        <p>it allows us to apply property from a tsClass file image in browser using Property binding  </p>
+        <p>property binding is being able to change the document with properry from the tsClass</p>
+        <p>this is the change detection system </p>
+        <p>we can apply propertry binding in any attribute in our document</p>
+        <p>we can bind the property by surrounding its square brackets like this =>  [src] = ''</p>
+        <p>the value of the src or any attribute is no longer static its interpreate as a expression </p>
+    </div>
+    <div class="container ">
+        <p>for this is Image we use this [src] ="imgURL"</p>
+        <img [src]="imgURL" alt="">
+    </div>
+    
+</div>
+</div>
+<div class="Container ">
+    <h3>Event binding</h3>
+    <div class="double-Container blue">
+        <div class="container ">
+    <p>we can update the image using event Binding</p>
+    <p>events can be return as an attribute in an element</p>
+    <p>The $event is a special variable in Angular event bindings that represents the event object emitted by the event. It contains information about the event, such as the target element, the event type, and any additional data related to the event.</p>
+</div>
+<div class="container voilet">
+    <p>input (keyup) ="changeImage()"</p>
+    <p>Change the image id to Chage the Image https://picsum.photos/id/<span>Change this Number =></span> 5 /500/500</p>
+    <input (keyup)="changeImage($event)" [value]="imgURL">
+</div>
+</div>
+</div>
+<div class="Container">
+    <h2>Decorator in componants</h2>
+    <p>we can tell angular to perimit parent comoponent by adding a  decorator and the import statement </p>
+    <p>input funnctin is decorator and many more  / they can be applied to property also </p>
+    <p>import input to tsfile, and call in tsClass like </p>
+    <p>@input() posting = ''</p>
+    <p>app-post [posting] 'imgURL' / app-pos , in other new component</p>
+    <p>data can flow to parent component to child comopnent</p>
+    <h3>input Aliases</h3>
+    <p>@input('img') posting = ''</p>
+    <p>Avoid aliases in input and outputes </p>
+</div>
+<div class="Container">
+    <h3>Emitting Events</h3>
+    <app-angular-post-udemy  [img]="imgURL" (imgSelected)="logImg($event)">
+        <p> Some Caption </p>  
+    </app-angular-post-udemy>
+    <p>we are sending the data to child and parent just click the image get the url of img</p>
+    <p> This is Parent Compoment </p> 
+</div>
+<div class="Container">
+    <h3>Content Projection</h3>
+    <p>we can add the content inside the component like =>  app-post > <span>content</span> / app-post</p>
+    <p>add this to child componet like post component => ng-content to show caption for uppar image</p>
+</div>
+<div class="Container">
+    <h3>Discovering Lifecycle Hooks</h3>
+    <p>Using interface in Lifecycle hooks in post.ts file</p>
+    <p>hooks that run more than once can impact the performance of your app</p>
+    <p>OnInit , OnChanges, DoCheck,AfterContentChecked,
+    AfterContentInit,AfterViewInit,AfterViewChecked ,OnDestroy</p>
+    <p>Common Use Hooks Construtor, ngOnInit , ngOnChange , ngOnDestroy</p>
+    <p>in angular content is placed into two categories they can either be view or content</p>
+    <p>view :   refers to the component templete</p>
+    <p>content : reffers to the projected content from the parent component p>
+        <p>we can not acces the child property in child components when we call like this </p>
+        <p>we cannont use post properrty in p tag using Interpolation</p>
+        <pre>
+            app-angular-post-udemy  [img] ="imgURL" (imgSelected) ="logImg($event)">
+                p> Some Caption  p>  
+            /app-angular-post-udemy
+        </pre>
+        <p>the content like p in componants is called view</p>
+</div>-->
+<div class="Container">
+  <h3>Learning Pipes</h3>
+  <p>A pipe is a function to Transforming the value to Templete</p>
+  <p>pipes are not bound to a specific componant</p>
+  <p>we can defin a pipe at once , use it everywhere</p>
+  <p>
+    if we are using a funtion for changing a value in the templete we should use
+    pipe
+  </p>
+  <p>it removes clutter from our componant class</p>
+  <p>they dont change the original value</p>
+  <pre>
+        Common Pipes
+        AsyncPipe, CurrencyPipe ,DatePipe, DecimalPipe ,I18nPluralPipe ,I18nSelectPipe 
+        JsonPipe,KeyValuePipe ,LowerCasePipe, PercentPipe ,SlicePipe ,TitleCasePipe ,
+        UpperCasePipe
+    </pre
+  >
+  <p>Hello Pipes {{ name | titlecase }}</p>
+  <p>pipe pirameter</p>
+
+  <div class="Container black">
+    <p>
+      DatePipe: The DatePipe is used for formatting dates. It supports a wide
+      range of predefined formats like 'short', 'medium', 'long', 'full', as
+      well as custom formats. It can format both date objects and strings
+      representing dates.
+    </p>
+    <span>
+      <p>
+        it change the default format of date to main formet just using date in
+        this code
+      </p>
+      <p>CurrentDate {{ currentDate | date : "short" }}</p>
+    </span>
+    <p>
+      UpperCasePipe: This pipe transforms a string to uppercase. It takes a
+      string as input and returns the uppercase version of that string.
+    </p>
+    <span>
+      <p>'hello world' | uppercase => {{ "hello world" | uppercase }}</p>
+    </span>
+    <p>
+      LowerCasePipe: Similar to UpperCasePipe, this pipe transforms a string to
+      lowercase. It takes a string as input and returns the lowercase version of
+      that string.
+    </p>
+    <!-- Template -->
+    <span>
+      <p>'Hello World' | lowercase => {{ "Hello World" | lowercase }}</p>
+    </span>
+
+    <p>
+      CurrencyPipe: The CurrencyPipe formats a number as a currency using
+      currency symbols, separators, and specified formatting options. It is
+      commonly used for displaying monetary values.
+    </p>
+    <span
+      >{{ cost | currency : "INR" : "symbol" : "1.2-2" : "en-IN" }}
+      <p>code => cost | currency:'INR':'symbol':'1.2-2':'en-IN'</p>
+      <p>'INR' specifies the currency code for Indian Rupee.</p>
+      <p>'symbol' indicates that the currency symbol should be displayed.</p>
+      <p>
+        '1.2-2' specifies the minimum and maximum fractional digits to be
+        displayed.
+      </p>
+      <p>
+        'en-IN' sets the locale to English India for proper currency formatting.
+      </p>
+    </span>
+
+    <p>
+      DecimalPipe: This pipe is used for formatting numbers as decimals. It
+      allows you to specify the decimal separators, the number of decimal
+      places, and other options for formatting.
+    </p>
+    <span
+      >{{ temperature | number : "1.1-1" }}°C
+      <p>
+        '1.1-1' specifies the minimum and maximum fractional digits to be
+        displayed.
+      </p>
+      <p>
+        The first digit before the dot (1 in this case) represents the minimum
+        number of integer digits that should be displayed. If the number has
+        fewer digits, leading zeros will be added.
+      </p>
+      <p>
+        The digit after the dot (1 in this case) represents the minimum number
+        of fractional digits to be displayed. If the number has fewer digits,
+        trailing zeros will be added.
+      </p>
+      <p>
+        The last digit after the hyphen (-1 in this case) represents the maximum
+        number of fractional digits that can be displayed. If the number has
+        more digits, it will be rounded or truncated to fit within the specified
+        range.
+      </p>
+      <p>
+        °C is appended to the formatted temperature to indicate the unit
+        (Celsius).
+      </p>
+    </span>
+    <p>
+      JsonPipe: The JsonPipe is used to convert a value into a JSON string
+      representation. It is commonly used for debugging or displaying JSON data.
+    </p>
+    <span>
+      <pre>
+                    {{ jsonPipe | json }}
+                </pre
+      >
+      <!-- Template -->
+      <p>{{ { name: "John", age: 30, city: "New York" } | json }}</p>
+    </span>
+    <p>
+      PercentPipe: The PercentPipe is used to format a number as a percentage.
+      It multiplies the input value by 100 and adds the percentage symbol.
+    </p>
+    <span>
+      <p>{{ 0.75 | percent }}</p>
+    </span>
+    <p>
+      SlicePipe: The SlicePipe is used to extract a portion of an array or
+      string. It takes start and end indices as arguments and returns a new
+      array or string with the extracted portion.
+    </p>
+    <span>
+      <p>{{ "Hello, World!" | slice : 0 : 5 }}</p>
+    </span>
+    <p>
+      AsyncPipe: This pipe is used for handling asynchronous data. It subscribes
+      to an observable or a promise and automatically updates the view with the
+      latest value emitted by the observable or promise.
+    </p>
+    <span>
+      <p>{{ data$ | async }}</p>
+    </span>
+    <p>
+      KeyValuePipe: This pipe transforms an object or map into an array of
+      key-value pairs. It is useful for iterating over object properties in the
+      template.
+    </p>
+    <span>
+      <div
+        *ngFor="
+          let item of { key1: 'value1', key2: 'value2', key3: 'value3' }
+            | keyvalue
+        "
+      >
+        Key: {{ item.key }}, Value: {{ item.value }}
+      </div>
+    </span>
+    <p>
+      TitleCasePipe: The TitleCasePipe converts the first character of each word
+      in a string to uppercase and the rest of the characters to lowercase. It
+      is often used for displaying properly formatted titles or headings.
+    </p>
+    <span>
+      <p>{{ "hello, world!" | titlecase }}</p>
+    </span>
+    <p>
+      I18nPluralPipe: This pipe is used for handling pluralization of messages
+      based on numeric values and locale rules. It selects the appropriate
+      plural form of a message based on the provided value.
+    </p>
+    <span>
+      <!-- Template -->
+      <p>
+        {{ numItems }}
+        {{
+          numItems
+            | i18nPlural
+              : { "=0": "No items", "=1": "One item", other: "# items" }
+        }}
+      </p>
+    </span>
+  </div>
+</div>
+<div class="Container">
+  <h3>Understanding Directive</h3>
+  <table>
+    <tr>
+      <th>Attribute directive</th>
+      <th>---</th>
+      <th>Structure directive</th>
+    </tr>
+  </table>
+  <div class="Container black">
+    <h3>Attribute directive</h3>
+    <button (click)="blueClass = !blueClass" [ngClass]="{ white: blueClass }">
+      Change
+    </button>
+    <p>click button to change the bg to green to black Using ngClass</p>
+    <p>style this button using ngStyle click to change the font size</p>
+    <p>code => [ngStyle] ="'font-size.px':fontsize"</p>
+    <button
+      (click)="blueClass = !blueClass"
+      [ngStyle]="{ 'font-size.px': fontsize }"
+    >
+      Change
+    </button>
+  </div>
+  <div class="Container black">
+    <h3>Structure Directive</h3>
+    <span>ng Templete Definition:  ng-template>  /ng-template></span>
+      <ng-template>
+        <p>Button is white</p>
+      </ng-template>
+      <p>In Angular, the ng-template is a structural directive that allows you to define reusable content that can be conditionally rendered or accessed within your component's template. It is often used in combination with other directives such as ngIf, ngFor, or ngSwitch.</p>
+      <pre>Conditional Rendering with ngIf:
+        ng-container *ngIf ="condition">
+        ng-template>
+     Content to be rendered when condition is true 
+        /ng-template>
+      /ng-container> </pre>
+      <pre>Iteration with ngFor:
+        ng-container *ngFor ="let item of items">
+            ng-template>
+               Content to be rendered for each item 
+            /ng-template>
+          /ng-container>
+      </pre>
+      <pre>Template Access: 
+          ng-template #myTemplate>
+            Content to be referenced
+          /ng-template>
+          ng-container [ngTemplateOutlet] ="myTemplate"> 
+          /ng-container>
+      </pre>
+  </div>
+</div>
+<div class="containe">
+    <h3>shared moddule</h3>
+    <p>its a module with  a generic directive , classes , pipes ,and components</p>
+    <p>since the code for rendering  a model is registerd  witht he sahred model iwll be accescible      wherever</p>
+    <p>we have two option to create this module </p>
+    <p>manually and cli is the best ng generate module shared</p>
+</div>
+<div class="contaienr">
+    <h3>services</h3>
+    <p>a service is an object for manageing your data instand of managing out data inside a component</p>
+    <p>we can have seperate  class dedicated  to managing our data </p>
+    <p>the idea of service is to ve  abale to share  data across  multiple component</p>
+    model = data(service)
+    view = html 
+    controller = typescript class
+    this is MVC pattern is to split our componnetinto seperate files
+    one file for the htmml and another for the component logic
+    and last li file for data
+    this goal of the MVC pattern is to  decouple our data  from the component  class by doing   so data can be accesile for the other componet
+    <p>we need to acces data to the miltiple component we use serveices </p>
+
+</div>
+<div class="container">
+    <h3>dependancy injection</h3>
+    <p>d i has two jobs 
+        the first job is to create a object  out of our classes
+        the second job is to pass on  the objects    to out components  or classes that need them
+    </p>
+    <p>in javascript we must constley create objects  in out compomnent by writhing  new keywords </p>
+<pre ngNonBindable>
+   {{
+    import { Component, OnInit } from '@angular/core';
+    export class ModalComponent implements OnInit {
+        constructor( public modal : ModalService){
+        }
+        ngOnInit(): void {      
+        }  
+      }
+   }}
+</pre>
+
+</div>
+<div class="container">
+    <pre ngNonBindable>injecting serviecs=> using in serives like this{{
+        @Injectable({
+            providedIn: 'root'
+          })}} </pre>
+<pre>
+    there are 3 ways to class injectable
+   injectable is called a decorator 
+     this is the first method by default
+     (2) => another wauy  of regestering an injectable  services is throught modeul and components 
+     if we dont want  to make our services globally  avaible we 
+     can specify  whrer our service injecting 
+     <pre ngNonBindable>
+        {{
+            first we must remove  => providedIn: 'root'
+            @injectable()
+            lets open shared module file import modal servie object 
+            like this 
+            import { ModalComponent } from './modal/modal.component';
+
+
+
+@NgModule({
+  declarations: [
+    ModalComponent
+  ],
+  imports: [
+    CommonModule
+  ],
+  exports:[
+    ModalComponent
+  ],
+  providers:[ 2 way
+  modalservice
+  ]
+  the providers option is an array of services 
+  we must declare our modal service inside this option 
+
+(3) way
+import { Component, OnInit } from '@angular/core';
+import { ModalService } from 'src/app/services/modal.service';
+
+@Component({
+  selector: 'app-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.css']
+  // , 3 third way 
+  // providers:[ModalService]
+})
+export class ModalComponent implements OnInit {
+  
+  constructor(public modal : ModalService){
+
+
+ 
+  }
+
+  ngOnInit(): void {
+    
+  }
+
+}
+
+
+        })}}
+     </pre>
+     <p>you can inject serveices on a modaule level globle level and component level</p>
+     <p>what is private in class 
+        private is use to it will be easier to track where changes are made 
+        we wont have  to search  througbt dozens of the  files to find whre is the propert are being changes
+
+     </p>
+</pre>
+<p>singletons<p>
+    <p ngNonBindable>
+        {{
+            In Angular, a singleton is a design pattern used to create a single instance of a class that can be shared and accessed throughout the application. It ensures that only one instance of the class is created and that all subsequent requests for an instance of that class return the same instance.
+
+In Angular, singletons are typically implemented using Angular's dependency injection (DI) system. When a service is registered with the DI system at the root level or using the @Injectable({ providedIn: 'root' }) decorator, Angular creates a single instance of that service and injects it wherever it is requested.
+
+Benefits of using singletons in Angular:
+
+Shared state: Singleton instances allow data and state to be shared across different components, services, and modules in the application.
+Efficiency: Creating a single instance of a service can improve performance and memory usage by reusing the same instance instead of creating multiple instances.
+Consistency: By using singletons, you ensure that the behavior and state of the service remain consistent throughout the application.
+Centralized management: Singletons provide a centralized way to manage and control shared resources and functionality.
+It's important to note that Angular's DI system handles the creation and management of singletons automatically when services are registered at the root level. However, if you register a service at a component level or with a specific module, a new instance will be created for each component or module.
+
+Overall, singletons in Angular are a powerful tool for creating shared and reusable instances of services, allowing for efficient communication and consistent state management within an application.
+        }}
+    </p>
+    <p>optional chaining</p>
+    <p ngNonBindable>     return this.modals.find(element => element.id === id)?.visible
+        {{
+            isModalOpen(id:string):boolean{
+                // return this.visible
+                return !!this.modals.find(element => element.id === id)?.visible
+              }
+
+              this operator is called as a bang operator
+              if(!activeTab || activeTab.length === 0){
+                this.selectTab(this.tabs!.first)
+                }
+        }}
+    </p>
+</div>
+<div class="container">
+    <h3>master reactive forms </h3>
+    <p ngNonBindable>
+        {{
+            Certainly! The optional chaining operator (?.) is a feature introduced in JavaScript to simplify accessing nested properties or calling methods on objects when the intermediate properties may be null or undefined. It helps prevent "TypeError: Cannot read property 'x' of null" errors.
+
+Here's a simple example to illustrate its usage:
+
+javascript
+Copy code
+const person = {
+  name: 'John',
+  age: 25,
+  address: {
+    city: 'New York',
+    zipCode: 12345
+  }
+};
+
+console.log(person.address?.city); // Output: 'New York'
+console.log(person.address?.street); // Output: undefined
+console.log(person.phoneNumber?.toString()); // Output: undefined
+In the above example, person is an object with properties name, age, and address. The address property is another object with properties city and zipCode.
+
+By using the optional chaining operator (?.), we can safely access nested properties or call methods. If any intermediate property along the chain is null or undefined, the expression will short-circuit and return undefined instead of throwing an error.
+
+In the example, person.address?.city successfully accesses the city property because address is defined. However, person.address?.street returns undefined since street doesn't exist. Similarly, person.phoneNumber?.toString() returns undefined because phoneNumber is not defined in the person object.
+
+This allows for safer and more concise code when dealing with potentially nullable properties or methods in JavaScript.
+        }}
+    </p>
+</div>
+
