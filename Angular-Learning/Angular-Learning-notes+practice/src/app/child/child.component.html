@@ -1,0 +1,8 @@
+<p>child works! => parent Data =>  {{dataFromparent}}</p>
+<p> This is In Child Ts.File </p>
+<p> use this for get data =>  @Input() dataFromparent:any</p>
+<p> use  this for send data =>  @Output() dataFromChild= new EventEmitter  any></p>
+<p>Child Input Box</p>
+<input type="text" (keyup)="sendData($event)">
+<p>send data using ngMOdel  input type="text" [(ngModel)] ="childValue" (ngModelChange) ="sendData()"></p>
+<!-- <input type="text" [(ngModel)]="childValue" (ngModelChange)="sendData()"> -->
