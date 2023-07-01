@@ -1,0 +1,37 @@
+ <div class="Notescontainer">
+ <h1>components1-learning works!</h1>
+
+<h3> What are Angular components?</h3>
+
+<p>Components are the building blocks of the Angular application's user interface. They encapsulate the presentation logic and UI elements.</p>
+<h3>How do you create a component in Angular?</h3>
+
+<p>Components can be generated using the Angular CLI command ng generate component component-name or ng g c component-name (short form).</p>
+ <h3>What is the purpose of the @Component decorator?</h3>
+
+<p>The @Component decorator is used to provide metadata about the component, such as its selector, template, styles, and more.</p>
+<h3>How do you pass data from a parent component to a child component?</h3>
+
+<p>Data can be passed from a parent component to a child component using @Input() properties in the child component and binding the values in the parent component's template.</p>
+<h3>How do you handle events in Angular components?</h3>
+
+<p>Events can be handled using event binding in the component's template. For example," (click)"="handleClick()" binds the handleClick() method to the click event.</p>
+<h3>What is data binding in Angular?</h3>
+<p>Data binding is a feature that allows you to establish a connection between the component's data and the template.</p>
+<!--  It includes one-way binding ({{}} interpolation, [property] binding) and "two-way binding [(ngModel)] --!>". -->
+<h3>How do you communicate between sibling components?</h3>
+
+<p>Sibling components can communicate through a shared service, where data can be shared and events can be emitted and subscribed to.</p>
+<h3>What is Angular's component lifecycle?</h3>
+
+<p>Angular components have several lifecycle hooks, such as ngOnInit, ngOnChanges, ngOnDestroy, etc., which allow you to perform actions at different stages of a component's lifecycle.
+
+Each component consists of three main parts:
+
+Template: The template defines the structure and layout of the component's view. It is written in HTML and can include Angular-specific syntax and directives for data binding, event handling, and more.
+
+Class: The class is responsible for the component's behavior and logic. It contains properties and methods that can be used in the template and handles events, data manipulation, and interaction with other components or services.
+
+Metadata: The metadata is defined using the @Component decorator. It provides additional information about the component, such as its selector (used to identify the component in the HTML), CSS styles, and dependencies.
+</p> 
+</div>
