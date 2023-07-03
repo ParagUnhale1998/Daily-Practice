@@ -1,0 +1,95 @@
+<div class='container'> 
+ <pre>data binding in angular:
+ two categouries: 1.one way data Binding , 2.two way data binding
+1.one way data Binding -</pre>
+<pre>1.string interpolation using double curly brackets </pre> 
+<pre>
+  2.property Binding:[]
+  3.Event binding:()
+  2.two way data binding:[()] 
+</pre>
+</div>
+<div class="Main-Container">
+  <div class="Container">
+  <p>this is one way data binding interpolation for showing ts/js variables in dom using double curly brackets</p>  
+    <h4>{{ formTitle }}</h4>
+    <form>
+      Username :
+      <input
+        type="text"
+        placeholder="Enter Username or Phone No"
+        value="{{ username }}"
+      />
+
+      password :
+      <input
+        type="password"
+        placeholder="Enter Password"
+        value="{{ password }}"
+      />
+      <button>LogIn</button>
+    </form>
+  </div>
+  <p>Test cases 1: can we use typeof operator into interpollation : no we can not use</p>
+   <!-- <p>{{typeof(isFavCity)}}</p>  -->
+
+   <!-- {{isFavCity}}  -->
+  <p> cases 2: can we use arithmatic operators into interpollation :yes we can use </p>
+   <!-- <p> {{50+10}}</p>  -->
+   <p>Test cases 3: can we use methods/functions into intrpl : yes we can use </p> 
+   <!-- <p>{{testingInterpolation(30,60)}}</p>  -->
+   <p>test case no 4: can we use assignment operator with interpolation :no we can not use </p>
+
+  <div class="Container OneWayDataBinding">
+    <h4>binding interpolation using functions</h4>
+    <p>Addition of 5 + 3 = {{ testingInterpolation(5, 3) }}</p>
+  </div>
+
+ <p> when we use Propert data binding for input in attribute make then in squarebracket like this [value]=username </p>
+  <div class="Container Propert-Binding">
+    <h4>Propert data binding </h4>
+    <input style="width: 40%" type="text" [value]="username" />
+    <input type="radio" [checked]="gender" />
+  </div>
+  <div class="Container">
+    <h4>handle input USing BInding</h4>
+    <p> do not use this in input box </p>
+    <p> we can not use interpollation majorly with disabled atteribute </p>
+    <p> disabled="{{ isDisable }}" or disabled ="isDisable"</p>
+    <input type="text" disabled="{{ isDisable }}" />
+    <input type="text" disabled ="isDisable" />
+    <p> only use this [disabled]="isDisable" in input attribute</p>
+    <input type="text" [disabled]="isDisable" />
+  </div>
+  <h3>EventBinding () (click),(focus) (blur) etc</h3>
+  <div class="Container Event Binding">
+    <h4>Event Binding</h4>
+    <button (click)="testingEventBinding()">Click Me</button>
+  </div>
+
+  <!-- Two way Data binding -->
+  <!-- <input type="text" [(ngModel)] = "twoWayBindingTest"><br><br>
+
+{{twoWayBindingTest}}
+
+<button (click)="test()">click to print </button>
+ -->
+
+  <div class="Container Two-way-Data-Binding">
+    <h4>Two Way data binding</h4>
+    {{ twoWayBInding }}
+    <!-- To use [(ngModel)] in your code, make sure you have imported the FormsModule in the respective module. Here's an example:
+         import { FormsModule } from '@angular/forms';
+Import the FormsModule in your component module. Open the corresponding module file (e.g., app.module.ts) and add the import statement: -->
+    <!-- @NgModule({
+    imports: [
+      // Other imports
+      FormsModule
+    ],
+    // Other module configurations
+  }) -->
+    <input type="text" [(ngModel)]="twoWayBInding" />
+    <!-- when yu chage the input value they this value atomatic changes -->
+    {{ twoWayBInding }}
+  </div>
+</div>
