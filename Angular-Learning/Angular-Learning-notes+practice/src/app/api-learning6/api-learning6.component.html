@@ -1,0 +1,134 @@
+<div class="container">
+    <h1>learning api using server </h1>
+    <p >
+        observable =>  its a continusely string of data we canno get data until and uless we subscribe to it 
+       
+    </p>
+    <div ngNonBindable>
+        {{ 
+          deleteEmployee(id: number): Observable < datamodel[]>  {
+  return this.http.delete< datamodel[]>("http://localhost:3000/posts/" + id);
+}
+}}
+    </div>
+    <div ngNonBindable>
+        {{
+            o fetch API data and display it on a site in Angular, you can follow these steps:
+
+Step 1: Import the HttpClientModule
+
+Open the app.module.ts file in your Angular project.
+Import the HttpClientModule from @angular/common/http.
+Add it to the imports array in the @NgModule decorator.
+typescript
+Copy code
+import { HttpClientModule } from '@angular/common/http';
+
+@NgModule({
+  imports: [
+    // Other imports
+    HttpClientModule
+  ],
+  // Other module properties
+})
+export class AppModule { }
+        }}
+
+        <div ngNonBindable> 
+ {{
+    Step 2: Create a Service to handle API requests
+
+    Create a new service file, such as api.service.ts.
+    Import the HttpClient from @angular/common/http.
+    Define a class for the service and inject HttpClient in the constructor.
+    typescript
+    Copy code
+    import { HttpClient } from '@angular/common/http';
+    import { Injectable } from '@angular/core';
+    
+    @Injectable({
+      providedIn: 'root'
+    })
+    export class ApiService {
+      constructor(private http: HttpClient) { }
+    
+      // Implement methods for making API requests here
+    }
+ }}
+        </div>
+<div ngNonBindable>
+    {{
+        Step 3: Make API Requests in the Service
+
+Within the ApiService class, create a method to make the API request using http.get() or other HTTP methods.
+Use the appropriate URL and handle the response accordingly.
+typescript
+Copy code
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+  constructor(private http: HttpClient) { }
+
+  getData(): Observable  any> {
+    const url = 'https://api.example.com/data'; // Replace with your API URL
+
+    return this.http.get(url);
+  }
+}
+    }}
+</div>
+<div ngNonBindable>
+    {{
+        Step 4: Use the Service in a Component
+
+        Open the component file where you want to fetch and display the API data.
+        Import the ApiService.
+        Inject the ApiService in the constructor of the component.
+        Use the service method to make the API request and subscribe to the returned Observable to receive the response.
+        typescript
+        Copy code
+        import { Component, OnInit } from '@angular/core';
+        import { ApiService } from './api.service';
+        
+        @Component({
+          selector: 'app-my-component',
+          template: `
+          div *ngFor="let item of data">item.name /div>
+          `
+        })
+    }}
+</div>
+<div ngNonBindable>
+    {{
+        export class MyComponent implements OnInit {
+            data: any[];
+          
+            constructor(private apiService: ApiService) { }
+          
+            ngOnInit() {
+              this.apiService.getData().subscribe((response) => {
+                this.data = response;
+              });
+            }
+          }
+          In the example above, the API response data is assigned to the data property of the component. The template uses *ngFor to iterate over the data array and display the name property of each item.
+          
+          Remember to replace the API URL and adjust the code according to your specific API and data structure.
+          
+          These steps should help you fetch API data and display it on your Angular site.
+    }}
+</div>
+
+</div>
+</div>
+<div class="container">
+     <pre>
+        1 import HttpClientModule in module.ts
+        2 we can use shared module for use multiple coponents and module for casusing less code and multiple use 
+        
+     </pre>
+</div>
