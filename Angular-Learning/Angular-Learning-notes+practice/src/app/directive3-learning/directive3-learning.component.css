@@ -1,0 +1,115 @@
+.toggle{
+    background: #fff;
+    color: #000;
+    font-size: 1rem;
+    width: 50%;
+    padding: 10px;
+    font-weight: 600;
+}
+button{
+    padding: 10px;
+    background: rgb(0, 220, 0);
+    font-weight: 600;
+    letter-spacing: normal;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px #ffffff48;
+}
+button:hover{
+    background: rgb(3, 255, 3);
+    box-shadow: 5px 5px 10px #ffffffd3;
+}
+.StructorContainer{
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid white;
+    padding: 10px;
+    background: #00141f;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}
+.StructorContainer > p{
+    text-align: left;
+}
+
+.loopContainer{
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid white;
+    padding: 10px;
+    background: #440071b8;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}
+.attributeContainer{
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid white;
+    padding: 10px;
+    background: #662900;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    width: 100%;
+}
+.attributeContainer1{
+    width: 100%;
+    background: #3f0066;
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid white;
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}
+/* li{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 10px;
+    
+} */
+table{
+    border: 1px solid #FFF;
+    width: 100%;
+    text-align: left;
+    /* border-collapse: collapse; */
+}
+th{
+    border-bottom: 1px solid #fff;
+}
+td{
+    border-bottom: 1px solid #fff;
+}
+h1,h2,h4 {
+    border-bottom: 2px solid #ffffff;
+}

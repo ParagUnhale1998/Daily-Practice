@@ -1,0 +1,285 @@
+<div class="container">
+    <h1>Welcome to Directive Learning</h1>
+</div>
+
+<div class="Notescontainer">
+    <h1>directives can be classified in 3 categories based on how they behave:</h1>
+    <h3>Component Directives</h3>
+    <p>
+        Component Directives: Component directives are used in main class.
+        They contain the detail of how the component should be processed,
+        instantiated and used at runtime.
+    </p>
+    <h3>Structural Directives</h3>
+    <div class="StructorContainer">
+        <h3>Structor of components</h3>
+        <p>1 inport Section => import Component from '@angular/core';" </p>
+        <p>2 components Directive Section => @Component (
+            selector: 'app-directive3-learning',
+            templateUrl: './directive3-learning.component.html',
+            styleUrls: ['./directive3-learning.component.css'],
+            ) </p>
+        <p>3 Class Section => export class Directive3LearningComponent</p>
+        <p>4 Property Section => show = true; </p>
+        <p>5 constructor / dependancy Section => constructor() </p>
+        <p>6 lifecycle hooks Section => ngOnInit() </p>
+        <p>7 functions Sections => toggleEffect() </p>
+    </div>
+
+    <p>Structural Directives: Structural directives start with a * sign.
+        These directives are used to manipulate and change the structure
+        of the DOM elements(show or hide).
+        For example, *ngIf directive, *ngSwitch directive, and *ngFor directive.
+        uses:
+        *ngIf Directive: The ngIf allows us to Add/Remove DOM Element.
+        *ngSwitch Directive: The *ngSwitch allows us to Add/Remove DOM Element. It is similar to switch statement of C#.
+        *ngFor Directive: The *ngFor directive is used to repeat a portion of HTML template once per each item from an
+        iterable list (Collection).
+    </p>
+    <div class="Practisecontainer">
+        <h2>Conditional or Templete Bindnig = show / hide elemets *ngIf directive</h2>
+        <pre> if show value is true then show element or hide element</pre>
+        <p *ngIf="show">Hey i am Element</p>
+        <p>undefined value is always false so dom not render element</p>
+        <p *ngIf="undefinedValue">Hey i am undefined</p>
+
+        <!-- In case of true value of propery compiler will ADD that element to the DOM -->
+        <!-- In case of false value of propery compiler will remove that element from DOM -->
+        <!--In case of undefined value of property it will consider it as a false,
+        hence it should
+      removed from DOM-->
+
+
+        <!-- In case of conditions compiler will show element to DOM
+         if condiotion would true else it will remove element from DOM if condition would false -->
+        <p *ngIf="show === true"> assignment operator to show dom elemet == / === / !== </p>
+
+        <!-- In case of property having NULL value compiler will consider it as a false,hence it should
+   removed from DOM-->
+        <p>In case of property having NULL value compiler will consider it as a false,hence it should
+            removed from DOM</p>
+        <p *ngIf="nullProperty">In case of property having NULL value compiler will consider it as a false,hence it
+            should
+            removed from DOM</p>
+
+        <h2>toggle using button to add or remove class</h2>
+        <div *ngIf="toggle" class="toggle">
+            <p>hey i am toggle condition</p>
+        </div>
+        <button (click)="toggleEffect()">Toggle Effect Click</button>
+    </div>
+    <div class="loopContainer">
+        <h2>For Loop Condition</h2>
+        <p>condition => *ngFor = "let item of cars"</p>
+        <ul *ngFor="let item of cars">
+            <li>{{item}}</li>
+        </ul>
+        <h2>show json data to dom carsDetails</h2>
+        <!-- <ul *ngFor="let car of carDetails">
+            <li>
+                <p>brand {{car.brand}} </p>
+                <p>model {{car.model}} </p>
+                <p>Price {{car.value}} </p>
+            </li>
+        </ul> -->
+        <table>
+            <tr>
+                <th *ngFor="let title of carHeading">{{title}}</th>
+            </tr>
+            <!-- <tr *ngFor="let car of carDetails" ; *ngIf="show === true"> // NOT Allowed Multiple Condion 0r Templete Bindig -->
+            <tr *ngFor="let car of carDetails">
+                <td>brand {{car.brand}}</td>
+                <td>model {{car.model}}</td>
+                <td>Price {{car.value}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>array inside array show data nested array using .flat() methods</h2>
+    <ul *ngFor="let number of nestedNumbers">
+        <li>{{number}}</li>
+    </ul>
+
+    <h2>nested array show in second way using forEach Condtion</h2>
+    <h2>Constructor is a simple method of function its not lifecycle hooks , but Constructoris call first then
+        lifecycles hooks</h2>
+    <h3>When componat load to kill or delete the component. first load then ngOnInit() function then kill or delete ,
+        ngOnInit() one of the funciton of lifecycle hook, birth to dead</h3>
+    <ul *ngFor="let dataItem of data2">
+        <li>{{ dataItem }}</li>
+    </ul>
+
+    <ul *ngFor="let nestedDataItem of data3">
+        <li>{{ nestedDataItem }}</li>
+    </ul>
+    <hr>
+
+    <div [ngClass]="color ? 'attributeContainer' : 'attributeContainer1'">
+        <h2>Attribute Directives</h2>
+        <p>Attribute Directives: Attribute directives are used to change the look and behavior of the DOM elements.</p>
+        <pre>Mainly use For Style Elemets </pre>
+        <p> For
+            example: ngClass directive, and ngStyle directive etc for inline css.</p>
+
+        <p>ngClass Directive: The ngClass directive is used to add or remove CSS classes to an HTML element.</p>
+        <p> [ngClass] ="'red': isRed, 'blue': isBlue, 'underline': hasUnderline">
+            This is a dynamically styled div.
+        </p>
+
+        <p> ngStyle Directive: The ngStyle directive facilitates you to modify the style of an HTML element using the
+            expression. You can also use ngStyle directive to dynamically change the style of your HTML element</p>
+        <p>use this syntax in attribute using itration / ternary operator conditon => '[ngClass]'="color ?
+            'attributeContainer' :
+            'attributeContainer1'" </p>
+        <p [ngStyle]="styleCss == 'yellow'? {'color':'yellow'}:{'color':'#fff'}"> "[ngStyle]"="styleCss == 'yellow'?
+            'color':'yellow':'color':'#fff'"</p>
+        <pre [class.container]="multiClass == 200" [class.container1]="multiClass == 100"
+            [class.container3]="multiClass == 300">
+            if multiClass value is 200 the add class contaienr , is 100 add container1 class ,value is 300 add  class container3S
+        multiple class seneraio handle 
+        "[class.container]"="test == 200"
+        "[class.container1]"="test == 100"
+        "[class.container2]"="test == 300"
+        </pre>
+        <h3>Switch Statement</h3>
+        <div class="container" [ngSwitch]="switchValue">
+            <input type="number" [(ngModel)]="switchValue">
+            <pre *ngSwitchCase="100"> 100  value show element using switch </pre>
+            <pre *ngSwitchCase="200"> 200 value show element using switch </pre>
+            <pre *ngSwitchCase="300"> 300 value show element using switch  </pre>
+            <pre *ngSwitchCase="400"> 400 value show element using switch  </pre>
+            <pre *ngSwitchCase="500"> 500 value show element using switch  </pre>
+            <pre *ngSwitchCase="600"> 600 value show element using switch  </pre>
+            <pre *ngSwitchDefault> default valueshow element using switch</pre>
+
+        </div>
+    </div>
+    <button (click)="toggleEffect2()">Change Style Element</button>
+</div>
+
+<div class="contaienr">
+    There are three types of directives in Angular:
+
+    Structural Directives:
+    Structural directives modify the structure of the DOM by adding, removing, or manipulating elements. They are
+    denoted by an asterisk (*) preceding the directive name. Examples of structural directives in Angular include ngIf,
+    ngFor, and ngSwitch.
+    ngIf: Conditionally adds or removes elements from the DOM based on a condition.
+    ngFor: Renders a set of elements for each item in a collection.
+    ngSwitch: Conditionally selects and renders elements based on a provided value.
+    div *ngIf ="condition">
+    <!-- Content to be conditionally rendered -->
+    /div>
+
+    Attribute Directives:
+    Attribute directives modify the behavior or appearance of an element or component by manipulating its attributes.
+    They are applied to elements using attribute syntax. Examples of attribute directives in Angular include ngClass,
+    ngStyle, and ngModel.
+    ngClass: Conditionally applies CSS classes to an element based on a condition or expression.
+    ngStyle: Conditionally applies CSS styles to an element based on a condition or expression.
+    ngModel: Enables two-way data binding between an input element and a property in the component.
+    div [ngClass] =" 'highlight': isHighlighted, 'active': isActive ">
+
+
+    Component Directives:
+    Component directives are Angular components that can be used as custom elements in your templates. They encapsulate
+    a specific set of functionality and can have their own HTML template, CSS styles, and TypeScript code. Component
+    directives are declared using the @Component decorator.
+</div>
+<div class="container">
+    In addition to ng-template and ng-container, Angular provides several other built-in directives and components with the ng prefix. Here are a few notable ones:
+
+ngIf: The ngIf directive is used to conditionally render content based on a condition. It adds or removes elements from the DOM based on the evaluated expression. Usage: div *ngIf ="condition">.../div>
+
+ngFor: The ngFor directive is used for iterating over a collection and rendering content for each item. It generates a template for each item in the collection. Usage: div *ngFor ="let item of items">.../div>
+
+ngClass: The ngClass directive allows you to dynamically add or remove CSS classes based on certain conditions. It accepts an object or an array of CSS classes. Usage: div [ngClass] =" 'class1': condition1, 'class2': condition2 ">.../div>
+
+ngStyle: The ngStyle directive enables you to dynamically apply inline styles to an element based on conditions. It accepts an object containing CSS styles. Usage: div [ngStyle] =" 'color': color, 'font-size': size">.../div>
+
+ngModel: The ngModel directive is used for two-way data binding, providing a way to bind form elements to component properties and update them automatically. Usage: input [(ngModel)] ="property">
+
+ngSwitch: The ngSwitch directive allows you to conditionally render content based on multiple cases. It works similar to a switch-case statement. Usage: div [ngSwitch] ="value">.../div>
+
+ngContent: The ngContent directive is used for content projection or transclusion. It allows you to pass content from a parent component to its child component. Usage: ng-content>/ng-content>
+
+ngStyle: The ngStyle directive allows you to dynamically apply inline styles to an element based on conditions. It accepts an object containing CSS styles. Usage: div [ngStyle] =" 'color': color, 'font-size': size ">.../div>
+
+ngClass: The ngClass directive allows you to dynamically add or remove CSS classes based on certain conditions. It accepts an object or an array of CSS classes. Usage: div [ngClass] =" 'class1': condition1, 'class2': condition2 ">.../div>
+
+ngSwitch: The ngSwitch directive allows you to conditionally render content based on multiple cases. It works similar to a switch-case statement. Usage:div [ngSwitch] ="value">.../div>
+
+ngTemplateOutlet: The ngTemplateOutlet directive allows you to dynamically render a template at a specific location. It accepts a template reference and can be used for template reusability. Usage: ng-container *ngTemplateOutlet ="templateRef; context: contextObj">/ng-container>
+
+ngComponentOutlet: The ngComponentOutlet directive allows you to dynamically render a component at a specific location. It accepts a component reference and can be used for dynamic component loading. Usage: ng-container *ngComponentOutlet ="componentRef">/ng-container>
+
+ngContent: The ngContent directive is used for content projection or transclusion. It allows you to pass content from a parent component to its child component. Usage: ng-content>/ng-content>
+
+ngNonBindable: The ngNonBindable directive disables Angular's data binding and interpolation for the content within its element. It can be useful in scenarios where you want to display raw template expressions. Usage: div ngNonBindable> expression /div>
+<div ngNonBindable>
+    {{ sdas sadas  }}
+  </div>
+</div>
+<div class="contaienr">
+    Yes, there are a few other types that can be used to specify the type of the reference instead of ElementRef:
+
+ElementRef: As mentioned before, ElementRef is a type provided by Angular that gives access to the underlying DOM element.
+
+ViewChild: This is the default type if you don't explicitly specify a type. It represents a reference to a single element or component.
+
+ViewChildren: This type is used when you want to obtain references to multiple elements or components. It represents a collection of elements or components.
+
+Custom Component Type: If you have a custom component and you want to access it using @ViewChild or @ViewChildren, you can specify the type of the component itself. For example, if you have a custom component called CustomComponent, you can use @ViewChild(CustomComponent) or @ViewChildren(CustomComponent).
+
+TemplateRef: This type is used when working with structural directives such as ng-template. It represents a reference to the template itself.
+
+DirectiveRef: This type is used when you want to access a directive applied to an element. It represents a reference to the directive itself.
+</div>
+
+<div class="container" ngNonBindable>
+        h1 #headingElement>Example/h1>
+        input #inputElement type="text">
+        custom-component #customComponent>/custom-component>
+      /div>
+      Component code:
+      
+      typescript
+      Copy code
+      import { Component, ViewChild, ViewChildren, QueryList, ElementRef, AfterViewInit, TemplateRef } from '@angular/core';
+      import { CustomComponent } from './custom-component';
+      
+      @Component({
+        selector: 'app-example',
+        template: `...`, // Your component template here
+      })
+      export class ExampleComponent implements AfterViewInit 
+        @ViewChild('headingElement') headingElement!: ElementRef;
+        @ViewChild('inputElement') inputElement!: ElementRef;
+        @ViewChild(CustomComponent) customComponent!: CustomComponent;
+        @ViewChildren('inputElement') inputElements!: QueryList ElementRef>;
+        @ViewChild(TemplateRef) templateRef!: TemplateRef any>;
+      
+        ngAfterViewInit() {
+          // Access the elements, component, or template in this lifecycle hook
+          console.log('Heading element:', this.headingElement.nativeElement);
+          console.log('Input element:', this.inputElement.nativeElement);
+          console.log('Custom component:', this.customComponent);
+          console.log('Input elements:', this.inputElements.toArray());
+          console.log('Template reference:', this.templateRef);
+        }
+      }
+      In the above example:
+      
+      @ViewChild('headingElement') headingElement!: ElementRef; - Retrieves a reference to the  h1> element using the template reference variable 'headingElement'.
+      
+      @ViewChild('inputElement') inputElement!: ElementRef; - Retrieves a reference to the  input> element using the template reference variable 'inputElement'.
+      
+      @ViewChild(CustomComponent) customComponent!: CustomComponent; - Retrieves a reference to the CustomComponent component.
+      
+      @ViewChildren('inputElement') inputElements!: QueryList ElementRef>; - Retrieves a collection of references to all elements matching the template reference variable 'inputElement'.
+      
+      @ViewChild(TemplateRef) templateRef!: TemplateRef any>; - Retrieves a reference to the  ng-template> element using the TemplateRef type.
+      
+      In the ngAfterViewInit lifecycle hook, the references obtained using @ViewChild and @ViewChildren are accessed and logged to the console.
+</div>
+<div class="contaienr">shaared</div>
