@@ -1,0 +1,133 @@
+<div class="container">
+    <h1>Login Form Validation Reactive Forms</h1>
+    <form [formGroup] ="signUpForm">
+        <label for="">Name</label>
+        <input type="text" formControlName="name" placeholder="Enter Your Name" required>
+        <span class="err-span" *ngIf="signUpForm.get('name')?.errors?.['whiteSpace']">White spaces are not allowed in the name</span>
+
+        <span class="err-span" *ngIf="signUpForm.get('name')?.errors?.['required'] && signUpForm.get('name')?.touched">Required Your Name</span>
+        <span class="err-span" *ngIf="signUpForm.get('name')?.errors?.['pattern']">FullName Should Only Contain Alphabates</span>
+        <span class="err-span" *ngIf="signUpForm.get('name')?.errors?.['minlength'] && !signUpForm.get('name')?.errors?.['pattern']">FullName Should Be Having at Least 10 Alphabates</span>
+        <label >Password</label>
+        <input type="text" class="inp-pass" formControlName="password" (keyup)="showPass()"/>
+        <label >Confirm Password</label>
+        <input type="text" class="inp-pass" formControlName="Confirmpassword" (keyup)="ConfirmPass()"/>
+        <span class="err-span" *ngIf="!isMatch">Password Does Not Matched</span>
+
+        <label for="">Email</label>
+        <input type="text" formControlName="email" placeholder="Enter Your Email">
+        <label for="">Contact No</label>
+        <input type="text" formControlName="contact" placeholder="Enter Your Contact No">
+        <label for="">Address</label>
+        <input type="text" formControlName="address" placeholder="Enter Your Address">
+        <label>Gender</label>
+        Male
+         <input type="radio" value="Male" formControlName="Gender">
+         Female 
+         <input type="radio" value="Female" formControlName="Gender">
+     <!-- <select name="Gender" formControlName="Gender" required>
+        <option value="male" selected>Male</option>Select
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+     </select> -->
+     <button [disabled]="signUpForm.invalid" (click)="submit()">Submit</button>
+    </form>
+</div>
+
+<div class="container">
+    <h1>Login Form Validation Template-driven forms</h1>
+    <form #loginForm="ngForm">
+        <!-- #loginForm is id in angular  # -->
+        <!-- #loginForm="ngForm this iss Template-driven forms: -->
+        <label for="fullname" class="label">FullName</label>
+        <input type="text" class="inp-box" name="fullname" ngModel #fullname="ngModel" pattern="[a-zA-Z ]+$" minlength="10" maxlength="20" required />
+        <span class="err-span" *ngIf="fullname.errors?.['pattern']">FullName Should Only Contain Alphabates</span>
+        <span class="err-span" *ngIf="fullname.errors?.['minlength'] && !fullname.errors?.['pattern']">FullName Should Be Having at Least 10 Alphabates</span>
+        <span class="err-span" *ngIf="fullname.errors?.['maxlength == 19'] && !fullname.errors?.['pattern']">FullName Should Be Having max 20 Alphabates</span>
+        <span class="err-span" *ngIf="fullname.errors?.['required'] && fullname.touched">Required FullName</span>
+        <label for="password" class="pass">Password</label>
+        <input type="text" class="inp-pass" name="password" ngModel #password="ngModel" minlength="9" pattern="[A-Z]{1}[a-zA-Z0-9@#$!%^&*]{9}$"  (keyup)="handlePasswordChange(password.value)"/>
+        <span class="err-span" *ngIf="password.errors?.['minlength']" >Password should contain at least 8 characters</span>
+        <!-- <span class="err-span" *ngIf="fullname.errors?.['required'] && password.touched" >Required Password</span> -->
+        <span class="err-span" *ngIf="password.errors?.['pattern']">Please match the pattern</span>
+        <label for="password" class="pass">Confirm Password</label>
+        <input type="text" class="inp-pass" name="password" ngModel #password="ngModel" minlength="9" pattern="[A-Z]{1}[a-zA-Z0-9@#$!%^&*]{9}$" />
+
+
+
+
+
+        <label>Gender</label>
+        Male<input type="radio" name="gender" value="Male" ngModel #male="ngModel">
+        Female<input type="radio"  name="gender" value="Female" ngModel #female="ngModel">
+        Other<input type="radio"  name="gender" value="Other" ngModel #other="ngModel">
+        <span class="err-span" *ngIf="!(male.value || female.value || other.value)">Please Select Gender</span>
+        <!-- <button class="submit-btn" [disabled]="loginForm.invalid || !(male.value || female.value || other.value)" (click)="submit(loginForm.value)">Submit</button> -->
+    </form>
+</div>
+<div class="container">
+
+    <h3>In Angular, there are two primary types of forms</h3>
+    <pre>Template-driven forms:
+
+         Template-driven forms rely on directives in the template to build and validate forms.
+
+    They are based on Angular's two-way data binding and use directives such as ngModel, ngForm, and ngSubmit.
+         
+         Template-driven forms are generally easier to set up and require less code.
+
+         They are suitable for simple forms with basic validation requirements.
+
+         The form structure and validation rules are defined directly in the HTML template.
+</pre>
+    <hr>
+    <pre>
+        Reactive forms: Mostely Use
+
+        Reactive forms are based on reactive programming principles using reactive 
+        form classes and immutable data structures.
+
+        They provide a more flexible and explicit approach to form handling and validation.
+        
+        Reactive forms are built programmatically using form controls, form groups, and form arrays.
+
+        They offer more control over form validation and complex form scenarios.
+
+        The form structure and validation rules are defined in the component class.</pre>
+
+    <h3>Properties of a form control of attribute.Properties:</h3>
+    <pre>
+        value:     Represents the current value of the form control.
+        valid:     Indicates whether the form control is valid or not.
+        invalid:   Indicates whether the form control is invalid or not.
+        touched:   Indicates whether the form control has been touched or not.
+        untouched: Indicates whether the form control has not been touched or not.
+        dirty:     Indicates whether the form control value has changed or not.
+        pristine:  Indicates whether the form control value has not changed or not.
+        errors:    Contains validation errors for the form control.
+        status:    Represents the current status of the form control (VALID, INVALID, PENDING, or DISABLED).</pre>
+    <h3>Methods of a form control: </h3>
+    <pre>
+  setValue(value: any):   Sets the value of the form control.
+  patchValue(value: any): Sets the value of the form control without marking it as dirty or triggering validation.
+  reset(value?: any):     Resets the form control to its initial state.
+  markAsTouched():        Marks the form control as touched.
+  markAsUntouched():       Marks the form control as untouched.
+  markAsDirty():        Marks the form control as dirty.
+  markAsPristine():      Marks the form control as pristine.
+</pre>
+<h3>Properties and methods specific to form groups and form arrays:</h3>
+    <p>
+
+controls: Represents the form controls within the form group or form array.
+get(controlName: string): Returns a form control within the form group or form array using its name.
+setControl(controlName: string, control: AbstractControl): Sets a form control within the form group or form array using its name.
+In the code snippet you provided, the properties used are errors and touched: </p>
+<p>
+fullname.errors: Accesses the validation errors of the fullname form control.
+fullname.touched: Indicates whether the fullname form control has been touched.
+These properties are commonly used for form validation and to conditionally display error messages or perform other actions based on the state of the form controls.</p>
+<p>
+Remember to import the necessary Angular forms modules (FormsModule or ReactiveFormsModule) and to properly define and set up your form controls and form groups in your component class.
+        </p>
+</div>
