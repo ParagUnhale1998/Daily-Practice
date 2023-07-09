@@ -1,0 +1,77 @@
+
+<h2>Learning Routing</h2>
+<!-- 1 way routing using html fil 
+
+first we can crete comopnents and then set components routes in app route file and module file
+check the module file and create routes of mudule and compoents  -->
+
+<div class="Routing">
+<!-- <a href="login">click</a> Application is getting refresh while roting href attribute hance avoid to use it. -->
+  <div class="Routing-Container">
+    <button (click)="loginComponent()">LoginPage</button>
+    <button routerLink="LearningAngular">Learning page</button>
+    <button routerLink="/">home page</button>
+    <button (click)="studentLogin()">Go To Student Login Page</button>
+    <button (click)="studentSignup()">
+      Go To Student SignUp Page
+    </button></div>
+  <!--it is an angular directive from router library
+     and used to insert components macthed by routes to be display on the screen-->
+  <!-- <router-outlet></router-outlet> -->
+  <!-- its an angular direcctive from router library and used to insert componant match by routes to be display on the screen -->
+
+
+  <!-- 2 way to redirecting  from.ts file -->
+  <!-- this is the best to routing  -->
+
+  <!-- // this is home route black " " or /
+  {path:'', component : LearningAngularComponent }, -->
+  <button (click)="loginComponent()">login</button>
+</div>
+
+
+
+  <!--
+To implement routing in Angular, you need to follow these steps:
+
+Set up the router module: Import the RouterModule from @angular/router and add it to the imports array in your Angular module file (e.g., app.module.ts).
+
+Define routes: Create an array of Routes objects that define the mapping between URLs and component classes. Each route object contains a path property representing the URL and a component property specifying the component to be displayed.
+
+Configure routes: Use the RouterModule.forRoot() method to configure the routes in your application. Pass the routes array as an argument to this method.
+
+Add the <router-outlet> tag: In your main application template (usually app.component.html), add the <router-outlet> tag. This tag acts as a placeholder where Angular will dynamically render the appropriate component based on the current route.
+
+Set up navigation: To navigate between routes, you can use the routerLink directive in your templates or programmatically navigate using the Router service from @angular/router.
+
+-->
+
+<!-- What is Angular Routing?
+Angular Routing is a feature of the Angular framework that allows for navigation between different components or views within a single-page application. It enables users to navigate to different URLs and load the corresponding components without requiring a full page reload.
+
+How does Angular Routing work?
+Angular Routing works by defining routes that map specific URLs to corresponding components. These routes are configured in the application's routing module. When a user navigates to a specific URL, Angular's router module matches the URL with the defined routes and loads the associated component into the <router-outlet> tag.
+
+How do you define routes in Angular?
+Routes in Angular can be defined in the routing module using the RouterModule and Routes classes. The Routes class is an array of route objects that specify the path, component, and any additional configurations for each route.
+
+What is the purpose of the <router-outlet> tag?
+The <router-outlet> tag is a placeholder in the application's HTML template where Angular dynamically renders the appropriate component based on the current route. It acts as a container for the loaded component and allows for seamless component swapping during navigation.
+
+How do you navigate between routes in Angular?
+In Angular, you can navigate between routes using the Router service or the routerLink directive. The Router service provides methods like navigateByUrl() or navigate() to programmatically navigate to a specific route. The routerLink directive can be used in HTML templates to create clickable links that navigate to defined routes.
+
+Can you pass parameters in Angular routes? If yes, how?
+Yes, you can pass parameters in Angular routes. There are two ways to pass parameters: route parameters and query parameters. Route parameters are defined in the route configuration and are part of the URL path. Query parameters are passed as key-value pairs in the URL query string.
+
+How do you handle route guards in Angular?
+Route guards in Angular are used to protect routes based on certain conditions. They can be used to control access to routes, authenticate users, or perform other checks before allowing navigation. Angular provides different types of guards, such as CanActivate, CanDeactivate, CanLoad, and Resolve, which can be implemented as services and added to route configurations.
+
+What is lazy loading in Angular Routing?
+Lazy loading is a technique in Angular Routing that allows modules and their associated components to be loaded on-demand, rather than all at once during the initial application load. It improves the application's performance by loading only the necessary resources when a specific route is accessed.
+
+Can you have nested routes in Angular? How do you define them?
+Yes, Angular supports nested routes. Nested routes are defined by nesting route configurations within each other. Child routes are configured within the route object of the parent route. This allows for hierarchical navigation and loading of nested components within their respective parent components.
+
+How do you handle 404 Page Not Found errors in Angular Routing?
+To handle 404 Page Not Found errors in Angular Routing, a wildcard route can be defined at the end of the route configuration. This wildcard route acts as a catch-all route that matches any undefined routes. It typically redirects to a custom 404 component or page, providing a user-friendly error message when a requested route is not found. -->
