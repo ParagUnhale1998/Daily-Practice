@@ -1,0 +1,48 @@
+<div class="container">
+    <h4>constructor is not a lifecycle hook neither its  a part of class oop</h4>
+    <p>we create a json data variable in service.ts and add data in service componant .ts and then fetch data in this component </p>
+    <p>We can Fetch Json Data Using Lifecycle Hooks ngOnInit </p>
+    <p>when the value of data properrty changes , the the lifecycle hooks calls</p>
+    <pre><h3> Explain different lifecycle hooks </h3>
+    1.ngOnChanges   2.ngOnInit   3.ngDoCheck   4.ngAfterContentInit  5.ngAfterContentChecked   6.ngAfterViewInit  
+    7.ngAfterViewChecked   8.ngOnDestroy
+    </pre>
+        <p> ngOnChanges − When the value of a data bound property changes, then this method is called.</p>
+        <p> ngDoCheck − This is for the detection and to act on changes that Angular can't or won't detect on its own.</p>
+        <p> ngOnInit − This is called whenever the initialization of the directive/component after Angular first displays the data-bound properties happens.</p>
+        <p> ngAfterContentInit − This is called in response after Angular projects external content into the component's view.</p>
+        <p> ngAfterContentChecked − This is called in response after Angular checks the content projected into the component.</p>
+        <p> ngAfterViewInit − This is called in response after Angular initializes the component's views and child views.</p>
+        <p> ngAfterViewChecked − This is called in response after Angular checks the component's views and child views.</p>
+        <p> ngOnDestroy − This is the cleanup phase just before Angular destroys the directive/component.</p>
+</div>
+<div class="container">
+    <p *ngIf="getdata">{{convertedJsondata}}</p>
+    <button (click)="showJsondata()">Show Json Data</button>
+
+    {{ parentData }}
+
+    <input type="text" [(ngModel)] ="parentData">
+    <p>two way databinding to change the live value in parent and child comopmnet</p>
+    <p>we can fetch the parent properrty to child </p>
+    <p> for globel we use input decorator in child ts file</p>
+        <p> but for use this globle ( app-child /app-child ) propertt we use comopnant seletor to use this porperty</p>
+        <p> this is selector component =>   app-child [dataFromparent] ="parentData" > /app-child></p>
+        <p>its like props in angular paraentData is value and dataformparent is props</p>
+        <app-child [dataFromparent]="parentData" (dataFromChild)="receiveDataFromChild($event)"></app-child>
+        <p>for sending data to child we use  => [dataFromparent] ="parentData"</p>
+        <p>for get data from parent => (output create propertt name) ="anyname you right" </p>
+        <p>we use emiiter event / emit method for this => custom event</p>
+        <span>Value from Child {{valueFromChild}}</span>    
+        <!-- <p>recive data using ngModel</p>
+        <app-child (dataFromChild)="receiveData($event)"></app-child>
+        <span>Value from Child: {{ valueFromChild }}</span> -->
+</div>
+<div class="container">
+  <h3>for accescing student module and log in componets we need to make log in globle using shared.module.ts to make log inn compmonent globle</h3>
+   <p>if we have @ipnut in our componets ts file the only <span>onchange</span>lifecycles is trigger not ngOnInit   </p>
+   <p>if we have input in class the first onchange trigger then oninit trigger make a console to debugger </p>
+   <p>every onchange pe DoCheak trigger hoga</p>
+   <p>ng after content </p>
+   <p>ngaftercontentchaked</p>
+</div>
