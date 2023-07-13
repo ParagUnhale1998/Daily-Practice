@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Learning Services</h1>
+    <p> comment for Generate Services ng generate services servicesname in short (ng g s servicesname) </p>  
+    <p>Create this flle in angular project not any where the file name is (servicename.service.ts)</p>
+    <h3>Servce is like Globle Elements We can reuse file , function everywhere </h3>
+    <p>we can fetch the property using service</p>
+    <p>for ex :  we use username!:string ; everywhere we can use this property</p>
+    <p>we can user service property in class constructor</p>
+    <pre>for Ex: constructor(private ("dataservice /your property name") : classNameOfService.ts-File )</pre>
+    <p>We can get and set Services</p>
+</div>
+<div class="container">
+    <h1>Form Data Get Using Serivece </h1>
+    <form [formGroup] ="signUpForm" (ngSubmit)="submit()">
+        <label for="">Your Name</label>
+        <input type="text" formControlName="name" placeholder="Enter Your Name" required>
+        <!-- <label >Password</label>
+        <input type="text" class="inp-pass" formControlName="password"/> -->
+     <button type="submit">Submit</button>
+    </form>
+</div>
+<div class="container">
+    <pre>
+        <h2>
+            data transmission techniques in angular
+        </h2>
+        (1) using Services (2) parent child (3) child parent (4) subject (5) view child 
+        <p>there are common/open services and for everywhere use is a special file and modeule 
+        compnants service file where on module with multiople componant accese the service for all componants </p>
+    </pre>
+</div>
