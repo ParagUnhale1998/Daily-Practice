@@ -132,3 +132,60 @@ export class ApiService {
         
      </pre>
 </div>
+<div class="contaiener">
+  <p>viewchield to manipulat dom elemets</p>
+  <p>rendere2 to manipulate dom element </p>
+</div>
+<div class="container">
+  <h2>view cheld with directive use</h2>
+  <pre ngNonBindable>
+    {{
+      create textdirect
+      import { Directive, ElementRef, Renderer2 } from '@angular/core';
+
+@Directive({
+  selector: '[appText]'
+})
+export class TextDirective {
+  constructor(private el: ElementRef, private renderer: Renderer2) {
+    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', 'yellow');
+  }
+
+  changeColor(color: string) {
+    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', color);
+  }
+}
+
+    }}
+    {{
+      import { Component, ViewChild } from '@angular/core';
+import { TextDirective } from '../AppDirective/text.directive';
+
+@Component({
+  selector: 'app-chield',
+  templateUrl: './chield.component.html',
+  styleUrls: ['./chield.component.css']
+})
+export class ChieldComponent {
+
+  @ViewChild(TextDirective) myDire!: TextDirective;
+
+  
+  changeColor(color: string) {
+    this.myDire.changeColor(color);
+  }
+  
+}
+
+    }}
+   
+  </pre>
+</div>
+<div class="container" ngNonBindable>
+    <div appText>
+      <button (click)="changeColor('red')">red</button>&nbsp;
+      <button (click)="changeColor('blue')">blue</button>
+      <button (click)="changeColor('black')">black</button>
+  </div>
+
+</div>
