@@ -1,0 +1,13 @@
+<nav>
+    <ul>
+      <li><a (click)="journey('user')">Home</a></li>
+      <li *ngIf="isAdmin"><button (click)="journey('admin')">Admin</button></li>
+      <li *ngIf="isOwner"><button (click)="journey('owner')">Owner</button></li>
+    </ul>
+    <ul>
+      <li><button (click)="journey(ownerType + '/login')">Login / Signup</button></li>
+      <!-- <li><button (click)="journey(ownerType + '/login')">Account</button></li> -->
+      
+    </ul>
+  </nav>
+  
