@@ -1,0 +1,35 @@
+<!-- <h1>posts Website</h1>
+<div class="postsContainer" *ngFor="let post of users">
+  <div class="post">
+    <div class="user-info">
+      <span class="username">{{ post.name }}</span>
+    </div>
+    <p class="post-text">{{ post.posts[0].title }}</p>
+    <p class="post-text">{{ post.posts[0].content }}</p>
+    <p class="post-text">{{ post.posts[0].likes }}</p>
+
+    <div class="post-actions">
+      <button class="like-button" (click)="addLikeToPost(post.id, post.posts[0].id)">Like ({{ post.posts[0].likes }})</button>
+      <input type="text" [(ngModel)]="newComment">
+      <button class="comment-button" (click)="addCommentToPost(post.id, post.posts[0].id, newComment)">Comment</button>
+    </div>
+    <ng-container *ngFor="let comment of post.posts[0].comments">
+      <div class="comments">
+        <h2>{{ comment }}</h2>
+      </div>
+    </ng-container>
+  </div>
+</div> -->
+<!-- <button routerLink="/user/signUp">signUp</button>
+<button routerLink="/user/login">Login</button> -->
+<div class="container">
+  <div class="navContainer">
+    <app-header></app-header>
+  </div>
+  <div class="mainContainer">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="sideContainer">
+    <app-footer></app-footer>
+  </div>
+</div>

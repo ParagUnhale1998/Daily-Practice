@@ -1,0 +1,6 @@
+{
+    "http://localhost:3000/users/:userId": "/users/:userId",
+    "http://localhost:3000/users/:userId/posts/:postId/comment": "/users/:userId/posts/:postId/comments",
+    "http://localhost:3000/users/:userId/posts/:postId/like": "/users/:userId/posts/:postId/likes"
+  }
+  

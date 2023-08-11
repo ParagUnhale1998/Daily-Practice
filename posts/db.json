@@ -1,0 +1,163 @@
+{
+  "users": [
+    {
+      "username": "ParagUnhale",
+      "phoneNo": "9284815636",
+      "password": "parag123",
+      "posts": [
+        {
+          "userId": "ParagUnhale",
+          "id": 3,
+          "title": "What is event bubbling and event capturing in JavaScript?",
+          "content": "Event bubbling is the process where an event on a nested element is first captured by the innermost element and then propagated up to its parent elements. Event capturing is the opposite, where the event is captured at the outermost element and then propagated down to the innermost element.",
+          "image": "",
+          "likes": 0,
+          "comments": [],
+          "createdAt": "8/4/2023, 4:29:40 PM"
+        },
+        {
+          "userId": "ParagUnhale",
+          "id": 2,
+          "title": "How do you center an element horizontally and vertically in CSS?",
+          "content": "To center an element horizontally, you can set its margin property to auto and give it a fixed width. To center it vertically, you can use the display: flex and align-items: center properties on the parent container.",
+          "image": "",
+          "likes": 1,
+          "comments": [
+            {
+              "id": 1,
+              "postId": 2,
+              "postUserId": "ParagUnhale",
+              "userId": "ParagUnhale1998",
+              "comment": "good knowledge"
+            }
+          ],
+          "createdAt": "8/1/2023, 4:29:40 PM"
+        },
+        {
+          "userId": "ParagUnhale",
+          "title": "What is the purpose of the <!DOCTYPE html> declaration in HTML?",
+          "content": "The <!DOCTYPE html> declaration is used to specify the version of HTML being used in the document. It helps the browser to understand and render the web page correctly according to the specified HTML version.",
+          "image": "https://www.yumpu.com/en/image/facebook/19454096.jpg",
+          "likes": 1,
+          "comments": [
+            {
+              "id": 1,
+              "postId": 1,
+              "postUserId": "ParagUnhale",
+              "userId": "sanketUnhale",
+              "comment": "Thank you Brother."
+            },
+            {
+              "id": 2,
+              "postId": 1,
+              "postUserId": "ParagUnhale",
+              "userId": "paragunhale123",
+              "comment": "good Job Brother"
+            },
+            {
+              "id": 3,
+              "postId": 1,
+              "postUserId": "ParagUnhale",
+              "userId": "paragunhale123",
+              "comment": "Mostely Asked Question"
+            },
+            {
+              "id": 4,
+              "postId": 1,
+              "postUserId": "ParagUnhale",
+              "userId": "ParagUnhale1998",
+              "comment": "100%"
+            }
+          ],
+          "id": 1,
+          "createdAt": "7/4/2023, 4:29:40 PM"
+        }
+      ],
+      "id": "ParagUnhale"
+    },
+    {
+      "username": "paragunhale123",
+      "phoneNo": "98765432125",
+      "password": "parag123",
+      "posts": [],
+      "id": "paragunhale123"
+    },
+    {
+      "name": "Parag Unhale ",
+      "username": "ParagUnhale1998",
+      "bio": "Front-end web developer with a passion for creating beautiful, responsive, and user-friendly websites. Skilled in HTML, CSS, JavaScript , Angular & React-JS.",
+      "coverPhoto": "https://pbs.twimg.com/profile_banners/1641329519490641920/1687598648/1080x360",
+      "profilePic": "https://pbs.twimg.com/profile_images/1667940163308359680/I3YUBNaS_400x400.jpg",
+      "talksAbout": "Programmin,WebDevlopment",
+      "address": "Maharashtra,India",
+      "socialLink": "https://twitter.com/paragunhale1998",
+      "phoneNo": "98765432125",
+      "password": "parag1998",
+      "confirmPassword": "parag1998",
+      "posts": [
+        {
+          "userId": "ParagUnhale1998",
+          "title": " What is the difference between CSS Grid and Flexbox, and when would you use each one?",
+          "content": "CSS Grid and Flexbox are two powerful layout systems in CSS. The main difference between them is in their layout model:\n\nFlexbox is designed for one-dimensional layout, either in a row or a column. It is ideal for aligning and distributing elements along a single axis, making it suitable for creating responsive navigation bars, card layouts, and vertical or horizontal centering of content.\n\nCSS Grid, on the other hand, is a two-dimensional layout system. It enables you to define both rows and columns, providing greater control over the layout of the entire grid container. CSS Grid is best suited for creating complex layouts with multiple rows and columns, such as magazine-style page designs or responsive grid-based designs.\n\nIn summary, use Flexbox for one-dimensional layouts and simple alignments, and use CSS Grid for more complex, two-dimensional layouts.",
+          "image": "",
+          "likes": 0,
+          "comments": [],
+          "id": 1,
+          "createdAt": "8/3/2023, 4:29:40 PM"
+        },
+        {
+          "userId": "ParagUnhale1998",
+          "title": "hey bro ",
+          "content": "how are you how can we help ypu",
+          "image": "",
+          "likes": 0,
+          "comments": [],
+          "id": 2,
+          "createdAt": "8/4/2023, 4:10:40 PM"
+        },
+        {
+          "userId": "ParagUnhale1998",
+          "title": "wwe",
+          "content": "wwwe is rthe best",
+          "image": "",
+          "likes": 0,
+          "comments": [],
+          "id": 3,
+          "createdAt": "8/4/2023, 4:29:40 PM"
+        },
+        {
+          "userId": "ParagUnhale1998",
+          "title": "good bro working",
+          "content": "thank you chatgpt",
+          "image": "",
+          "likes": 0,
+          "comments": [],
+          "id": 4,
+          "createdAt": "8/4/2023, 4:36:37 PM"
+        },
+        {
+          "userId": "ParagUnhale1998",
+          "title": "new post ",
+          "content": "new post new post new post new post new post ",
+          "image": "",
+          "likes": 0,
+          "comments": [],
+          "id": 5,
+          "createdAt": "8/4/2023, 4:48:13 PM"
+        },
+        {
+          "userId": "ParagUnhale1998",
+          "title": "lat3est post ",
+          "content": "good bro",
+          "image": "",
+          "likes": 0,
+          "comments": [],
+          "id": 6,
+          "createdAt": "8/4/2023, 5:00:54 PM"
+        }
+      ],
+      "id": "ParagUnhale1998",
+      "joinedDate": "8/4/2023, 2:50:39 PM"
+    }
+  ]
+}
