@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+<div class="cart-container">
+    <h2>Your Cart</h2>
+    <div class="cart-items">
+      <div class="cart-item" *ngFor="let item of userData.cart">
+        <div class="item-details">
+          <img src="{{ item.image }}" alt="{{ item.hotelName }}" class="item-image">
+          <div class="item-info">
+            <h3>{{ item.hotelName }}</h3>
+            <p>{{ item.location }}</p>
+            <p>Price: {{ item.price | currency: 'INR' }}</p>
+          </div>
+        </div>
+        <button class="remove-button" (click)="removeFromCart(item.id)">Remove</button>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
