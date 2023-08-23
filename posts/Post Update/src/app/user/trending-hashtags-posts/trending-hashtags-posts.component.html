@@ -1,0 +1,8 @@
+<!-- <h4><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="tag"> </mat-icon>Trending Topics</h4> -->
+<img src="https://cdn-jhplb.nitrocdn.com/VKsDToympzMSvIilAODKriQzgztJlXnn/assets/images/optimized/rev-f97e5f0/i0.wp.com/trendingtopics.digital/wp-content/uploads/2023/07/b9d198e5c96ea170a48461416647b9f6.cropped-harlez.png" alt="">
+<div class="trendingContainer">
+    <div *ngFor="let hashtag of trendingHashtags" class="hashtag">
+        <button class="btn btn-light" (click)="navigateToHashtag(hashtag.name)">#{{ hashtag.name }} ({{ hashtag.count }})</button> 
+     </div>
+</div>
+<hr/>

@@ -1,0 +1,20 @@
+
+<div class="UserLogin">
+    <div class="login-container">
+      <h2>Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="form-group">
+          <label for="id">Username</label>
+          <input type="text" id="id" formControlName="id" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password" required>
+        </div>
+        <div class="btnContainer">
+          <button type="submit"  [disabled]="loginForm.invalid">Login</button>
+          <button class="btn btn-dark" (click)="navigateToSignUp()">Create Account</button>
+        </div>
+      </form>
+    </div>
+  </div>

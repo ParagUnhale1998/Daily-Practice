@@ -1,0 +1,58 @@
+<div class="container" >
+    <div class="coverContainer">
+        <img class="coverImg"
+[src]="userData.coverPhoto" alt="">
+    </div>
+    <div class="detailContainer">
+        <div class="editContainer"><img class="propic"
+                [src]="userData.profilePic" alt=""><button (click)="editProfile()" *ngIf="isCurrentUser"
+                class="btn btn-light"><mat-icon aria-hidden="false" aria-label="Example home icon"
+                    fontIcon="edit"></mat-icon><span>Edit Profile</span></button></div>
+        <div class="nameContainer"><strong>{{userData.name}}</strong> <span *ngIf="isCurrentUser">{{userData.username}}</span></div>
+        <div class="bioContainer"><span>{{userData.bio}}</span></div>
+        <div class="infoContainer">
+            <div class="info1"><span><strong>Talks about : </strong>{{ userData.talksAbout}}</span> <span><strong>address : </strong>{{ userData.address}}</span>
+            </div>
+            <div class="info2"><a [href]="userData.socialLink"><span>{{userData.socialLink}}</span></a> <span><strong>joined :</strong> {{ userData.joinedDate.slice(0,8)}}</span></div>
+        </div>
+    </div>
+</div>
+<div class="search-container">
+    <input type="text" class="search-input" placeholder="Search ... Questions.. " aria-label="Search"
+        [(ngModel)]="searchInput">
+</div>
+<div class="postsContainer">
+    <div *ngFor="let post of displayedPosts  | filter : searchInput" class="postContainer">
+        <div class="postNameHeading"><img [src]="userData.profilePic" class="postProPIc"><h5>{{userData.name }}</h5></div>
+        <div ngbDropdown container="body" class="dropdownAction" *ngIf="isCurrentUser">
+            <button type="button" class="btn btn-outline-dark btn-sm actionBtn" ngbDropdownToggle>Actions</button>
+            <div ngbDropdownMenu>
+                <button type="button" ngbDropdownItem (click)="editPost(post)">Edit</button>
+                <button type="button" ngbDropdownItem (click)="deletePost(post)">Delete</button>
+            </div>
+        </div>
+
+        <h3>{{ post.title }}</h3>
+        <p><strong>Answer:</strong> {{ post.content }}</p>
+        <img [src]="post.image" alt="">
+        <hr>
+        <button class="btn btn-primary likebtn"> {{ post.likes }} {{ post.likes === 1 ? 'Like' :
+            'Likes' }}</button>
+        <div *ngIf="post.comments.length > 0" class="allcommentContainer">
+            <h5>All Comments</h5>
+            <div class="userCommentsContainer">
+                <div *ngFor="let comment of post.comments.slice(0, visibleComments)" class="commenteuser">
+                    <strong>{{ comment.userId }}</strong>
+                    <p>{{ comment.comment }}</p>
+                </div>
+            </div>
+            <button class="btn btn-dark" *ngIf="post.comments.length > visibleComments" (click)="showMoreComments()">
+                Show more comments
+            </button>
+        </div>
+        <hr>
+    </div>
+    <div *ngIf="latestPosts.length > displayedPosts.length" class="load-more-button-container">
+        <button class="btn btn-dark" (click)="showMorePosts()">Show More</button>
+      </div>
+</div>

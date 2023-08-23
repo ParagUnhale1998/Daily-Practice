@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="headerContainer">
+    <h3>Create Post</h3><a (click)="close()">&#10060;</a>
+  </div>
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Question:</label>
+      <input type="text" class="form-control" formControlName="title" />
+    </div>
+    <div class="form-group">
+      <label for="content">Answer:</label>
+      <textarea class="form-control" formControlName="content"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="image">Image:</label>
+      <input type="text" class="form-control" formControlName="image" #img />
+    </div>
+    <div class="form-group img-form">
+      <img [src]="img.value" class="img-fluid" />
+    </div>
+
+    <button type="submit" [disabled]="!postForm.valid">Add Post</button>
+  </form>
+</div>

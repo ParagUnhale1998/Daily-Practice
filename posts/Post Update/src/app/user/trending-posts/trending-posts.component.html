@@ -1,0 +1,13 @@
+<div *ngIf="filteredPosts.length > 0">
+    <h2>Posts with Hashtag: {{ hashtagName }}</h2>
+    <div *ngFor="let post of filteredPosts">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.content }}</p>
+      <!-- Add other post details here -->
+    </div>
+  </div>
+  
+  <div *ngIf="filteredPosts.length === 0">
+    <h2>No posts found with Hashtag: {{ hashtagName }}</h2>
+  </div>
+  

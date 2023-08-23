@@ -1,0 +1,49 @@
+<div class="search-container">
+  <input type="text" class="search-input" placeholder="Search ... Questions.. " aria-label="Search"
+    [(ngModel)]="searchInput">
+</div>
+<div class="allusersContainer">
+  <div *ngFor="let post of (filteredPosts.length > 0 ? filteredPosts : displayedPosts) | filter : searchInput" class="postContainer">
+    <div class="postNameHeading" (click)="navigateToUser(post)"><img [src]="post.profilePic" class="postProPIc"><h5>{{post.name }}</h5></div>
+    <!-- <p>{{post.userId}}</p> -->
+    <h3>{{ post.title }}</h3>
+    <p><strong>Answer:</strong> {{ post.content }}</p>
+    <img [src]="post.image" alt="">
+    <hr>
+    <button class="btn btn-primary likebtn" *ngIf="!userIsRegistered"> {{ post.likes }} {{ post.likes === 1 ? 'Like' :
+      'Likes' }}</button>
+    <!-- Input for adding comments -->
+    <div *ngIf="userIsRegistered" class="likeCommentContainer">
+      <div class="likeContainer">
+        <button class="btn btn-primary" (click)="addlike(post)" *ngIf="userIsRegistered">
+          {{ post.likes }} {{ post.likes === 1 ? 'Like' : 'Likes' }}
+        </button>
+      </div>
+      <div class="commentContainer">
+        <input type="text" placeholder="Add a comment" #comments>
+        <button class="btn btn-dark" (click)="addComment(post, comments.value)">
+          Add Comment</button>
+      </div>
+
+    </div>
+    <!-- Comments section -->
+    <div *ngIf="post.comments.length > 0" class="allcommentContainer">
+      <h5>All Comments</h5>
+      <div class="userCommentsContainer">
+        <div *ngFor="let comment of post.comments.slice(0, visibleComments)" class="commenteuser">
+          <strong>{{ comment.userId }}</strong>
+          <p>{{ comment.comment }}</p>
+        </div>
+      </div>
+      <button class="btn btn-dark" *ngIf="post.comments.length > visibleComments" (click)="showMoreComments()">
+        Show more comments
+      </button>
+    </div>
+    <hr>
+  </div>
+  <div class="showMoreContainer showMore">
+    <button class="btn btn-dark" *ngIf="displayedPosts.length < latestPosts.length" (click)="showMorePosts()">
+      Show more posts
+    </button>
+  </div>
+</div>
