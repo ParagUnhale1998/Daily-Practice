@@ -1,0 +1,14 @@
+<nav>
+    <div class="logoContaienr">
+        <img src="https://icon-library.com/images/me-icon/me-icon-12.jpg" alt="">
+        <h2>Answers</h2>
+    </div>
+    <div class="links">
+        <button class="btn"  (click)="navigateToHome()" [ngClass]="{ 'active': activeButton === 'Home' }"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon><span>Home</span></button>
+        <button class="btn" (click)="navigateToLogin()" *ngIf="!userIsRegister" [ngClass]="{ 'active': activeButton === 'Login' }"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="login"></mat-icon><span>log in/Sign up</span></button>
+        <button class="btn" (click)="navigateToCreatePost()" *ngIf="userIsRegister" [ngClass]="{ 'active': activeButton === 'CreatePost' }"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add_circle"></mat-icon><span>Create Post</span></button>
+        <button class="btn" (click)="navigateToLoginProfile()" *ngIf="userIsRegister" [ngClass]="{ 'active': activeButton === 'profile' }"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon><span>Profile</span></button>
+        <button class="btn" (click)="logout()" *ngIf="userIsRegister"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="logout"></mat-icon><span>Logout</span></button>
+    </div>
+  
+</nav>

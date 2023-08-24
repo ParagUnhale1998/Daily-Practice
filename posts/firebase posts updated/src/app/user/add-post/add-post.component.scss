@@ -1,0 +1,82 @@
+:host{
+  width: 100%;
+  height: 100%;
+}
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  .headerContainer{
+    display: flex;
+    align-items: center;
+   
+    justify-content: space-between;
+    h1 {
+      text-align: center;
+      // margin-bottom: 20px;
+    }
+    a{
+          font-size: 15px;
+          cursor: pointer;
+    }
+  }
+ 
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  
+  
+  .img-form{
+   width: 70%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 1%;
+   img{
+    width: 100%;
+   }
+  }
+    button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #007bff;
+    cursor: not-allowed;
+  }
+  button:disabled:hover {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }

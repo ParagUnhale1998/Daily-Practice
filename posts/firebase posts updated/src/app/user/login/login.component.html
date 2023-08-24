@@ -1,0 +1,35 @@
+<div class="UserLogin" *ngIf="!loader">
+  <div class="login-container" *ngIf="!forgotPassword">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" >
+      <div class="form-group">
+        <label for="id">Email</label>
+        <input type="email" id="id" formControlName="id" required placeholder="Enter Your email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" required>
+        <a class="forgotPassword" (click)="forgetpassword()">Forgotten password?</a>
+      </div>
+      <div class="btnContainer">
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        <button class="btn btn-dark" (click)="navigateToSignUp()">Create Account</button>
+      </div>
+    </form>
+   
+  </div>
+ <div class="forgotPassword" *ngIf="forgotPassword">
+  <h2>Forgot Password</h2>
+  <form [formGroup]="forgotPasswordForm" (ngSubmit)="onLogin()" >
+    <div class="form-group">
+      <label for="id">Email</label>
+      <input type="email" id="email" formControlName="email" required placeholder="Enter Your email">
+    </div>
+    <button class="btn btn-info" (click)="resetPassword()">Reset Password</button>
+  </form>
+ </div>
+</div> 
+<button id="spinner" *ngIf="loader" mdbBtn color="success" type="button" disabled>
+  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="headerContainer">
+    <h3>Create Post</h3><a (click)="close()">&#10060;</a>
+  </div>
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Question:</label>
+      <input type="text" class="form-control" formControlName="title" />
+    </div>
+    <div class="form-group">
+      <label for="content">Answer:</label>
+      <textarea class="form-control" formControlName="content"></textarea>
+    </div>
+    <div class="imgContainer"  *ngIf="!editmode">
+    <div class="form-group" >
+      <label for="image">Image:</label>
+      <input type="text" class="form-control" formControlName="image" #img placeholder="Add Image Link or Choose File"/>
+    </div>
+    <div>
+      <label for="username">Profile Pic : </label>
+      <input type="file" id="postImage"  formControlName="postImage"  placeholder="Add Image Link" (change)="onFileSelected($event)" accept="image/*">
+    </div>
+    <div class="form-group img-form" >
+      <img [src]="img.value || postImage" class="img-fluid" />
+    </div>
+  </div>
+    <button type="submit" [disabled]="!postForm.valid">{{editmode ? 'Update Post ' :' Add Post'}}</button>
+  </form>
+  <button *ngIf="loading" mdbBtn class="btn btn-dark" color="dark" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Loading...
+  </button>
+</div>

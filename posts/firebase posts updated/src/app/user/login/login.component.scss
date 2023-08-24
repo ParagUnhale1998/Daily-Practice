@@ -1,0 +1,101 @@
+:host {
+  // display: block; /* This ensures that the styles are applied only to this component */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 2%;
+
+} 
+.UserLogin{
+  width: 100%;
+  // border: 1px solid #ccc;
+
+
+}
+//login
+  .login-container {
+    min-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .btnContainer{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  button:not(.btn-dark) {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #00ff2f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .btn-dark{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:disabled {
+    background-color: #007bff;
+    cursor: not-allowed;
+  }
+  button:disabled:hover {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  .gmailContainer{
+    width: 100%;
+    height: 100px;
+  }
+//.
+#spinner{
+  background-image: linear-gradient(50deg, #0dff15, #4a9bff);
+  background-size: 200% 100%; /* Double the width for the animation effect */
+  animation: gradientMove 2s linear infinite alternate-reverse; /* Adjust animation duration as needed */
+}
+@keyframes gradientMove {
+    0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+.forgotPassword:hover{
+cursor: pointer;
+}
