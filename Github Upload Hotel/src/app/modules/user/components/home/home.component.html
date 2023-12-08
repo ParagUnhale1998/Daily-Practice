@@ -1,0 +1,807 @@
+<!-- YourComponent.component.html -->
+<!-- Your HTML content -->
+
+<div class="bg-cover bg-center">
+    <div class="absolute w-full h-full  z-[-1]">
+        <div class="absolute inset-0 bg-black " style="opacity: 40%;"></div>
+        <img class="w-full h-full object-cover" src="assets/header-image.jpeg" alt="">
+    </div>
+
+    <nav class="mx-auto borderWhite flex item-center justify-between p-2 px-4">
+        <div class="contact p-3">
+            <ul id="menu-top-bar-left" class="flex items-center list-none mb-0">
+                <li class="borderRight pr-2 text-sm ">
+                    <a href="tel:(000)999-898-999" class="text-white text-decoration-none hover:opacity-75 ">Call us:
+                        (000) 999 - 898 - 999</a>
+                </li>
+                <li class="text-sm">
+                    <a href="mailto:info@mytravel.com"
+                        class="text-white ml-2 text-decoration-none hover:opacity-75">Email: info@mytravel.com</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="signInContainer  flex  items-center justify-center gap-2">
+            <div class="socialLinks  flex  items-center justify-center borderRight pr-2">
+                <ul id="menu-social-media" class=" p-0 m-0 flex items-center justify-center gap-3">
+                    <li>
+                        <a href="https://www.facebook.com/"
+                            class="p-2 text-white btn-social btn-facebook hover:opacity-75 hover:shadow-md hover:shadow-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twitter.com/"
+                            class="p-2 text-white btn-social btn-twitter hover:opacity-75 hover:shadow-md hover:shadow-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/"
+                            class="p-2 text-white btn-social btn-instagram hover:opacity-75 hover:shadow-md hover:shadow-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/"
+                            class="p-2 text-white btn-social btn-linkedin hover:opacity-75 hover:shadow-md hover:shadow-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="login borderRight pr-2 ">
+                <!-- <i class="text-white fas fa-user mr-2 ml-1 text-xl"></i> -->
+                <!-- <i class="fa-solid fa-hotel"></i> -->
+                <i class=" text-white fa-solid fa-hotel mr-2 ml-1 text-xl"></i>
+                <span class="font-bold text-white mr-1 hover:opacity-75 cursor-pointer ">Create Business Account.</span>
+            </div>
+            <div class="selectLanguage">
+                <div class="relative inline-block">
+
+                    <button (click)="toggleDropdown()"
+                        class=" text-white px-2 py-2 rounded-md focus:outline-none focus:shadow-outline-blue hover:opacity-75">
+                        ENG
+                        <i class="text-white fas fa-caret-down mr-2 ml-1 text-xl"></i>
+                    </button>
+
+                    <ul *ngIf="isDropdownOpen" [ngStyle]="{ 'display': isDropdownOpen ? 'block' : 'none' }"
+                        class="absolute right-0  dropdown-menu text-center dropdown-unfold dropdown-menu-right mt-0">
+                        <li>
+                            <a (click)="toggleDropdown()" href="#"
+                                class="dropdown-item  active:bg-transparent active:text-black ">USD</a>
+                        </li>
+                        <li>
+                            <a (click)="toggleDropdown()" href="#"
+                                class="dropdown-item active:bg-transparent active:text-black ">EUR</a>
+                        </li>
+                        <li>
+                            <a (click)="toggleDropdown()" href="#"
+                                class="dropdown-item active:bg-transparent active:text-black ">TUR</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container border-gray-500 p-2 flex items-center justify-between">
+        <!-- Logo and Text -->
+        <div class="flex items-center">
+            <img src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/04/logo-white.svg" alt="Logo"
+                class="mr-2 h-8 w-8">
+            <span class="text-white font-bold  text-3xl">MyTravel</span>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="flex items-center space-x-8">
+            <a href="#" class="text-white font-bold capitalize text-decoration-none hover:opacity-75">Home</a>
+            <a href="#" class="text-white font-bold capitalize text-decoration-none hover:opacity-75">Hotels</a>
+            <a href="#" class="text-white font-bold capitalize text-decoration-none hover:opacity-75 ">Activities</a>
+            <div class="flex items-center hover-move-up-scale">
+                <i class="text-white fas fa-shopping-cart mr-1"></i>
+                <span class="text-white font-bold capitalize ">Cart</span>
+            </div>
+            <button
+                class="bg-white text-myDarkGray  px-4 py-2 rounded font-bold capitalize hover:shadow-md hover:shadow-white  hover-move-up">
+                <!-- <i class="text-white fas fa-user mr-2 ml-1 text-xl"></i> -->
+                <i class="text-black fas fa-user "></i>
+                Sign in or Register</button>
+        </nav>
+    </div>
+
+    <div class="hero relative flex flex-col items-center justify-center">
+        <div class="container h-screen flex items-center justify-center text-white text-center">
+            <div>
+                <h1 class="text-6xl font-bold mb-4">Let's Explore The World Together!</h1>
+                <p class="text-2xl">Find awesome hotels, tours, cars, and activities in London</p>
+            </div>
+        </div>
+        <div class="containe absolute bottom-10 searchContainer">
+            <div class="flex item-center justify-between bg-white shadow-lg p-6 gap-2 rounded-md">
+
+                <!-- Destination Input -->
+                <div class="flex-grow flex flex-col item-start justify-start  relative">
+                    <label for="destination" class="pl-2 text-gray-500">Destination or Hotel</label>
+                    <div class="relative" style="border:none;">
+                        <input type="text" id="destination" placeholder="Where are you going?"
+                            class="w-full px-4 py-2 text-gray-800 font-bold placeholder-gray-500  outline-none border-b-2 border-gray-300  focus:outline-none focus:placeholder-gray-400  focus:border-mySkyBlue transition-all duration-300">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-2">
+                            <i class="text-mySkyBlue fas fa-map-marker-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Date Picker -->
+                <div class="flex-grow   flex item-center justify-center">
+                    <div class="relative  flex flex-col item-start justify-start">
+                        <label for="checkin" class="pl-2 text-gray-500 ">Check-in</label>
+                        <p-calendar [(ngModel)]="dateCheckIn" [showIcon]="true"
+                            inputStyleClass="w-1/4 px-2 py-2 text-gray-800 rounded-none border-b-2 border-gray-300  font-bold placeholder-gray-500 shadow-none  outline-none   focus:outline-none focus:placeholder-gray-400  focus:border-mySkyBlue transition-all duration-300 "></p-calendar>
+                    </div>
+                    <div class="relative flex flex-col item-start justify-start ">
+                        <label for="checkout" class="pl-2 text-gray-500">Check-out</label>
+                        <p-calendar [(ngModel)]="dateCheckOut" [showIcon]="true"
+                            inputStyleClass="w-1/4 px-2 py-2 text-gray-800 rounded-none border-b-2 border-gray-300  font-bold placeholder-gray-500 shadow-none  outline-none   focus:outline-none focus:placeholder-gray-400  focus:border-mySkyBlue transition-all duration-300 "></p-calendar>
+                    </div>
+                </div>
+
+                <!-- Rooms and Guests Dropdown -->
+                <div class="flex-grow flex items-center justify-between">
+                    <div class="relative inline-block ">
+                        <label for="Rooms and Guests" class="pl-5 text-gray-500">Rooms and Guests</label>
+
+                        <button (click)="toggleRoomsDropdown()"
+                            class="text-black px-4 py-2 rounded-none  focus:outline-none focus:shadow-outline-blue hover:opacity-75 flex items-center">
+                            <i class="fas fa-bed mr-2 text-lg"></i>
+                            {{ rooms }} Rooms - {{ adults + children }} Guests
+                            <i class="fas fa-caret-down ml-2 text-xl "></i>
+                        </button>
+
+                        <ul *ngIf="isRoomsDropdownOpen"
+                            [ngStyle]="{ 'display': isRoomsDropdownOpen ? 'block' : 'none' }"
+                            class=" w-full absolute right-0 dropdown-menu text-center dropdown-unfold dropdown-menu-right mt-2">
+                            <li class="flex items-center justify-between p-2">
+                                <span class="text-secondary text-base font-medium">Rooms</span>
+                                <div class="flex items-center justify-around gap-2">
+                                    <button
+                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
+                                        (click)="decrementRooms()">
+                                        <i class="fas fa-minus btn-icon__inner text-2xl p-1 px-2"></i>
+                                    </button>
+                                    <span>{{rooms}}</span>
+                                    <button
+                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
+                                        (click)="incrementRooms()">
+                                        <i class="fas fa-plus btn-icon__inner text-2xl p-1 px-2"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="flex items-center justify-between p-2">
+                                <span class="text-secondary text-base font-medium">Adults</span>
+                                <div class="flex items-center justify-around gap-2">
+                                    <button
+                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
+                                        (click)="decrementAdults()">
+                                        <i class="fas fa-minus btn-icon__inner text-2xl p-1 px-2"></i>
+                                    </button>
+                                    <span>{{adults}}</span>
+                                    <button
+                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
+                                        (click)="incrementAdults()">
+                                        <i class="fas fa-plus btn-icon__inner text-2xl p-1 px-2"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="flex items-center justify-between p-2">
+                                <span class="text-secondary text-base font-medium">Children</span>
+                                <div class="flex items-center justify-around gap-2">
+                                    <button
+                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
+                                        (click)="decrementChildren()">
+                                        <i class="fas fa-minus btn-icon__inner text-2xl p-1 px-2"></i>
+                                    </button>
+                                    <span>{{children}}</span>
+                                    <button
+                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
+                                        (click)="incrementChildren()">
+                                        <i class="fas fa-plus btn-icon__inner text-2xl p-1 px-2"></i>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+                <!-- Search Button -->
+                <div class="flex-grow flex items-center justify-between">
+                    <button
+                        class="w-full bg-mySkyBlue text-white px-6 py-3 rounded-md hover-move-up focus:outline-none focus:bg-blue-600 transition-all duration-300">
+                        <i class="text-white fas fa-search mr-2"></i>Search
+                    </button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+</div>
+<!-- Top Destionation Section -->
+
+<div class="relative w-screen flex items-center flex-col justify-center mt-8">
+    <!-- First sub-container with heading -->
+    <div class="container mb-4">
+        <h2 class="text-3xl font-bold text-gray-600 text-center">Top Destination</h2>
+    </div>
+    <!-- Second sub-container with images -->
+    <div class="container flex flex-wrap items-center justify-center">
+        <!-- First row with 2 big images -->
+        <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 relative p-2 pb-0 move-up hover:shadow-sm h-80 countryImageContainer overflow-hidden">
+    
+            <img src="https://cdn.tourradar.com/s3/tour/1500x800/149581_6484d0c7.jpg" alt="United Kingdom"
+                class="w-full h-full object-cover">
+    
+            <div class="relative container overflow-hidde">
+                <div class=" details ">
+                    <div class="relative z-10 ">
+                        <a href="https://mytravel.madrasthemes.com/destination"
+                            class="text-white text-decoration-none font-bold text-2xl tracking-wider  block ">India</a>
+                        <div class="flex flex-col items-start gap-2 justify-start dropdownImage border-t-[1px] mb-4">
+                            <a href="https://mytravel.madrasthemes.com/product-category/hotel"
+                                class="text-decoration-none hover:opacity-75 text-white">30 Hotel</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/tour"
+                                class="text-decoration-none hover:opacity-75 text-white">48 Tours</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/activity"
+                                class="text-decoration-none hover:opacity-75 text-white">46 Activity</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/yacht"
+                                class="text-decoration-none hover:opacity-75 text-white ">32 Yacht</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 relative p-2 pb-0 move-up hover:shadow-sm h-80 countryImageContainer overflow-hidden">
+          
+            <img src="https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg" alt="United Kingdom"
+                class="w-full h-full object-cover">
+     
+            <div class="relative container overflow-hidde">
+                <div class=" details">
+                    <div class="relative z-10 ">
+                        <a href="https://mytravel.madrasthemes.com/destination"
+                            class="text-white text-decoration-none font-bold text-2xl tracking-wider  block ">United Kingdom</a>
+                        <div class="flex flex-col items-start gap-2 justify-start dropdownImage border-t-[1px]">
+                            <a href="https://mytravel.madrasthemes.com/product-category/hotel"
+                                class="text-decoration-nonehover:opacity-75 hover:opacity-75 text-white">30 Hotel</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/tour"
+                                class="text-decoration-none hover:opacity-75 text-white">48 Tours</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/activity"
+                                class="text-decoration-none hover:opacity-75 text-white">46 Activity</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/yacht"
+                                class="text-decoration-none hover:opacity-75 text-white">32 Yacht</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 sm:w-1/2 w-full relative p-2 pb-0 move-up hover:shadow-sm h-80 countryImageContainer overflow-hidden">
+
+            <img src="https://bizimages.withfloats.com/tile/5e12be4ba87bce0001d225cf.jpg" alt="United Kingdom"
+                class="w-full h-full object-cover">
+            <div class="relative container overflow-hidde">
+                <div class=" details">
+                    <div class="relative z-10 ">
+                        <a href="https://mytravel.madrasthemes.com/destination"
+                            class="text-white text-decoration-none font-bold text-2xl tracking-wider  block ">Dubai</a>
+                        <div class="flex flex-col items-start gap-2 justify-start dropdownImage border-t-[1px]">
+                            <a href="https://mytravel.madrasthemes.com/product-category/hotel"
+                                class="text-decoration-none hover:opacity-75 text-white">30 Hotel</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/tour"
+                                class="text-decoration-none hover:opacity-75 text-white">48 Tours</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/activity"
+                                class="text-decoration-none hover:opacity-75 text-white">46 Activity</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/yacht"
+                                class="text-decoration-none hover:opacity-75 text-white">32 Yacht</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 sm:w-1/2 w-full relative p-2 pb-0 move-up hover:shadow-sm h-80 countryImageContainer overflow-hidden">
+
+            <img src="https://www.libertytravel.com/sites/default/files/styles/full_size/public/italy%20tours-hero.jpg?itok=acDSd44q"
+                alt="United Kingdom" class="w-full h-full object-cover">
+            <div class="relative container overflow-hidde">
+                <div class=" details">
+                    <div class="relative z-10 ">
+                        <a href="https://mytravel.madrasthemes.com/destination"
+                            class="text-white text-decoration-none font-bold text-2xl tracking-wider  block ">Italy</a>
+                        <div class="flex flex-col items-start gap-2 justify-start dropdownImage border-t-[1px]">
+                            <a href="https://mytravel.madrasthemes.com/product-category/hotel"
+                                class="text-decoration-none  text-white">30 Hotel</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/tour"
+                                class="text-decoration-none  text-white">48 Tours</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/activity"
+                                class="text-decoration-none  text-white">46 Activity</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/yacht"
+                                class="text-decoration-none  text-white">32 Yacht</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 sm:w-1/2 w-full relative p-2 pb-0 move-up hover:shadow-sm h-80 countryImageContainer overflow-hidden">
+            <div class="absolute bottom-0 w-1/2 h-50" style="background: linear-gradient(to 90deg, rgba(0, 0, 0, 0.503), transparent);"></div>
+
+            <img src="https://images.squarespace-cdn.com/content/v1/5c4645722714e56a73cc0554/1011e6f2-361b-4c5b-9a4b-262a9ff38367/Luzern-Interlaken+Express.jpeg"
+                alt="United Kingdom" class="w-full h-full object-cover">
+            <div class="relative container overflow-hidde">
+                <div class=" details">
+                    <div class="relative z-10 ">
+                        <a href="https://mytravel.madrasthemes.com/destination"
+                            class="text-white text-decoration-none font-bold text-2xl tracking-wider  block ">Switzarland</a>
+                        <div class="flex flex-col items-start gap-2 justify-start dropdownImage border-t-[1px]">
+                            <a href="https://mytravel.madrasthemes.com/product-category/hotel"
+                                class="text-decoration-none hover:opacity-75 text-white">30 Hotel</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/tour"
+                                class="text-decoration-none hover:opacity-75 text-white">48 Tours</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/activity"
+                                class="text-decoration-none hover:opacity-75 text-white">46 Activity</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/yacht"
+                                class="text-decoration-none hover:opacity-75 text-white">32 Yacht</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 sm:w-1/2 w-full relative p-2 pb-0 move-up hover:shadow-sm h-80 countryImageContainer overflow-hidden">
+            <div class="absolute bottom-0 w-1/2 h-50" style="background: linear-gradient(to 90deg, rgba(0, 0, 0, 0.503), transparent);"></div>
+            <img src="https://www.purevacations.com/wp-content/uploads/2019/05/Eiffel-tour-over-Seine-river-1024x683.jpg"
+                alt="United Kingdom" class="w-full h-full object-cover">
+            <div class="relative container overflow-hidde">
+                <div class=" details">
+                    <div class="relative z-10 ">
+                        <a href="https://mytravel.madrasthemes.com/destination"
+                            class="text-white text-decoration-none font-bold text-2xl tracking-wider  block ">France</a>
+                        <div class="flex flex-col items-start gap-2 justify-start dropdownImage border-t-[1px]">
+                            <a href="https://mytravel.madrasthemes.com/product-category/hotel"
+                                class="text-decoration-none hover:opacity-75 text-white">30 Hotel</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/tour"
+                                class="text-decoration-none hover:opacity-75 text-white">48 Tours</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/activity"
+                                class="text-decoration-none hover:opacity-75  text-white">46 Activity</a>
+                            <a href="https://mytravel.madrasthemes.com/product-category/yacht"
+                                class="text-decoration-none hover:opacity-75 text-white">32 Yacht</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+</div>
+
+
+
+
+
+<!-- Hotel Filer Section  -->
+<div class="relative w-screen flex items-center flex-col justify-center my-8">
+    <!-- First sub-container with heading -->
+    <div class="container mb-4">
+        <h2 class="text-3xl font-bold text-gray-600 text-center">Trending</h2>
+    </div>
+<div class="container">
+    <!-- data-display.component.html -->
+<div class="flex items-center justify-center space-x-4 mb-6 p-2">
+
+    <button (click)="showData('hotel')" class=" bg-mySkyBlue text-white px-4 font-medium py-2 rounded-full  hover:bg-blue-500 active:bg-blue-500  focus:outline-none focus:bg-blue-500 transition-all duration-300 hover:shadow-lg">Hotels</button>
+    <button (click)="showData('tours')" class=" bg-mySkyBlue text-white px-4 font-medium py-2 rounded-full  hover:bg-blue-500 active:bg-blue-500  focus:outline-none focus:bg-blue-500 transition-all duration-300 hover:shadow-lg">Tours</button>
+    <button (click)="showData('activity')" class=" bg-mySkyBlue text-white px-4 font-medium py-2 rounded-full  hover:bg-blue-500 active:bg-blue-500    focus:outline-none focus:bg-blue-500 transition-all duration-300 hover:shadow-lg">Activity</button>
+    <button (click)="showData('rental')" class=" bg-mySkyBlue text-white px-4 font-medium py-2 rounded-full hover:bg-blue-500 active:bg-blue-500  focus:outline-none focus:bg-blue-500 transition-all duration-300 hover:shadow-lg">Rental</button>
+</div>
+
+<div id="hotelData" *ngIf="selectedCategory === 'hotel'" class="w-full flex flex-wrap items-center justify-center gap-2">
+    <div class=" w-300 h-350 move-up mx-auto bg-white shadow-md overflow-hidden">
+        <!-- Image Section -->
+        <div class="relative">
+            <div class="absolute bottom-0 w-full h-50" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+            <img class="w-full h-50 object-cover" src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/02/img4-2-300x225.jpeg" alt="Hotel Image">
+    
+            <!-- Top Right Heart Icon -->
+            <div class="absolute top-3 right-3">
+                <i class="text-white fas fa-heart fa-lg"></i>
+
+            </div>
+    
+            <!-- Hotel Name and Price -->
+            <div class="absolute bottom-0 left-0 ml-2">
+               
+                <h3 class="text-white text-sm">Hotel Example</h3>
+                <p class="text-white text-xl font-bold">$150/night</p>
+            
+            </div>
+        </div>
+    
+        <!-- Content Section -->
+        <div class="p-3 flex items-start justify-center flex-col gap-2">
+            <!-- Location -->
+            <p class="text-gray-600 mb-0"><i class="fas fa-location-dot"></i> City, Country</p>
+    
+            <!-- Description -->
+            <p class="text-gray-800 font-bold mb-0">Luxurious stay with breathtaking views</p>
+    
+            <!-- Rating Section -->
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 0l2.45 6.74h6.29l-5.09 4.88 1.91 6.22L10 12.52 3.44 17l1.91-6.22L0 6.74h6.29L10 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 ">4.5 (120 reviews)</span>
+            </div>
+    
+            <!-- Time Section -->
+            <p class="text-sm text-gray-600 mb-0">Posted 2 hours ago</p>
+        </div>
+    </div>
+    <div class="l w-300 h-350 move-up mx-auto bg-white shadow-md overflow-hidden">
+        <!-- Image Section -->
+        <div class="relative">
+            <div class="absolute bottom-0 w-full h-50" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+            <img class="w-full h-50 object-cover" src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/02/img4-2-300x225.jpeg" alt="Hotel Image">
+    
+            <!-- Top Right Heart Icon -->
+            <div class="absolute top-3 right-3">
+                <i class="text-white fas fa-heart fa-lg"></i>
+
+            </div>
+    
+            <!-- Hotel Name and Price -->
+            <div class="absolute bottom-0 left-0 ml-2">
+               
+                <h3 class="text-white text-sm">Hotel Example</h3>
+                <p class="text-white text-xl font-bold">$150/night</p>
+            
+            </div>
+        </div>
+    
+        <!-- Content Section -->
+        <div class="p-3 flex items-start justify-center flex-col gap-2">
+            <!-- Location -->
+            <p class="text-gray-600 mb-0"><i class="fas fa-location-dot"></i> City, Country</p>
+    
+            <!-- Description -->
+            <p class="text-gray-800 font-bold mb-0">Luxurious stay with breathtaking views</p>
+    
+            <!-- Rating Section -->
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 0l2.45 6.74h6.29l-5.09 4.88 1.91 6.22L10 12.52 3.44 17l1.91-6.22L0 6.74h6.29L10 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 ">4.5 (120 reviews)</span>
+            </div>
+    
+            <!-- Time Section -->
+            <p class="text-sm text-gray-600 mb-0">Posted 2 hours ago</p>
+        </div>
+    </div>
+    <div class=" w-300 h-350 move-up mx-auto bg-white shadow-md overflow-hidden">
+        <!-- Image Section -->
+        <div class="relative">
+            <div class="absolute bottom-0 w-full h-50" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+            <img class="w-full h-50 object-cover" src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/02/img4-2-300x225.jpeg" alt="Hotel Image">
+    
+            <!-- Top Right Heart Icon -->
+            <div class="absolute top-3 right-3">
+                <i class="text-white fas fa-heart fa-lg"></i>
+
+            </div>
+    
+            <!-- Hotel Name and Price -->
+            <div class="absolute bottom-0 left-0 ml-2">
+               
+                <h3 class="text-white text-sm">Hotel Example</h3>
+                <p class="text-white text-xl font-bold">$150/night</p>
+            
+            </div>
+        </div>
+    
+        <!-- Content Section -->
+        <div class="p-3 flex items-start justify-center flex-col gap-2">
+            <!-- Location -->
+            <p class="text-gray-600 mb-0"><i class="fas fa-location-dot"></i> City, Country</p>
+    
+            <!-- Description -->
+            <p class="text-gray-800 font-bold mb-0">Luxurious stay with breathtaking views</p>
+    
+            <!-- Rating Section -->
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 0l2.45 6.74h6.29l-5.09 4.88 1.91 6.22L10 12.52 3.44 17l1.91-6.22L0 6.74h6.29L10 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 ">4.5 (120 reviews)</span>
+            </div>
+    
+            <!-- Time Section -->
+            <p class="text-sm text-gray-600 mb-0">Posted 2 hours ago</p>
+        </div>
+    </div>
+    <div class=" w-300 h-350  move-up mx-auto bg-white shadow-md overflow-hidden">
+        <!-- Image Section -->
+        <div class="relative">
+            <div class="absolute bottom-0 w-full h-50" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+            <img class="w-full h-50 object-cover" src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/02/img4-2-300x225.jpeg" alt="Hotel Image">
+    
+            <!-- Top Right Heart Icon -->
+            <div class="absolute top-3 right-3">
+                <i class="text-white fas fa-heart fa-lg"></i>
+
+            </div>
+    
+            <!-- Hotel Name and Price -->
+            <div class="absolute bottom-0 left-0 ml-2">
+               
+                <h3 class="text-white text-sm">Hotel Example</h3>
+                <p class="text-white text-xl font-bold">$150/night</p>
+            
+            </div>
+        </div>
+    
+        <!-- Content Section -->
+        <div class="p-3 flex items-start justify-center flex-col gap-2">
+            <!-- Location -->
+            <p class="text-gray-600 mb-0"><i class="fas fa-location-dot"></i> City, Country</p>
+    
+            <!-- Description -->
+            <p class="text-gray-800 font-bold mb-0">Luxurious stay with breathtaking views</p>
+    
+            <!-- Rating Section -->
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 0l2.45 6.74h6.29l-5.09 4.88 1.91 6.22L10 12.52 3.44 17l1.91-6.22L0 6.74h6.29L10 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 ">4.5 (120 reviews)</span>
+            </div>
+    
+            <!-- Time Section -->
+            <p class="text-sm text-gray-600 mb-0">Posted 2 hours ago</p>
+        </div>
+    </div>
+</div>
+
+<div id="toursData" *ngIf="selectedCategory === 'tours'">
+    <!-- Tours Data Goes Here -->
+    <div class="lg:w-1/4 md:w-1/2 sm:w-1/2 w-full h-450px move-up mx-auto bg-white shadow-md overflow-hidden">
+        <!-- Image Section -->
+        <div class="relative">
+            <div class="absolute bottom-0 w-full h-50" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+            <img class="w-full h-50 object-cover" src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/02/img4-2-300x225.jpeg" alt="Hotel Image">
+    
+            <!-- Top Right Heart Icon -->
+            <div class="absolute top-3 right-3">
+                <i class="text-white fas fa-heart fa-lg"></i>
+
+            </div>
+    
+            <!-- Hotel Name and Price -->
+            <div class="absolute bottom-0 left-0 ml-2">
+               
+                <h3 class="text-white text-sm">Hotel Example</h3>
+                <p class="text-white text-xl font-bold">$150/night</p>
+            
+            </div>
+        </div>
+    
+        <!-- Content Section -->
+        <div class="p-3 flex items-start justify-center flex-col gap-2">
+            <!-- Location -->
+            <p class="text-gray-600 mb-0"><i class="fas fa-location-dot"></i> City, Country</p>
+    
+            <!-- Description -->
+            <p class="text-gray-800 font-bold mb-0">Luxurious stay with breathtaking views</p>
+    
+            <!-- Rating Section -->
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 0l2.45 6.74h6.29l-5.09 4.88 1.91 6.22L10 12.52 3.44 17l1.91-6.22L0 6.74h6.29L10 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 ">4.5 (120 reviews)</span>
+            </div>
+    
+            <!-- Time Section -->
+            <p class="text-sm text-gray-600 mb-0">Posted 2 hours ago</p>
+        </div>
+    </div>
+</div>
+
+<div id="activityData" *ngIf="selectedCategory === 'activity'">
+    <!-- Activity Data Goes Here -->
+    <div class="lg:w-1/4 md:w-1/2 sm:w-1/2 w-full h-450px move-up mx-auto bg-white shadow-md overflow-hidden">
+        <!-- Image Section -->
+        <div class="relative">
+            <div class="absolute bottom-0 w-full h-50" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+            <img class="w-full h-50 object-cover" src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/02/img4-2-300x225.jpeg" alt="Hotel Image">
+    
+            <!-- Top Right Heart Icon -->
+            <div class="absolute top-3 right-3">
+                <i class="text-white fas fa-heart fa-lg"></i>
+
+            </div>
+    
+            <!-- Hotel Name and Price -->
+            <div class="absolute bottom-0 left-0 ml-2">
+               
+                <h3 class="text-white text-sm">Hotel Example</h3>
+                <p class="text-white text-xl font-bold">$150/night</p>
+            
+            </div>
+        </div>
+    
+        <!-- Content Section -->
+        <div class="p-3 flex items-start justify-center flex-col gap-2">
+            <!-- Location -->
+            <p class="text-gray-600 mb-0"><i class="fas fa-location-dot"></i> City, Country</p>
+    
+            <!-- Description -->
+            <p class="text-gray-800 font-bold mb-0">Luxurious stay with breathtaking views</p>
+    
+            <!-- Rating Section -->
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 0l2.45 6.74h6.29l-5.09 4.88 1.91 6.22L10 12.52 3.44 17l1.91-6.22L0 6.74h6.29L10 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 ">4.5 (120 reviews)</span>
+            </div>
+    
+            <!-- Time Section -->
+            <p class="text-sm text-gray-600 mb-0">Posted 2 hours ago</p>
+        </div>
+    </div>
+</div>
+
+<div id="rentalData" *ngIf="selectedCategory === 'rental'">
+    <!-- Rental Data Goes Here -->
+    <div class="lg:w-1/4 md:w-1/2 sm:w-1/2 w-full h-450px move-up mx-auto bg-white shadow-md overflow-hidden">
+        <!-- Image Section -->
+        <div class="relative">
+            <div class="absolute bottom-0 w-full h-50" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+            <img class="w-full h-50 object-cover" src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/02/img4-2-300x225.jpeg" alt="Hotel Image">
+    
+            <!-- Top Right Heart Icon -->
+            <div class="absolute top-3 right-3">
+                <i class="text-white fas fa-heart fa-lg"></i>
+
+            </div>
+    
+            <!-- Hotel Name and Price -->
+            <div class="absolute bottom-0 left-0 ml-2">
+               
+                <h3 class="text-white text-sm">Hotel Example</h3>
+                <p class="text-white text-xl font-bold">$150/night</p>
+            
+            </div>
+        </div>
+    
+        <!-- Content Section -->
+        <div class="p-3 flex items-start justify-center flex-col gap-2">
+            <!-- Location -->
+            <p class="text-gray-600 mb-0"><i class="fas fa-location-dot"></i> City, Country</p>
+    
+            <!-- Description -->
+            <p class="text-gray-800 font-bold mb-0">Luxurious stay with breathtaking views</p>
+    
+            <!-- Rating Section -->
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 0l2.45 6.74h6.29l-5.09 4.88 1.91 6.22L10 12.52 3.44 17l1.91-6.22L0 6.74h6.29L10 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 ">4.5 (120 reviews)</span>
+            </div>
+    
+            <!-- Time Section -->
+            <p class="text-sm text-gray-600 mb-0">Posted 2 hours ago</p>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+<!-- Hotel Filer Section  -->
+
+<nav class="bg-gray-500 p-4">
+    <!-- Main Nav Content -->
+    <ul class="flex space-x-4">
+        <li><a href="#" class="text-white">Home</a></li>
+        <li><a href="#" class="text-white">Services</a></li>
+        <li><a href="#" class="text-white">Contact</a></li>
+        <!-- Add more main nav items as needed -->
+    </ul>
+</nav>
+
+<!-- Hero Container -->
+<div class="bg-blue-700 text-white p-8">
+    <!-- Hero Content -->
+    <h1 class="text-4xl font-bold">Welcome to our Website</h1>
+    <p class="mt-4">Explore the amazing features we offer!</p>
+</div>
+
+<!-- Search Container -->
+<div class="bg-gray-300 p-4">
+    <!-- Search Form -->
+    <form class="flex items-center">
+        <input type="text" placeholder="Search..." class="border rounded p-2">
+        <button type="submit" class="bg-blue-500 text-white ml-2 px-4 py-2 rounded">Search</button>
+    </form>
+</div>
+
+
+<!-- Continue with the rest of your HTML content -->
+
+<header class="bg-black">
+    <div class="flex items-center">
+        <ul id="menu-top-bar-left" class="flex items-center list-none mb-0">
+            <li>
+                <a href="tel:(000)999-898-999" class="text-white">Call us: (000) 999 - 898 - 999</a>
+            </li>
+            <li>
+                <a href="mailto:info@mytravel.com" class="text-white ml-4">Email: info@mytravel.com</a>
+            </li>
+        </ul>
+
+        <div class="ml-auto flex items-center">
+            <ul id="menu-social-media" class="flex mb-0 mr-2 pr-1">
+                <li>
+                    <a href="https://www.facebook.com/" class="btn-social btn-facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com/" class="btn-social btn-twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/" class="btn-social btn-instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/" class="btn-social btn-linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="relative px-3">
+                <a href="#" class="text-white flex items-center py-3">
+                    <i class="fas fa-user-circle mr-2 ml-1 text-xl"></i>
+                    <span class="text-sm mr-1">Sign in or Register</span>
+                </a>
+
+                <!-- Your dropdown menu for sign in/register goes here -->
+            </div>
+
+            <div class="relative pl-3">
+                <ul id="menu-topbar-right" class="list-none">
+                    <li class="relative group">
+                        <a href="#" class="group-hover:text-white flex items-center ml-1 py-3">
+                            <i class="fas fa-euro-sign mr-1"></i> EUR
+                        </a>
+                        <ul class="hidden absolute right-0 mt-2 space-y-2 bg-white border rounded">
+                            <li><a href="#" class="block px-4 py-2 text-sm">USD</a></li>
+                            <li><a href="#" class="block px-4 py-2 text-sm">EUR</a></li>
+                            <li><a href="#" class="block px-4 py-2 text-sm">TUR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

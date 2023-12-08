@@ -1,0 +1,28 @@
+.dropdownImage{
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+
+}
+.countryImageContainer:hover .dropdownImage{
+    opacity: 1;
+}
+
+.details {
+    position: absolute;
+    bottom: -100px;
+    width: 100%;
+    left: 0;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: start;
+    padding: 1.5vw;
+    justify-content: space-between;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    gap: 10px;
+    transition: bottom 0.3s ease;
+  }
+
+  .countryImageContainer:hover .details {
+    bottom: 0;
+  }
