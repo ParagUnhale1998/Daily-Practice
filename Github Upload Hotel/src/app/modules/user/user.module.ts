@@ -5,6 +5,8 @@ import { BookingComponent } from './components/booking/booking.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { TopDestinationComponent } from './components/top-destination/top-destination.component';
+import { TrendingComponent } from './components/trending/trending.component';
 
 
 
@@ -13,7 +15,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     SearchComponent,
     BookingComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    TopDestinationComponent,
+    TrendingComponent
   ],
   imports: [
     CommonModule,

@@ -13,6 +13,10 @@ import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { TabViewModule } from 'primeng/tabview';
+import { CarouselModule } from 'primeng/carousel';
+import { SliderModule } from 'primeng/slider';
+import { RatingModule } from 'primeng/rating';
+
 const materialModules = [
   FormsModule,
   ReactiveFormsModule,
@@ -23,7 +27,10 @@ const materialModules = [
   ButtonModule,
   CalendarModule,
   DropdownModule,
-  TabViewModule
+  TabViewModule,
+  CarouselModule,
+  SliderModule,
+  RatingModule
 ];
 
 @NgModule({

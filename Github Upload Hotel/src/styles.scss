@@ -3,134 +3,89 @@
 @tailwind utilities;
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
 /* styles.css or styles.scss */
-@import '~@fortawesome/fontawesome-free/css/all.css';
+@import "~@fortawesome/fontawesome-free/css/all.css";
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 
-:root {
-    --blue: #377dff;
-    --indigo: #2d1582;
-    --purple: #8023df;
-    --pink: #ffe5ee;
-    --red: #de4437;
-    --orange: #f05700;
-    --yellow: #ffc107;
-    --green: #28871c;
-    --teal: #00c9a7;
-    --cyan: #00dffc;
-    --white: #fff;
-    --gray: #8c98a4;
-    --gray-dark: #343a40;
-    --primary: #297cbb;
-    --secondary: #77838f;
-    --success: #00c9a7;
-    --info: #00dffc;
-    --warning: #ffc107;
-    --danger: #de4437;
-    --light: #f8f9fa;
-    --dark: #3b444f;
-    --white: #fff;
-    --indigo: #2d1582;
-    --gray: #ebf0f7;
-    --violet: #532184;
-    --blue: #43c5db;
-    --pink: #ffe5ee;
-    --orange: #f05700;
-    --green: #28871c;
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    --breakpoint-wd: 1480px;
-    --font-family-sans-serif: "Rubik", Helvetica, Arial, sans-serif;
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  cursor: pointer;
 }
-
-*,*::before,*::after {
-    box-sizing: border-box;
-   cursor: pointer;
+html,
+body {
+  height: 100%;
 }
-
-
-// h1 {
-//     font-size: 2rem; /* Set your desired font size here */
-//     /* Add any other styles as needed */
-//   }
-
-
-
-// On Hover Scale Animation
-.borderWhite{
-    border-bottom: 1px solid rgba(255, 255, 255, 0.318);
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
 }
-.borderRight{
-    border-right: 1px solid rgba(255, 255, 255, 0.318);
+a {
+  text-decoration: none;
+}
+.borderWhite {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.318);
+}
+.borderRight {
+  border-right: 1px solid rgba(255, 255, 255, 0.318);
 }
 .hover-scale {
-    &:hover {
-      transform: scale(1.1);
-      transition: transform 0.3s ease-in-out;
-    }
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
   }
-  
-  // On Hover Move Up with Shadow Glow Animation
-  .hover-move-up {
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
+}
+.hover-move-up {
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
-  
-  .move-up {
-    &:hover {
-      transform: translateY(-5px);
-      
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
-  }
+}
 
-  // On Hover Move Up and Scale Animation
-  .hover-move-up-scale {
-    &:hover {
-      transform: translateY(-5px) scale(1.1);
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
+.move-up {
+  &:hover {
+    transform: translateY(-5px);
+
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
-  // Border Expand Animation
+}
+
+// On Hover Move Up and Scale Animation
+.hover-move-up-scale {
+  &:hover {
+    transform: translateY(-5px) scale(1.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+}
+// Border Expand Animation
 .border-expand {
-    position: relative;
-    display: inline-block;
-    transition: all 0.3s ease;
-    &:hover {
-      &::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px; // Initial border height
-        background-color: #000; // Border color
-        transition: all 0.3s ease;
-        transform-origin: bottom right;
-        transform: scaleX(0); // Initial border width
-      }
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  &:hover {
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px; // Initial border height
+      background-color: #000; // Border color
+      transition: all 0.3s ease;
+      transform-origin: bottom right;
+      transform: scaleX(0); // Initial border width
     }
   }
-  // Animation 1: Spin
-
-  
-  // Animation 2: Fade In
-  .fade-in {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    &:hover {
-      opacity: 1;
-    }
+}
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  &:hover {
+    opacity: 1;
   }
-  
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+}
