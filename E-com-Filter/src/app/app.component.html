@@ -1,0 +1,49 @@
+<!-- product.component.html -->
+<h1 class="text-center">Products Cards</h1>
+<div class="btnContainer">
+  <p-button styleClass="p-button-success" *ngFor="let category of uniqueCategories" (click)="filterProducts(category)">
+    {{ category }}
+  </p-button>
+</div>
+<div class="filterByPrice">
+  <label for="maxSize">Min Size:</label>
+  <p-inputNumber id="minSize" [(ngModel)]="minSize" [locale]="'en-IN'" mode="currency" currency="INR" (input)="updateFilter()"></p-inputNumber>
+  
+  <label for="maxSize">Max Size:</label>
+  <p-inputNumber id="maxSize" [(ngModel)]="maxSize" [locale]="'en-IN'" mode="currency" currency="INR" (input)="updateFilter()"></p-inputNumber>
+  
+</div>
+<div class="container">
+  <div class="card" *ngFor="let product of filteredProducts">
+    <p-card [header]="product.title.slice(0, 16)">
+      <img [src]="product.image" alt="Product Image" class="product-image" />
+      <div>{{ product.description.slice(0, 40) }}...</div>
+      <div class="product-details">
+        <p>
+          <i class="pi pi-tag pi-red"></i> Price: {{ product.price }}
+        </p>
+        <p>
+          <i class="pi pi-star pi-yellow"></i> Rating: {{ product.rating.rate }}
+        </p>
+        <p>
+          <i class="pi pi-comment pi-blue"></i> Reviews: {{ product.rating.count }}
+        </p>
+      </div>
+    </p-card>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="card" *ngFor="let product of this.filteredProducts.slice(2,20) ">
+    <p-card [header]="product.title.slice(0,16)" > 
+      <img [src]="product.images[0]" alt="Product Image" class="product-image" />
+      <div>{{ product.description.slice(0,40)  }}...</div>
+      <div class="product-details">
+        <p>
+          <i class="pi pi-tag pi-red"></i> Price: {{ product.price }}
+        </p>
+     
+      </div>
+    </p-card>
+  </div>
+</div> -->
