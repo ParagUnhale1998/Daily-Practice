@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import {FormGroup, FormControl} from '@angular/forms';
+import { LoginComponent } from '../login/login.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +25,9 @@ export class HomeComponent {
   }
   dateCheckIn: Date | undefined;
   dateCheckOut: Date | undefined;
-constructor(){
+
+
+constructor(private modalService: NgbModal,private router:Router){
   // Get today's date
 const today: Date = new Date();
 
@@ -121,24 +127,35 @@ ngOnInit() {
     ];
 }
 
-    rangeValues: number[] = [20,80];
-    checkboxStatus:any = {
-      popularity: false,
-      guestRating: false,
-      latest: false,
-      priceLowToHigh: false,
-      priceHightToLow: false,
-      // Add other checkbox statuses here
-  };
-
-    toggleCheckbox(checkbox: string): void {
-      this.checkboxStatus[checkbox] = !this.checkboxStatus[checkbox];
-  }
-
-  selectedRating: number | null = null;
-
-  onRatingChange(event: any): void {
-    this.selectedRating = event.value;
-    // Implement your logic to filter hotels based on the selected rating
-  }
+// openBackDropCustomClass() {
+//   const modalRef = this.modalService.open(ExampleModalComponent, {
+//     backdropClass: 'custom-backdrop', // Add your custom backdrop class here
+//     centered: true, // You can adjust other modal options as needed
+//   });
+//   modalRef.componentInstance.title = 'Modal Title';
+//   modalRef.componentInstance.content = 'This is the modal content.';
+// }
+// openBackDropCustomClass() {
+//   const modalRef = this.modalService.open(LoginComponent, {
+//     backdropClass: 'transparent-black-backdrop',
+//     centered: true,
+//     size: 'md'
+//   });
+  
+//   modalRef.result.then(
+//     (result) => {
+//       console.log('Modal closed with result:', result);
+//     },
+//     (reason) => {
+//       console.log('Modal dismissed with reason:', reason);
+//     }
+//   );
+// }
+openBackDropCustomClass(){
+  this.router.navigateByUrl('/user/login');
 }
+navigateToHotels() {
+  this.router.navigateByUrl('/user/allhotels');
+}
+}
+

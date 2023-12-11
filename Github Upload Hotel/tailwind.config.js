@@ -10,6 +10,7 @@ module.exports = {
         mySkyBlue: "#297CBB",
         myGray: "#545454",
         myDarkGray: "#262626",
+        myGrayBlack: "#444444",
       },
     },
   },

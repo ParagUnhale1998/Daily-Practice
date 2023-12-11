@@ -1,1 +1,196 @@
-<p>header works!</p>
+<!-- <nav id="navbar1" class="mx-auto  flex item-center justify-between p-2 px-4  ">
+    <div class="contact p-3 ">
+        <ul id="menu-top-bar-left" class="flex items-center list-none mb-0">
+            <li class="borderRight pr-2 text-sm ">
+                <a href="tel:(000)999-898-999" class="text-gray-500 text-decoration-none hover:opacity-75 ">Call us:
+                    (000) 999 - 898 - 999</a>
+            </li>
+            <li class="text-sm">
+                <a href="mailto:info@mytravel.com"
+                    class="text-gray-500 ml-2 text-decoration-none hover:opacity-75">Email: info@mytravel.com</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="signInContainer  flex  items-center justify-center gap-2">
+        <div class="socialLinks  flex  items-center justify-center borderRight pr-2">
+            <ul id="menu-social-media" class=" p-0 m-0 flex items-center justify-center gap-3">
+                <li>
+                    <a href="https://www.facebook.com/"
+                        class="p-2 text-gray-500 btn-social btn-facebook hover:opacity-75 hover:shadow-md hover:shadow-gray-800">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com/"
+                        class="p-2 text-gray-500 btn-social btn-twitter hover:opacity-75 hover:shadow-md hover:shadow-gray-800">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/"
+                        class="p-2 text-gray-500 btn-social btn-instagram hover:opacity-75 hover:shadow-md hover:shadow-gray-800">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/"
+                        class="p-2 text-gray-500 btn-social btn-linkedin hover:opacity-75 hover:shadow-md hover:shadow-gray-800">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="login borderRight pr-2 ">
+            <i class=" text-gray-500 fa-solid fa-hotel mr-2 ml-1 text-xl"></i>
+            <span class="font-bold text-gray-500 mr-1 hover:opacity-75 cursor-pointer ">Create Business Account.</span>
+        </div>
+        <div class="selectLanguage">
+            <div class="relative inline-block">
+                <button (click)="toggleDropdown()"
+                    class=" text-gray-500 px-2 py-2 rounded-md focus:outline-none focus:shadow-outline-blue hover:opacity-75">
+                    ENG
+                    <i class="text-gray-500 fas fa-caret-down mr-2 ml-1 text-xl"></i>
+                </button>
+                <ul *ngIf="isDropdownOpen" [ngStyle]="{ 'display': isDropdownOpen ? 'block' : 'none' }"
+                    class="absolute right-0  dropdown-menu text-center dropdown-unfold dropdown-menu-right mt-0">
+                    <li>
+                        <a (click)="toggleDropdown()" href="#"
+                            class="dropdown-item  active:bg-transparent active:text-gray-500 ">USD</a>
+                    </li>
+                    <li>
+                        <a (click)="toggleDropdown()" href="#"
+                            class="dropdown-item active:bg-transparent active:text-gray-500 ">EUR</a>
+                    </li>
+                    <li>
+                        <a (click)="toggleDropdown()" href="#"
+                            class="dropdown-item active:bg-transparent active:text-gray-500 ">TUR</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav> -->
+
+<!-- <div id="navbar-main" class="container shadow-md border-b-[1px] border-gray-200 p-2 flex items-center justify-between">
+    <div class="flex items-center">
+        <img src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/08/primary-logo.jpeg" alt="Logo"
+            class="mr-2 h-12 w-12">
+        <span class="text-gray-700 font-semibold  text-3xl">MyTravel</span>
+    </div>
+
+    <nav class="flex items-center space-x-8">
+        <a href="#" class="text-gray-600 font-bold capitalize text-decoration-none hover:opacity-75">Home</a>
+        <a href="#" class="text-gray-600 font-bold capitalize text-decoration-none hover:opacity-75">Hotels</a>
+        <a href="#" class="text-gray-600 font-bold capitalize text-decoration-none hover:opacity-75 ">Activities</a>
+        <div class="flex items-center hover-move-up-scale">
+            <i class="text-gray-600 fas fa-shopping-cart mr-1"></i>
+            <span class="text-gray-500 font-bold capitalize ">Cart</span>
+        </div>
+        <button
+            class="bg-mySkyBlue text-white px-4 py-2 rounded font-bold capitalize hover:shadow-md hover:shadow-white  hover-move-up">
+            <i class="text-white fas fa-user "></i>
+            Sign in or Register</button>
+    </nav>
+</div> -->
+<nav id="navbar1" class="mx-auto borderWhite flex item-center justify-between p-2 px-4">
+    <div class="contact p-3">
+        <ul id="menu-top-bar-left" class="flex items-center list-none mb-0">
+            <li class="borderRight pr-2 text-sm ">
+                <a href="tel:(000)999-898-999" class="text-white text-decoration-none hover:opacity-75 ">Call us:
+                    (000) 999 - 898 - 999</a>
+            </li>
+            <li class="text-sm">
+                <a href="mailto:info@mytravel.com"
+                    class="text-white ml-2 text-decoration-none hover:opacity-75">Email: info@mytravel.com</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="signInContainer  flex  items-center justify-center gap-2">
+        <div class="socialLinks  flex  items-center justify-center borderRight pr-2">
+            <ul id="menu-social-media" class=" p-0 m-0 flex items-center justify-center gap-3">
+                <li>
+                    <a href="https://www.facebook.com/"
+                        class="p-2 text-white btn-social btn-facebook hover:opacity-75 hover:shadow-md hover:shadow-white">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com/"
+                        class="p-2 text-white btn-social btn-twitter hover:opacity-75 hover:shadow-md hover:shadow-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/"
+                        class="p-2 text-white btn-social btn-instagram hover:opacity-75 hover:shadow-md hover:shadow-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/"
+                        class="p-2 text-white btn-social btn-linkedin hover:opacity-75 hover:shadow-md hover:shadow-white">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="login borderRight pr-2 ">
+     
+            <i class=" text-white fa-solid fa-hotel mr-2 ml-1 text-xl"></i>
+            <span class="font-bold text-white mr-1 hover:opacity-75 cursor-pointer ">Create Business Account.</span>
+        </div>
+        <div class="selectLanguage">
+            <div class="relative inline-block">
+
+                <button (click)="toggleDropdown()"
+                    class=" text-white px-2 py-2 rounded-md focus:outline-none focus:shadow-outline-blue hover:opacity-75">
+                    ENG
+                    <i class="text-white fas fa-caret-down mr-2 ml-1 text-xl"></i>
+                </button>
+
+                <ul *ngIf="isDropdownOpen" [ngStyle]="{ 'display': isDropdownOpen ? 'block' : 'none' }"
+                    class="absolute right-0  dropdown-menu text-center dropdown-unfold dropdown-menu-right mt-0">
+                    <li>
+                        <a (click)="toggleDropdown()" href="#"
+                            class="dropdown-item  active:bg-transparent active:text-black ">USD</a>
+                    </li>
+                    <li>
+                        <a (click)="toggleDropdown()" href="#"
+                            class="dropdown-item active:bg-transparent active:text-black ">EUR</a>
+                    </li>
+                    <li>
+                        <a (click)="toggleDropdown()" href="#"
+                            class="dropdown-item active:bg-transparent active:text-black ">TUR</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</nav>
+
+<div id="navbar-main" class="container border-gray-500 p-2 flex items-center justify-between">
+    <div class="flex items-center">
+        <img src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/04/logo-white.svg" alt="Logo"
+            class="mr-2 h-8 w-8">
+        <span class="text-white font-bold  text-3xl">MyTravel</span>
+    </div>
+
+    <nav class="flex items-center space-x-8">
+        <a  class="text-white font-bold capitalize text-decoration-none hover:opacity-75" (click)="navigateTohome()" >Home</a>
+        <a  class="text-white font-bold capitalize text-decoration-none hover:opacity-75" (click)="navigateToHotels()">Hotels</a>
+        <a href="#" class="text-white font-bold capitalize text-decoration-none hover:opacity-75 ">Activities</a>
+        <div class="flex items-center hover-move-up-scale">
+            <i class="text-white fas fa-shopping-cart mr-1"></i>
+            <span class="text-white font-bold capitalize ">Cart</span>
+        </div>
+        <button 
+            class="bg-white text-myDarkGray  px-4 py-2 rounded font-bold capitalize hover:shadow-md hover:shadow-white  hover-move-up" (click)="navigateToLogin()">
+            <i class="text-black fas fa-user "></i>
+            Sign in or Register</button>
+            
+    </nav>
+</div>

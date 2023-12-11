@@ -30,7 +30,8 @@ const materialModules = [
   TabViewModule,
   CarouselModule,
   SliderModule,
-  RatingModule
+  RatingModule,
+ 
 ];
 
 @NgModule({
@@ -44,7 +45,9 @@ const materialModules = [
     ...materialModules  // Spread the array directly here
   ],
   exports: [
-    ...materialModules  // Spread the array directly here
+    ...materialModules ,
+     HeaderComponent,
+  FooterComponent, // Spread the array directly here
   ]
 })
 export class SharedModule { }

@@ -89,3 +89,24 @@ a {
     opacity: 1;
   }
 }
+/* your-component.component.css or your-component.component.scss */
+.section-title::after {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 2px;
+  top: 50%;
+  right: -55px;
+  margin-top: -1px;
+  background: var(--primary); /* Make sure --primary is defined in your styles or set a color value */
+}
+.section-title::before {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 2px;
+  top: 50%;
+  left: -55px;
+  margin-top: -1px;
+  background: var(--primary);
+}

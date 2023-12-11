@@ -26,3 +26,6 @@
   .countryImageContainer:hover .details {
     bottom: 0;
   }
+  .transparent-black-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha channel for transparency */
+  }

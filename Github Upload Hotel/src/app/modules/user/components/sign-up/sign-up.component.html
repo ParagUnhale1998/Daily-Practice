@@ -1,0 +1,65 @@
+  <div class="flex flex-col md:flex-row justify-center items-center" *ngIf="showSignUp">
+            <div class="w-full md:w-1/2 lg:w-1/2 pr-4 pl-4 bg-gray p-12 text-center">
+                <h4 class="text-center fw-bolder fs-2">Login</h4>
+                <p class="mb-3 fs-7">Already gave an account ?</p>
+                <a >
+                    <button
+                        class="inline-block align-middle text-center select-none border-2  whitespace-no-wrap rounded-full py-2 px-4 text-mySkyBlue font-bold  border-mySkyBlue hover:bg-mySkyBlue hover:text-white" (click)="loginClick()">Login</button>
+                </a>
+                <div class="img-cover p-6">
+                    <img src="assets/loginbg.svg" alt="">
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/2 pr-4 pl-4">
+                <div class="w-full flex flex-wrap md:flex">
+                    <div class="md:w-2/3 pr-4 pl-4 p-6 w-full m-auto text-center justify-center items-center">
+                        <h4 class="text-center fw-bolder mb-4 fs-2">Sign Up</h4>
+                        <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
+                            <span class="p-2 bg-slate-100"><i class="fas fa-user bg-transparent"></i></span>
+                            <input type="text"
+                                class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                placeholder="Enter Full Name" aria-label="Full Name" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
+                            <span class="p-2 bg-slate-100"><i class="fas fa-envelope bg-transparent"></i></span>
+                            <input type="email"
+                                class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                placeholder="Enter Email" aria-label="Email" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
+                            <span class="p-2 bg-slate-100"><i class="fas fa-phone bg-transparent"></i></span>
+                            <input type="tel"
+                                class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                placeholder="Enter Phone Number" aria-label="Phone Number" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
+                            <span class="p-2 bg-slate-100"><i class="fas fa-lock bg-transparent"></i></span>
+                            <input type="password"
+                                class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                placeholder="Enter Password" aria-label="Password" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
+                            <span class="p-2 bg-slate-100"><i class="fas fa-lock bg-transparent"></i></span>
+                            <input type="password"
+                                class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                placeholder="Confirm Password" aria-label="Confirm Password" aria-describedby="basic-addon1">
+                        </div>
+        
+                        <button
+                            class="move-up inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-3 px-4 leading-tight text-xl fw-bold fs-7 bg-mySkyBlue text-white hover:bg-blue-600 w-full">Register</button>
+        
+                        <p class="text-center py-4 fw-bold text-sm">Or Sign up with social platforms</p>
+        
+                        <ul class="flex flex-wrap items-center justify-center  mx-auto">
+                            <!-- Font Awesome icons -->
+                            <li class="float-start px-3"><a href=""><i
+                                        class="text-2xl fab fa-facebook text-myGrayBlack move-up hover:text-mySkyBlue"></i></a>
+                            </li>
+                            <li class="float-start px-3"><a href=""><i
+                                        class="text-2xl fab fa-google text-myGrayBlack move-up hover:text-mySkyBlue"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+   </div>

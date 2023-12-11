@@ -7,6 +7,10 @@ import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TopDestinationComponent } from './components/top-destination/top-destination.component';
 import { TrendingComponent } from './components/trending/trending.component';
+import { AllhotelsComponent } from './components/allhotels/allhotels.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { UserRoutingModule } from './user-routing.module';
 
 
 
@@ -17,11 +21,16 @@ import { TrendingComponent } from './components/trending/trending.component';
     ProfileComponent,
     HomeComponent,
     TopDestinationComponent,
-    TrendingComponent
+    TrendingComponent,
+    AllhotelsComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    UserRoutingModule,
+    SharedModule,
+
   ]
 })
 export class UserModule { }
