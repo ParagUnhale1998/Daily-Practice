@@ -157,5 +157,8 @@ openBackDropCustomClass(){
 navigateToHotels() {
   this.router.navigateByUrl('/user/allhotels');
 }
+navigateToOwnerLogin() {
+  this.router.navigateByUrl('/owner/login');
+}
 }
 

@@ -5,7 +5,7 @@ import { AllhotelsComponent } from './modules/user/components/allhotels/allhotel
 import { LoginComponent } from './modules/user/components/login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'user', pathMatch: 'full' }, // Redirect empty path to /user
+  { path: '', redirectTo: 'owner', pathMatch: 'full' }, // Redirect empty path to /user
   { path: 'user', loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule) },
   { path: 'owner', loadChildren: () => import('./modules/hotel-owner/hotel-owner.module').then(m => m.HotelOwnerModule) },
   { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },

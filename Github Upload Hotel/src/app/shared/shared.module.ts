@@ -13,9 +13,11 @@ import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { TabViewModule } from 'primeng/tabview';
-import { CarouselModule } from 'primeng/carousel';
+// import { CarouselModule } from 'primeng/carousel';
 import { SliderModule } from 'primeng/slider';
 import { RatingModule } from 'primeng/rating';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 const materialModules = [
   FormsModule,
@@ -31,7 +33,7 @@ const materialModules = [
   CarouselModule,
   SliderModule,
   RatingModule,
- 
+  MatSidenavModule
 ];
 
 @NgModule({

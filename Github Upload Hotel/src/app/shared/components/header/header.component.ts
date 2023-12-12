@@ -29,4 +29,7 @@ export class HeaderComponent {
     this.router.navigateByUrl('/user/login')
 
   }
+  navigateToOwnerLogin() {
+    this.router.navigateByUrl('/owner/login');
+  }
 }

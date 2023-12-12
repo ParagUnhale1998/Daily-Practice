@@ -5,6 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManageUsersComponent } from './components/manage-users/manage-users.component';
 import { AnalyticsComponent } from './components/analytics/analytics.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { AnalyticsComponent } from './components/analytics/analytics.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,SharedModule
   ]
 })
 export class AdminModule { }
