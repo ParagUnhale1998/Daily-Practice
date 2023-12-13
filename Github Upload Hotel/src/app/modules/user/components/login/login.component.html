@@ -10,7 +10,8 @@
         <h6 class="section-title text-center text-white text-2xl">Discover Luxury Stay</h6>
         <h1 class="text-white capitalize">Welcome to our<span class="text-mySkyBlue font-bold capitalize"> Hotels
                 Paradise.</span></h1>
-        <p class="text-white mt-4 text-2xl capitalize">Log in or register to unlock exclusive offers and book your dream stay.</p>
+        <p class="text-white mt-4 text-2xl capitalize">Log in or register to unlock exclusive offers and book your dream
+            stay.</p>
     </div>
 </div>
 
@@ -33,34 +34,36 @@
                 <div class="w-full flex flex-wrap  md:flex">
                     <div class="md:w-2/3 pr-4 pl-4 p-6 w-full m-auto text-center justify-center items-center">
                         <h4 class="text-center fw-bolder mb-4 fs-2">Login</h4>
-                        <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
-                            <span class="p-2 bg-slate-100"><i class="fas fa-user bg-transparent"></i></span>
-                            <input type="password"
-                                class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
-                                placeholder="Enter Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
-                            <span class="p-2 bg-slate-100"><i class="fas fa-lock bg-transparent"></i></span>
-                            <input type="password"
-                                class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
-                                placeholder="Enter  Password" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
+                        <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
 
-
-                        <button
+                            <div class="relative flex items-stretch w-full mb-4 rounded border-[1px] border-gray-300">
+                                <span class="p-2 bg-slate-100"><i class="fas fa-user bg-transparent"></i></span>
+                                <input type="text" formControlName="email"
+                                    class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                    placeholder="Enter Username" aria-label="email" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
+                                <span class="p-2 bg-slate-100"><i class="fas fa-lock bg-transparent"></i></span>
+                                <input type="password"  formControlName="password"
+                                    class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                    placeholder="Enter  Password" aria-label="password" aria-describedby="basic-addon1">
+                            </div>
+                            
+                            <button  type="submit"
                             class="move-up inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-3 px-4 leading-tight text-xl fw-bold fs-7 bg-mySkyBlue text-white hover:bg-blue-600 w-full">Login</button>
+                        </form>
 
-                        <p class="text-center  py-4 fw-bold text-sm">Or Sign in with social platforms</p>
+                            <p class="text-center  py-4 fw-bold text-sm">Or Sign in with social platforms</p>
 
-                        <ul class="flex flex-wrap items-center justify-center  mx-auto">
-                            <!-- Font Awesome icons -->
-                            <li class="float-start px-3 "><a href=""><i
-                                        class=" text-2xl fab fa-facebook text-myGrayBlack move-up hover:text-mySkyBlue"></i></a>
-                            </li>
-                            <li class="float-start px-3"><a href=""><i
-                                        class="text-2xl fab  fa-google text-myGrayBlack move-up hover:text-mySkyBlue"></i></a>
-                            </li>
-                        </ul>
+                            <ul class="flex flex-wrap items-center justify-center  mx-auto">
+                                <!-- Font Awesome icons -->
+                                <li class="float-start px-3 "><a href=""><i
+                                            class=" text-2xl fab fa-facebook text-myGrayBlack move-up hover:text-mySkyBlue"></i></a>
+                                </li>
+                                <li class="float-start px-3"><a href=""><i
+                                            class="text-2xl fab  fa-google text-myGrayBlack move-up hover:text-mySkyBlue"></i></a>
+                                </li>
+                            </ul>
                     </div>
                 </div>
 

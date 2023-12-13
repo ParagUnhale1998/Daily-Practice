@@ -1,0 +1,66 @@
+{
+  "users": [
+    {
+      "id": "john@example.com",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "phone": "123-456-7890",
+      "password": "securepassword",
+      "confirmPassword": "securepassword",
+      "cart": [],
+      "bookings": []
+    },
+    {
+      "name": "parag unhale",
+      "email": "paragunhale1998@gmail.com",
+      "phoneNumber": "9284815636",
+      "password": "parag123",
+      "confirmPassword": "parag123",
+      "cart": [],
+      "bookings": [],
+      "id": "e5ZyqCY"
+    },
+    {
+      "id": "parag@gmail.com",
+      "name": "parag",
+      "email": "parag@gmail.com",
+      "phoneNumber": "9284815636",
+      "password": "parag123",
+      "confirmPassword": "parag123",
+      "cart": [],
+      "bookings": []
+    }
+  ],
+  "owners": [
+    {
+      "id": "owner@example.com",
+      "name": "Hotel Owner",
+      "email": "owner@example.com",
+      "phone": "987-654-3210",
+      "password": "securepassword",
+      "confirmPassword": "securepassword",
+      "idCard": "ABC123XYZ",
+      "address": "123 Main St",
+      "agreeTerms": true,
+      "hotels": [],
+      "bookings": []
+    }
+  ],
+  "hotels": [
+    {
+      "id": 1,
+      "name": "Luxury Hotel",
+      "location": "City Center",
+      "description": "A luxurious hotel with great amenities",
+      "beds": 2,
+      "bath": 1,
+      "price": 200,
+      "wifi": true,
+      "pool": true,
+      "tv": true,
+      "freeParking": true,
+      "imageUrl": "https://example.com/hotel-image.jpg",
+      "ownerId": "owner@example.com"
+    }
+  ]
+}

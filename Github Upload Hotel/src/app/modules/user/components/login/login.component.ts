@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SignUpComponent } from '../sign-up/sign-up.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,33 +8,59 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  // constructor(public activeModal: NgbActiveModal,private modalService: NgbModal) {}
-  // closeModal() {
-  //   this.activeModal.close('Modal Closed');
-  // }
-
-  // openSignUpComponent() {
-  //   this.closeModal()
-  //   const modalRef = this.modalService.open(SignUpComponent, {
-  //     backdropClass: 'transparent-black-backdrop',
-  //     centered: true,
-  //     size: 'lg'
-  //   });
-  //   modalRef.result.then(
-  //     (result) => {
-        
-  //       console.log('Modal closed with result:', result);
-  //     },
-  //     (reason) => {
-  //       console.log('Modal dismissed with reason:', reason);
-  //     }
-  //   );
-  // }
-
+ 
   showSignUp = false;
 
   toggleSection() {
     this.showSignUp = !this.showSignUp;
   }
+ 
+    loginForm: FormGroup;
+
+  constructor(private fb: FormBuilder, private authService: UserService) {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
+
+  submitLogin() {
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      this.authService.getUserByEmail(email).subscribe(
+        (response) => {
+          const userData = response; // Assuming the response contains user data
   
+          // Check if the entered username and password match the data from the server
+          if (email === userData.email && password === userData.password) {
+            console.log('Login successful', response);
+            // Handle success, e.g., redirect to another page
+          } else {
+            console.error('Invalid username or password');
+            // Handle error, e.g., display an error message
+          }
+        },
+        (error) => {
+          console.error('Login failed', error);
+          // Handle error, e.g., display an error message
+        }
+      );
+    } else {
+      // Form is invalid, mark fields as touched to display errors
+      this.markFormGroupTouched(this.loginForm);
+    }
+  }
+  
+
+  // Utility method to mark form controls as touched
+  private markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach((control) => {
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      } else {
+        control.markAsTouched();
+      }
+    });
+  }
+
 }

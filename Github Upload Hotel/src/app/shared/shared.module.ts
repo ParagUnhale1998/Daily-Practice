@@ -19,12 +19,30 @@ import { RatingModule } from 'primeng/rating';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { HttpClientModule } from '@angular/common/http';
+
 const materialModules = [
   FormsModule,
   ReactiveFormsModule,
   MatFormFieldModule,
+  MatButtonModule,
+  MatCheckboxModule,
+  MatIconModule,
+  MatSelectModule,
+  MatRadioModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule,
   MatInputModule,
   ButtonModule,
   CalendarModule,
@@ -33,7 +51,8 @@ const materialModules = [
   CarouselModule,
   SliderModule,
   RatingModule,
-  MatSidenavModule
+  MatSidenavModule,
+  HttpClientModule
 ];
 
 @NgModule({
