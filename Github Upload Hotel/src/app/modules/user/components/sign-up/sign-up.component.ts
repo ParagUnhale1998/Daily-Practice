@@ -16,6 +16,7 @@ export class SignUpComponent {
     this.toggle.emit();
   }
   signUpForm!: FormGroup;
+  isMatch!: boolean;
 
   constructor(private fb: FormBuilder, private userService: UserService) { }
 
@@ -28,7 +29,7 @@ export class SignUpComponent {
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', Validators.required],
       password: ['', Validators.required],
-      confirmPassword: ['', Validators.required,this.passwordMatchValidator],
+      confirmPassword: ['', Validators.required],
       
       cart: this.fb.array([]),
       bookings: this.fb.array([]),
@@ -37,14 +38,13 @@ export class SignUpComponent {
     this.signUpForm.get('email')?.valueChanges.subscribe((email) => {
       this.signUpForm.patchValue({ id: email }, { emitEvent: false });
     });
+    
+    
 
   }
-  private passwordMatchValidator: ValidatorFn = (signUpForm: AbstractControl): ValidationErrors | null => {
-    const password = signUpForm.get('password')?.value;
-    const confirmPassword = signUpForm.get('confirmPassword')?.value;
-
-    return password === confirmPassword ? null : { passwordMismatch: true };
-  };
+  ConfirmPass() {
+    this.isMatch =this.signUpForm.get('password')?.value === this.signUpForm.get('confirmPassword')?.value;
+  }
   // Function to submit the sign-up form
   submitSignUp() {
     if (this.signUpForm.valid) {
