@@ -1,28 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HotelService } from '../../services/hotel.service';
+import { OwnerDataService } from '../../services/owner-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-hotel',
   templateUrl: './add-hotel.component.html',
-  styleUrls: ['./add-hotel.component.scss']
+  styleUrls: ['./add-hotel.component.scss'],
 })
 export class AddHotelComponent implements OnInit {
-
   wifiEnabled: boolean = false;
   privatePool: boolean = false;
   tv: boolean = false;
   freeParking: boolean = false;
   addHotelForm!: FormGroup;
-
-  constructor(private fb: FormBuilder) {}
+  ownerId: string = '';
+  hotelID: any;
+  constructor(
+    private fb: FormBuilder,
+    private hotelService: HotelService,
+    private ownerDataService: OwnerDataService,
+    private route: ActivatedRoute
+  ) {
+    this.ownerId = this.ownerDataService.getOwnerId();
+    console.log('add hotel' + this.ownerId);
+  }
 
   ngOnInit() {
     this.initializeForm();
     this.subscribeToFormChanges();
+
+    this.route.params.subscribe((params: { [key: string]: any }) => {
+      if (params['mode'] === 'edit' && params['hotelId']) {
+        // Fetch the hotel data based on the provided hotelId
+        this.hotelID = params['hotelId']
+
+        this.hotelService
+          .getHotelById(params['hotelId'])
+          .subscribe((hotelData) => {
+            // Patch the form with the retrieved hotel data
+            this.addHotelForm.patchValue(hotelData);
+          });
+      }
+    });
   }
 
   private initializeForm() {
@@ -52,18 +73,61 @@ export class AddHotelComponent implements OnInit {
 
   onSubmit() {
     if (this.addHotelForm.valid) {
-      const formData = this.addHotelForm.value;
-      console.log(formData);
-      this.addHotelForm.reset();
-      this.addHotelForm.markAsPristine();
-      this.addHotelForm.markAsUntouched();
+      const hotelData = this.addHotelForm.value;
+      if (this.isEditMode()) {
+        // Edit mode: Patch the existing hotel data
+        this.hotelService.updateHotel(this.ownerId,this.hotelID,hotelData).subscribe(
+          () => {
+            console.log('Hotel edited successfully');
+            this.resetForm();
+          },
+          (error) => {
+            console.error('Error editing hotel', error);
+          }
+        );
+      } else {
+        // Step 1: Add the hotel to the "hotels" JSON
+        this.hotelService.addHotelForOwner(this.ownerId, hotelData).subscribe(
+          (hotelResponse) => {
+            const newHotelId = hotelResponse.id; // Assuming the response includes the new hotel ID
+
+            // Step 2: Add the hotel ID to the owner's "hotels" array
+            this.hotelService
+              .updateOwnerHotels(this.ownerId, newHotelId)
+              .subscribe(
+                () => {
+                  console.log('Hotel added successfully');
+                  // Reset the form after successful submission
+                  this.addHotelForm.reset();
+                  this.addHotelForm.markAsPristine();
+                  this.addHotelForm.markAsUntouched();
+                },
+                (error) => {
+                  console.error('Error updating owner hotels', error);
+                }
+              );
+          },
+          (error) => {
+            console.error('Error adding hotel', error);
+          }
+        );
+      }
     } else {
       this.markFormGroupTouched(this.addHotelForm);
     }
   }
+  private isEditMode(): boolean {
+    return this.route.snapshot.params['mode'] === 'edit';
+  }
+
+  private resetForm() {
+    this.addHotelForm.reset();
+    this.addHotelForm.markAsPristine();
+    this.addHotelForm.markAsUntouched();
+  }
 
   private markFormGroupTouched(formGroup: FormGroup) {
-    Object.values(formGroup.controls).forEach(control => {
+    Object.values(formGroup.controls).forEach((control) => {
       if (control instanceof FormGroup) {
         this.markFormGroupTouched(control);
       } else {

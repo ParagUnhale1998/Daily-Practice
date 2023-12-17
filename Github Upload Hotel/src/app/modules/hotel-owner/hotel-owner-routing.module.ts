@@ -17,6 +17,7 @@ const routes: Routes = [
       // { path: 'dashbord', component: DashboardComponent },
       { path: 'all-hotels', component: HotelListComponent },
       { path: 'add-hotel', component: AddHotelComponent },
+      { path: 'add-hotel/:mode/:hotelId', component: AddHotelComponent },
       { path: 'booking-list', component: ManageBookingsComponent },
       
     ],

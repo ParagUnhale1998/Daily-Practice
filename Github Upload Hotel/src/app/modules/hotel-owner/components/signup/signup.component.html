@@ -14,40 +14,137 @@
         <div class="w-full flex flex-wrap md:flex">
             <div class="md:w-2/3 pr-4 pl-4 p-6 w-full m-auto text-center justify-center items-center">
                 <h4 class="text-center fw-bolder mb-4 fs-2">Sign Up</h4>
-                <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
-                    <span class="p-2 bg-slate-100"><i class="fas fa-user bg-transparent"></i></span>
-                    <input type="text"
-                        class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
-                        placeholder="Enter Full Name" aria-label="Full Name" aria-describedby="basic-addon1">
-                </div>
-                <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
-                    <span class="p-2 bg-slate-100"><i class="fas fa-envelope bg-transparent"></i></span>
-                    <input type="email"
-                        class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
-                        placeholder="Enter Email" aria-label="Email" aria-describedby="basic-addon1">
-                </div>
-                <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
-                    <span class="p-2 bg-slate-100"><i class="fas fa-phone bg-transparent"></i></span>
-                    <input type="tel"
-                        class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
-                        placeholder="Enter Phone Number" aria-label="Phone Number" aria-describedby="basic-addon1">
-                </div>
-                <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
-                    <span class="p-2 bg-slate-100"><i class="fas fa-lock bg-transparent"></i></span>
-                    <input type="password"
-                        class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
-                        placeholder="Enter Password" aria-label="Password" aria-describedby="basic-addon1">
-                </div>
-                <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
-                    <span class="p-2 bg-slate-100"><i class="fas fa-lock bg-transparent"></i></span>
-                    <input type="password"
-                        class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
-                        placeholder="Confirm Password" aria-label="Confirm Password" aria-describedby="basic-addon1">
-                </div>
+                <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+                    <div class="relative w-full  mb-4">
+                        <div class=" flex items-stretch  rounded border-[1px]  border-gray-300">
+                            <span class="p-2 bg-slate-100"><i class="fas fa-user bg-transparent"></i></span>
+                            <input type="text" formControlName="name"
+                                class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                placeholder="Enter Full Name" aria-label="name" aria-describedby="basic-addon1">
+                        </div>
+                        <div *ngIf="registrationForm.get('name')?.invalid && (registrationForm.get('name')?.dirty || registrationForm.get('name')?.touched)"
+                            class="text-red-500 text-sm bg-white rounded p-2 shadow-lg transition duration-400 absolute -top-5 right-0">
+                            <div *ngIf="registrationForm.get('name')?.getError">Full Name is required</div>
+                        </div>
+                    </div>
 
-                <button
-                    class="move-up inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-3 px-4 leading-tight text-xl fw-bold fs-7 bg-mySkyBlue text-white hover:bg-blue-600 w-full">Register</button>
+                    <div class="relative w-full  mb-4">
+                        <div class=" flex items-stretch  rounded border-[1px]  border-gray-300"> <span
+                                class="p-2 bg-slate-100"><i class="fas fa-envelope bg-transparent"></i></span>
+                            <input type="email" formControlName="email"
+                                class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                placeholder="Enter Email" aria-label="email" aria-describedby="basic-addon1">
+                        </div>
+                        <div *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)"
+                            class="text-red-500 text-sm bg-white rounded p-2 shadow-lg transition duration-400 absolute -top-5 right-0">
+                            <div *ngIf="registrationForm.get('email')?.hasError('required')">Email is required</div>
+                            <div *ngIf="registrationForm.get('email')?.hasError('email') && registrationForm.get('email')?.touched">
+                                Please enter a valid email address.
+                              </div>
+                        </div>
+                    </div>
+                    <div class="relative w-full mb-4">
+                        <div class="flex items-stretch rounded border-[1px] border-gray-300">
+                          <span class="p-2 bg-slate-100"><i class="fas fa-phone bg-transparent"></i></span>
+                          <input
+                            type="tel"
+                            formControlName="phoneNumber"
+                            class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                            placeholder="Enter Phone Number"
+                            aria-label="phoneNumber"
+                            aria-describedby="basic-addon1"
+                          />
+                        </div>
+                        <div
+                          *ngIf="registrationForm.get('phoneNumber')?.invalid && (registrationForm.get('phoneNumber')?.dirty || registrationForm.get('phoneNumber')?.touched)"
+                          class="text-red-500 text-sm bg-white rounded p-2 shadow-lg transition duration-400 absolute -top-5 right-0"
+                        >
+                          <div *ngIf="registrationForm.get('phoneNumber')?.hasError('required')">Phone Number is required</div>
+                          <div *ngIf="registrationForm.get('phoneNumber')?.hasError('pattern') && registrationForm.get('phoneNumber')?.touched">
+                            Please enter a valid phone number.
+                          </div>
+                          
+                        </div>
+                        <div *ngIf="registrationForm.get('phoneNumber')?.hasError('maxLength') && (registrationForm.get('phoneNumber')?.touched || registrationForm.get('phoneNumber')?.dirty)" class="text-red-500 text-sm bg-white rounded p-2 shadow-lg transition duration-400 absolute -bottom-5 right-0">
+                            Phone number must be at least 10 numbers long.
+                          </div>
+                          
+                      </div>
+                      
+                    <div class="relative w-full mb-4">
+                        <div class="flex items-stretch rounded border-[1px] border-gray-300">
+                          <span class="p-2 bg-slate-100"><i class="fas fa-map-marker-alt bg-transparent"></i></span>
+                          <input type="text" formControlName="address"
+                                 class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                 placeholder="Enter Address" aria-label="address" aria-describedby="basic-addon1">
+                        </div>
+                        <div *ngIf="registrationForm.get('address')?.invalid && (registrationForm.get('address')?.dirty || registrationForm.get('address')?.touched)"
+                             class="text-red-500 text-sm bg-white rounded p-2 shadow-lg transition duration-400 absolute -top-5 right-0">
+                          <div *ngIf="registrationForm.get('address')?.hasError('required')">Address is required</div>
+                        </div>
+                      </div>
+                      
+                    <div class="relative w-full  mb-4">
+                        <div class=" flex items-stretch  rounded border-[1px]  border-gray-300"> <span
+                                class="p-2 bg-slate-100"><i class="fas fa-lock bg-transparent"></i></span>
+                            <input type="password" formControlName="password"
+                                class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                placeholder="Enter Password" aria-label="Password" aria-describedby="basic-addon1">
+                        </div>
+                        <div *ngIf="registrationForm.get('password')?.invalid && (registrationForm.get('password')?.dirty || registrationForm.get('password')?.touched)"
+                            class="text-red-500 text-sm bg-white rounded p-2 shadow-lg transition duration-400 absolute -top-5 right-0">
+                            <div *ngIf="registrationForm.get('password')?.hasError('required')">Password is required</div>
+                            
+                        </div> 
+                        <div *ngIf="registrationForm.get('password')?.hasError('minlength') && registrationForm.get('password')?.touched" class="text-red-500 text-sm bg-white rounded p-2 shadow-lg transition duration-400 absolute -bottom-5 right-0">
+                            Password must be at least 8 characters long.
+                          </div>
+                    </div>
+                    <div class="relative w-full mb-4">
+                        <div class="flex items-stretch rounded border-[1px] border-gray-300">
+                          <span class="p-2 bg-slate-100"><i class="fas fa-lock bg-transparent"></i></span>
+                          <input type="password" formControlName="confirmPassword" (keyup)="ConfirmPass()"
+                                 class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                 placeholder="Confirm Password" aria-label="confirmPassword" aria-describedby="basic-addon1">
+                        </div>
+                        <div *ngIf="registrationForm.get('confirmPassword')?.invalid && (registrationForm.get('confirmPassword')?.dirty || registrationForm.get('confirmPassword')?.touched)"
+                             class="text-red-500 text-sm bg-white rounded p-2 shadow-lg transition duration-400 absolute -top-5 right-0">
+                          <div *ngIf="registrationForm.get('confirmPassword')?.hasError('required')">Confirm Password is required</div>
+                        </div>
+                        <div  *ngIf="registrationForm.controls['confirmPassword']?.dirty &&  !isMatch" class="text-red-500 text-sm bg-white rounded p-2 shadow-lg transition duration-400 absolute -bottom-5 right-0">
+                            Passwords do not match
+                          </div>
+                      </div>
+                      <div class="relative w-full mb-4">
+                        <label for="idCard" class="block text-sm text-left font-medium text-gray-700">Upload ID Card</label>
+                        <div class="flex items-center mt-1">
+                          <label for="idCard" class="flex items-center px-2 py-1 bg-slate-100 border rounded-md cursor-pointer">
+                            <span class="p-2 bg-slate-100 text-gray-700"><i class="fas fa-id-card"></i></span>
+                            <span class="ml-2 text-sm font-medium text-gray-700" id="file-chosen">Choose a file</span>
+                            <input type="file" formControlName="idCard" id="idCard" accept=".jpg, .jpeg, .png" class="hidden"
+                                   (change)="onFileChange($event)">
+                          </label>
+                        </div>
+                        <div *ngIf="registrationForm.get('idCard')?.invalid && (registrationForm.get('idCard')?.dirty || registrationForm.get('idCard')?.touched)"
+                             class="text-red-500 text-sm bg-white rounded p-2 mt-1 shadow-lg transition duration-400">
+                          <div *ngIf="registrationForm.get('idCard')?.hasError('required')">ID Card is required</div>
+                        </div>
+                      </div>
+                    
+                      <div class="relative w-full mb-4 text-left">
+                        <label class="inline-flex items-center">
+                          <input type="checkbox" formControlName="agreeTerms">
+                          <span class="ml-2">I agree to the terms and conditions</span>
+                        </label>
+                        <div *ngIf="registrationForm.get('agreeTerms')?.invalid && (registrationForm.get('agreeTerms')?.dirty || registrationForm.get('agreeTerms')?.touched)"
+                             class="text-red-500 text-sm bg-white rounded p-2 shadow-lg transition duration-400">
+                          <div *ngIf="registrationForm.get('agreeTerms')?.hasError('requiredTrue')">You must agree to the terms</div>
+                        </div>
+                      </div>
+                    <button type="submit"
+                        class="move-up inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-3 px-4 leading-tight text-xl fw-bold fs-7 bg-mySkyBlue text-white hover:bg-blue-600 w-full">Register</button>
 
+                </form>
                 <p class="text-center py-4 fw-bold text-sm">Or Sign up with social platforms</p>
 
                 <ul class="flex flex-wrap items-center justify-center  mx-auto">

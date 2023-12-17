@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class TrendingComponent {
 
+  
+  selectedCategory: string | null = null;
+ 
+  constructor(){
+    this.selectedCategory = 'hotel'
+
+  }
+
+  showData(category: string): void {
+      this.selectedCategory = category;
+  }
 }

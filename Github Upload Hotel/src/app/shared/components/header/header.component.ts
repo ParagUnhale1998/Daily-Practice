@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataSharingService } from 'src/app/modules/user/services/data-sharing.service';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   isDropdownOpen = false;
+  isUserRegistered = false;
 
 
 
@@ -15,8 +17,10 @@ export class HeaderComponent {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  constructor(private router: Router){
-    
+  constructor(private router: Router,private dataSharing:DataSharingService){
+    this.dataSharing.userIsRegistered$.subscribe((isRegistered) => {
+      this.isUserRegistered = isRegistered;
+    });
   }
   navigateTohome(){
     this.router.navigateByUrl('/user')

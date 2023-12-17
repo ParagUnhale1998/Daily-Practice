@@ -10,7 +10,7 @@
         <p class="section-title text-center text-white text-2xl">Unlock Business Opportunities</p>
         <h1 class="text-white capitalize ">Elevate Your Business with<span
                 class="text-mySkyBlue font-bold capitalize bg-white p-2 ml-2 rounded">MyTravel</span></h1>
-        <div class="container  bg-white mt-6 rounded bg-no-repeat bg-cover" style="background-image: url(https://img.freepik.com/premium-photo/smooth-elegant-white-silk-satin-luxury-cloth-texture-can-use-as-wedding-background-luxurious-christmas-background-new-year-background-design_680447-472.jpg?size=626&ext=jpg);">
+        <div class="container  bg-white mt-6 rounded bg-no-repeat bg-cover" >
 
             <p class="text-gray-900 mt-4 text-2xl capitalize font-medium">Join us and transform your hotel into a
                 thriving business!
@@ -42,22 +42,47 @@
                 <div class="w-full flex flex-wrap  md:flex">
                     <div class="md:w-2/3 pr-4 pl-4 p-6 w-full m-auto text-center justify-center items-center">
                         <h4 class="text-center fw-bolder mb-4 fs-2">Login</h4>
-                        <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
-                            <span class="p-2 bg-slate-100"><i class="fas fa-user bg-transparent"></i></span>
-                            <input type="password"
-                                class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
-                                placeholder="Enter Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
-                            <span class="p-2 bg-slate-100"><i class="fas fa-lock bg-transparent"></i></span>
-                            <input type="password"
-                                class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
-                                placeholder="Enter  Password" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-
-
-                        <button
+                        <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+                            <div class="relative w-full  mb-4">
+                                <div class=" flex items-stretch  rounded border-[1px]  border-gray-300">
+                                    <span class="p-2 bg-slate-100"><i class="fas fa-user bg-transparent"></i></span>
+                                    <input type="text" formControlName="email"
+                                        class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                        placeholder="Enter Email" aria-label="email" aria-describedby="basic-addon1">
+                                </div>
+                                <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)"
+                                    class="text-red-500 text-sm bg-white rounded p-2 shadow-lg transition duration-400 absolute -top-5 right-0">
+                                    <div *ngIf="loginForm.get('email')?.getError">Full Name is required</div>
+                                </div>
+                            </div>
+                            <!-- <div class="relative flex items-stretch w-full mb-4 rounded border-[1px] border-gray-300">
+                                <span class="p-2 bg-slate-100"><i class="fas fa-user bg-transparent"></i></span>
+                                <input type="text" formControlName="email" autocomplete="on"
+                                    class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                    placeholder="Enter Username" aria-label="email" aria-describedby="basic-addon1">
+                                    
+                            </div> -->
+                            <!-- <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
+                                <span class="p-2 bg-slate-100"><i class="fas fa-lock bg-transparent"></i></span>
+                                <input type="password"  formControlName="password" autocomplete="on"
+                                    class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                    placeholder="Enter  Password" aria-label="password" aria-describedby="basic-addon1">
+                            </div> -->
+                            <div class="relative w-full  mb-4">
+                                <div class=" flex items-stretch  rounded border-[1px]  border-gray-300">
+                                    <span class="p-2 bg-slate-100"><i class="fas fa-lock bg-transparent"></i></span>
+                                    <input type="text" formControlName="password"
+                                        class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                        placeholder="Enter Password" aria-label="password" aria-describedby="basic-addon1">
+                                </div>
+                                <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)"
+                                    class="text-red-500 text-sm bg-white rounded p-2 shadow-lg transition duration-400 absolute -top-5 right-0">
+                                    <div *ngIf="loginForm.get('password')?.getError">Password is required</div>
+                                </div>
+                            </div>
+                            <button  type="submit"
                             class="move-up inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-3 px-4 leading-tight text-xl fw-bold fs-7 bg-mySkyBlue text-white hover:bg-blue-600 w-full">Login</button>
+                        </form>
 
                         <p class="text-center  py-4 fw-bold text-sm">Or Sign in with social platforms</p>
 

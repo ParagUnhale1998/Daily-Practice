@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ValidatorFn, ValidationErrors, AbstractControl} from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
+import { DataSharingService } from '../../services/data-sharing.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -18,7 +20,7 @@ export class SignUpComponent {
   signUpForm!: FormGroup;
   isMatch!: boolean;
 
-  constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(private fb: FormBuilder, private userService: UserService,private router:Router,private dataSharing:DataSharingService) { }
 
   ngOnInit(): void {
    
@@ -38,9 +40,6 @@ export class SignUpComponent {
     this.signUpForm.get('email')?.valueChanges.subscribe((email) => {
       this.signUpForm.patchValue({ id: email }, { emitEvent: false });
     });
-    
-    
-
   }
   ConfirmPass() {
     this.isMatch =this.signUpForm.get('password')?.value === this.signUpForm.get('confirmPassword')?.value;
@@ -53,6 +52,8 @@ export class SignUpComponent {
       // Call the user service to register the user
       this.userService.createUser(userData).subscribe(
         (response) => {
+          this.dataSharing.setUserRegistrationState(true)
+          this.router.navigateByUrl('/user')
           console.log('Registration successful', response);
           // Handle success, e.g., redirect to another page
         },

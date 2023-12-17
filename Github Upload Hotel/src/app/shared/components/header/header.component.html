@@ -101,8 +101,8 @@
                     (000) 999 - 898 - 999</a>
             </li>
             <li class="text-sm">
-                <a href="mailto:info@mytravel.com"
-                    class="text-white ml-2 text-decoration-none hover:opacity-75">Email: info@mytravel.com</a>
+                <a href="mailto:info@mytravel.com" class="text-white ml-2 text-decoration-none hover:opacity-75">Email:
+                    info@mytravel.com</a>
             </li>
         </ul>
     </div>
@@ -137,9 +137,10 @@
             </ul>
         </div>
         <div class="login borderRight pr-2 ">
-     
+
             <i class=" text-white fa-solid fa-hotel mr-2 ml-1 text-xl"></i>
-            <span class="font-bold text-white mr-1 hover:opacity-75 cursor-pointer " (click)="navigateToOwnerLogin()">Create Business Account.</span>
+            <span class="font-bold text-white mr-1 hover:opacity-75 cursor-pointer "
+                (click)="navigateToOwnerLogin()">Create Business Account.</span>
         </div>
         <div class="selectLanguage">
             <div class="relative inline-block">
@@ -180,17 +181,27 @@
     </div>
 
     <nav class="flex items-center space-x-8">
-        <a  class="text-white font-bold capitalize text-decoration-none hover:opacity-75" (click)="navigateTohome()" >Home</a>
-        <a  class="text-white font-bold capitalize text-decoration-none hover:opacity-75" (click)="navigateToHotels()">Hotels</a>
+        <a class="text-white font-bold capitalize text-decoration-none hover:opacity-75"
+            (click)="navigateTohome()">Home</a>
+        <a class="text-white font-bold capitalize text-decoration-none hover:opacity-75"
+            (click)="navigateToHotels()">Hotels</a>
         <a href="#" class="text-white font-bold capitalize text-decoration-none hover:opacity-75 ">Activities</a>
         <div class="flex items-center hover-move-up-scale">
             <i class="text-white fas fa-shopping-cart mr-1"></i>
             <span class="text-white font-bold capitalize ">Cart</span>
         </div>
-        <button 
-            class="bg-white text-myDarkGray  px-4 py-2 rounded font-bold capitalize hover:shadow-md hover:shadow-white  hover-move-up" (click)="navigateToLogin()">
+        <button *ngIf="!isUserRegistered"
+            class="bg-white text-myDarkGray  px-4 py-2 rounded font-bold capitalize hover:shadow-md hover:shadow-white  hover-move-up"
+            (click)="navigateToLogin()">
             <i class="text-black fas fa-user "></i>
             Sign in or Register</button>
-            
+            <button *ngIf="isUserRegistered"
+            class="bg-white text-myDarkGray px-4 py-2 rounded font-bold capitalize hover:shadow-md hover:shadow-white hover-move-up"
+            >
+        <i class="text-black fas fa-sign-out-alt"></i>
+        Logout
+    </button>
+    
+
     </nav>
 </div>

@@ -11,22 +11,12 @@
       "bookings": []
     },
     {
-      "name": "parag unhale",
+      "id": "paragunhale1998@gmail.com",
+      "name": "Parag Unhale",
       "email": "paragunhale1998@gmail.com",
       "phoneNumber": "9284815636",
-      "password": "parag123",
-      "confirmPassword": "parag123",
-      "cart": [],
-      "bookings": [],
-      "id": "e5ZyqCY"
-    },
-    {
-      "id": "parag@gmail.com",
-      "name": "parag",
-      "email": "parag@gmail.com",
-      "phoneNumber": "9284815636",
-      "password": "parag123",
-      "confirmPassword": "parag123",
+      "password": "pratik123",
+      "confirmPassword": "pratik123",
       "cart": [],
       "bookings": []
     }
@@ -44,23 +34,102 @@
       "agreeTerms": true,
       "hotels": [],
       "bookings": []
+    },
+    {
+      "id": "paragunhale1998@gmail.com",
+      "name": "Parag Unhale",
+      "email": "paragunhale1998@gmail.com",
+      "phoneNumber": "9284815636",
+      "password": "parag123",
+      "confirmPassword": "parag123",
+      "address": "Maharashtra , India ",
+      "idCard": "C:\\fakepath\\profile-pic (21).png",
+      "agreeTerms": true,
+      "hotels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "bookings": []
     }
   ],
   "hotels": [
     {
-      "id": 1,
-      "name": "Luxury Hotel",
-      "location": "City Center",
-      "description": "A luxurious hotel with great amenities",
-      "beds": 2,
-      "bath": 1,
-      "price": 200,
-      "wifi": true,
-      "pool": true,
+      "image": "https://a0.muscache.com/im/pictures/miso/Hosting-24702709/original/2af7688f-9389-4185-95f0-82778ce1864a.jpeg?im_w=720",
+      "hotelName": "Villa U - Romantic Beach Sunsets",
+      "hotelLocation": "Entire villa in T.Lipa Noi, Thailand",
+      "description": "This is a 3 Bedroom Villa offering this cheaper rate option for Lower Occupancy.",
+      "beds": 6,
+      "bath": 6,
+      "price": 999999,
+      "wifiEnabled": true,
+      "privatePool": true,
       "tv": true,
       "freeParking": true,
-      "imageUrl": "https://example.com/hotel-image.jpg",
-      "ownerId": "owner@example.com"
+      "ownerId": "paragunhale1998@gmail.com",
+      "id": 1
+    },
+    {
+      "image": "https://a0.muscache.com/im/pictures/miso/Hosting-51198237/original/0ae6ab70-2ff2-46a2-9052-c6a9c0d2d2d4.jpeg?im_w=720",
+      "hotelName": "Luxury 5 BDR Resort w/ Gym & Ricefield View",
+      "hotelLocation": "Entire villa in Tampaksiring, Indonesia",
+      "description": "A breathtaking new property in the rice fields of beautiful Ubud. Check in and enjoy! \n\n5 bedrooms with ensuite bathrooms, a beautiful pool area with bubble bath, enclosed living area and an indoor gym offers all you need during your stay.",
+      "beds": 12,
+      "bath": 12,
+      "price": 99999,
+      "wifiEnabled": null,
+      "privatePool": true,
+      "tv": true,
+      "freeParking": true,
+      "ownerId": "paragunhale1998@gmail.com",
+      "id": 2
+    },
+    {
+      "image": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-46761225/original/358cfc76-9b1d-49a4-bd88-481e97180823.jpeg?im_w=1200",
+      "hotelName": "Luxe 1 BDR Romantic hideaway Private Villa Ubud",
+      "hotelLocation": "Entire villa in Kecamatan Ubud, Indonesia",
+      "description": "This beautifully designed 1 bedroom villa offers a cosy indoor living space, fully equipped kitchen and swimming pool with an amazing jungle view. The villa is fully staffed with daily cleaning, gardening and pool maintenance. Enter your own Balinese paradise, a mere 10 minute ride to the center of Ubud.\n",
+      "beds": 12,
+      "bath": 12,
+      "price": 99999,
+      "wifiEnabled": true,
+      "privatePool": true,
+      "tv": true,
+      "freeParking": true,
+      "ownerId": "paragunhale1998@gmail.com",
+      "id": 3
+    },
+    {
+      "image": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-840914802979272652/original/62387075-c825-447d-8ae6-052b806c3760.jpeg?im_w=1200",
+      "hotelName": "A Yellow Heaven, For Geometric Lovers",
+      "hotelLocation": "Entire rental unit in Kuala Lumpur, Malaysia",
+      "description": "We offer a clean and modern Dual Key apartment at The Colony Kuala Lumpur, equipped with high-speed internet, with breathtaking KLCC View infinity pool.\n\nYou can find my other apartments here:\nhttps://www.airbnb. com/p/colony\n",
+      "beds": 22,
+      "bath": 22,
+      "price": 22222,
+      "wifiEnabled": true,
+      "privatePool": true,
+      "tv": true,
+      "freeParking": true,
+      "ownerId": "paragunhale1998@gmail.com",
+      "id": 4
+    },
+    {
+      "image": "https://a0.muscache.com/im/pictures/miso/Hosting-46665306/original/a8277635-638c-4a8f-a472-a1ce6a6dd301.jpeg?im_w=1200",
+      "hotelName": "Bali Bamboo House | Rescape Ubud - Resound Villa",
+      "hotelLocation": "Hut in Ubud, Indonesia",
+      "description": "e are now holding a soft-opening with special discount! \n\nRescape (retreat/ escape) Ubud is an uniquely designed villa built by bamboo, allowing guests to unwind and escape from all the daily hassle. This stay is perfect for couples, young families, artists, musicians and everyone who loves to fully embrace the nature. The place feels secluded and yet only 5 minutes away by bike from central Ubud!",
+      "beds": 11,
+      "bath": 15,
+      "price": 22222,
+      "wifiEnabled": true,
+      "privatePool": true,
+      "tv": true,
+      "freeParking": true,
+      "ownerId": "paragunhale1998@gmail.com",
+      "id": 5
     }
   ]
 }
