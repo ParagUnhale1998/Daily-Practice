@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HotelService } from '../../services/hotel.service';
 import { Router } from '@angular/router';
+import { OwnerDataService } from '../../services/owner-data.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
   registrationForm!: FormGroup;
   isMatch!: boolean;
 
-  constructor(private fb: FormBuilder,private hotelOwnerService:HotelService,private router :Router) {}
+  constructor(private fb: FormBuilder,private hotelOwnerService:HotelService,private router :Router,private ownerDataService:OwnerDataService) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -72,7 +73,7 @@ export class SignupComponent implements OnInit {
       // Assuming your OwnerService is injected in the component
       this.hotelOwnerService.addOwner(ownerData).subscribe(
         (response) => {
-
+          this.ownerDataService.setUserData(ownerData);
           this.router.navigateByUrl('/owner/profile')
           console.log('Owner added successfully:', response);
            

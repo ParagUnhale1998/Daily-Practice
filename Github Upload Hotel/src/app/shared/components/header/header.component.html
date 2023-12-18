@@ -195,9 +195,9 @@
             (click)="navigateToLogin()">
             <i class="text-black fas fa-user "></i>
             Sign in or Register</button>
-            <button *ngIf="isUserRegistered"
+            <button *ngIf="isUserRegistered" 
             class="bg-white text-myDarkGray px-4 py-2 rounded font-bold capitalize hover:shadow-md hover:shadow-white hover-move-up"
-            >
+           (click)="logout()" >
         <i class="text-black fas fa-sign-out-alt"></i>
         Logout
     </button>

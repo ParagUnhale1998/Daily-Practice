@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { DataSharingService } from '../../services/data-sharing.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,7 @@ export class LoginComponent {
  
     loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: UserService) {
+  constructor(private fb: FormBuilder, private authService: UserService,private dataService:DataSharingService,private router:Router) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -30,9 +32,12 @@ export class LoginComponent {
       this.authService.getUserByEmail(email).subscribe(
         (response) => {
           const userData = response; // Assuming the response contains user data
-  
+          
           // Check if the entered username and password match the data from the server
           if (email === userData.email && password === userData.password) {
+            this.dataService.userEmail = email
+            this.dataService.setUserRegistrationState(true)
+            this.router.navigateByUrl('/user')
             console.log('Login successful', response);
             // Handle success, e.g., redirect to another page
           } else {

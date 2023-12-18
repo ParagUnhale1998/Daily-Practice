@@ -11,6 +11,7 @@ import { AllhotelsComponent } from './components/allhotels/allhotels.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { UserRoutingModule } from './user-routing.module';
+import { CartComponent } from './components/cart/cart.component';
 
 
 
@@ -24,7 +25,8 @@ import { UserRoutingModule } from './user-routing.module';
     TrendingComponent,
     AllhotelsComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,

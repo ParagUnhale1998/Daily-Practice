@@ -15,4 +15,6 @@ export class DataSharingService {
   setUserRegistrationState(isRegistered: boolean): void {
     this.userIsRegisteredSubject.next(isRegistered);
   }
+
+  userEmail!:string;
 }
