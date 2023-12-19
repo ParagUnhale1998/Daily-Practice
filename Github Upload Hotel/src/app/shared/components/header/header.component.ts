@@ -36,6 +36,10 @@ export class HeaderComponent {
   navigateToOwnerLogin() {
     this.router.navigateByUrl('/owner/login');
   }
+  navigateToCart(){
+    this.router.navigateByUrl('/user/cart');
+
+  }
   logout(){
     this.router.navigateByUrl('/user')
     this.dataSharing.setUserRegistrationState(false)

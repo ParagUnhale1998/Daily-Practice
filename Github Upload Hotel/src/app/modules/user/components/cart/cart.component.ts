@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
   userData: any;
   hotelData: any; // Assuming you have hotel data available in your component
   hotelId: any;
+  cartItems: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -22,21 +23,49 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    
     this.getUserData()
     this.route.queryParams.subscribe((params) => {
       const hotelId = params['hotelId'];
       this.hotelId = hotelId;
     });
     this.getHotelData()
+    this.loadCartItems();
+
+  }
+  
+  loadCartItems() {
+    this.cartItems = this.cartService.getCartItems();
   }
 
   getUserData() {
-    const userId = this.dataService.userEmail // Replace with your user ID
-    console.log(userId)
+    const userId = this.dataService.userEmail; // Replace with your user ID
+    console.log(userId);
+    
     this.userService.getUserByEmail(userId).subscribe((data) => {
       this.userData = data;
       console.log(this.userData);
 
+      // Load user's cart items only if the user is logged in
+      if (this.userData) {
+        this.loadUserCartItems();
+      }
+    });
+  }
+
+  loadUserCartItems() {
+    // Assuming you have a method to get cart items from the user data
+    // Replace this with your actual method or service call
+    const userCartItems = this.userData.cart || [];
+    
+    // Load cart items into the CartService
+    userCartItems.forEach((item: any) => {
+      this.cartService.addToCart(item);
+    });
+
+    // Optionally, update the user's cart on the server side
+    this.cartService.patchUserCart(this.userData.id, userCartItems).subscribe(() => {
+      console.log('User cart loaded successfully');
     });
   }
 

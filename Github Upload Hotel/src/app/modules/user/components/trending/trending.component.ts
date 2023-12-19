@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HotelsDataService } from '../../services/hotels-data.service';
 import { Router } from '@angular/router';
+import { DataSharingService } from '../../services/data-sharing.service';
 
 @Component({
   selector: 'app-trending',
@@ -14,9 +15,13 @@ export class TrendingComponent implements OnInit {
   activityData: any;
   selectedCategory: string | null = null;
   RandomHotels: any;
+  isUserRegistered = false;
 
-  constructor(private hotelsDataService: HotelsDataService,private router:Router) {
+  constructor(private hotelsDataService: HotelsDataService,private router:Router,private dataSharing:DataSharingService) {
     this.selectedCategory = 'hotel';
+    this.dataSharing.userIsRegistered$.subscribe((isRegistered) => {
+      this.isUserRegistered = isRegistered;
+    });
   }
 
   ngOnInit(): void {
@@ -95,5 +100,10 @@ export class TrendingComponent implements OnInit {
     this.router.navigate(['user/cart'], {
       queryParams: {hotelId: hotel.id },
     });
+  }
+
+  NavigateToLogin(){
+    this.router.navigateByUrl('/user/login')
+
   }
 }

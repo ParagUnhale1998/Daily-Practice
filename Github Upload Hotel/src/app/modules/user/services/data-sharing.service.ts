@@ -17,4 +17,5 @@ export class DataSharingService {
   }
 
   userEmail!:string;
+  // userEmail:string= 'paragunhale1998@gmail.com'
 }

@@ -28,7 +28,7 @@
                             <img class="w-full h-[240px]  transition-transform transform hover:scale-105"
                                 [src]="hotel.image" alt="">
                             <small
-                                class="absolute start-0 top-100 translate-middle-y bg-mySkyBlue text-white rounded py-1 px-3 ms-4">{{hotel.price}}₹/Night</small>
+                            class="absolute start-0 top-100 translate-middle-y bg-mySkyBlue text-white rounded py-1 px-3 ms-4">{{hotel.price | currency: 'INR':'symbol':"1.0-2"}}/Night</small>
                         </div>
                     </div>
 
@@ -44,21 +44,28 @@
                             </div>
                         </div>
                         <div class="flex mb-3">
-                            <small class="border-end me-3 pe-3"><i class="fa fa-bed text-mySkyBlue me-2"></i>{{hotel.beds}}
+                            <small class="border-end pr-2"><i class="fa fa-bed text-mySkyBlue me-2"></i>{{hotel.beds}}
                                 </small>
-                            <small class="border-end me-3 pe-3"><i class="fa fa-bath text-mySkyBlue me-2"></i>{{hotel.bath}}
+                            <small class="border-end px-2"><i class="fa fa-bath text-mySkyBlue me-2"></i>{{hotel.bath}}
                                 </small>
-                                <small class="border-end me-3 pe-3" *ngIf="hotel.wifiEnabled"><i class="fa fa-wifi text-mySkyBlue me-2"></i></small>
-                                <small class="border-end me-3 pe-3" *ngIf="hotel.privatePool" ><i class="fa fa-swimming-pool text-mySkyBlue me-2"></i></small>
-                                <small class="border-end me-3 pe-3" *ngIf="hotel.tv"><i class="fa fa-tv text-mySkyBlue me-2"></i></small>
+                                <small class="border-end px-2" *ngIf="hotel.wifiEnabled"><i class="fa fa-wifi text-mySkyBlue me-2"></i></small>
+                                <small class="border-end px-2" *ngIf="hotel.privatePool" ><i class="fa fa-swimming-pool text-mySkyBlue me-2"></i></small>
+                                <small class="border-end px-2" *ngIf="hotel.tv"><i class="fa fa-tv text-mySkyBlue me-2"></i></small>
                                 <small *ngIf="hotel.freeParking"><i class="fa fa-car text-mySkyBlue me-2 "></i></small>
                         </div>
-                        <p class="text-body mb-3">{{hotel.description.slice(0,200)}}</p>
+                        <p class="font-semibold mb-2">
+                            <i class="fas fa-map-marker-alt text-mySkyBlue me-2"></i>
+                            {{hotel.hotelLocation.slice(0,30)}}</p>
+                        <p class="text-body mb-3">{{hotel.description.slice(0,180)}}</p>
                         <div class="flex justify-between">
-                            <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
-                                 (click)="addToCart(hotel)">Add to Cart</a>
-                            <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
-                                >Book Now</a>
+                            <a *ngIf="!isUserRegistered" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
+                            (click)="NavigateToLogin()">Add To Cart</a>
+                            <a *ngIf="isUserRegistered" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
+                            (click)="addToCart(hotel)" >Add To Cart</a>
+                            <a *ngIf="!isUserRegistered" (click)="NavigateToLogin()"  class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
+                               >Book Now</a>
+                               <a *ngIf="isUserRegistered" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
+                               >Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -74,7 +81,7 @@
                             <img class="w-full h-[240px]  transition-transform transform hover:scale-105"
                                 [src]="hotel.image" alt="">
                             <small
-                                class="absolute start-0 top-100 translate-middle-y bg-mySkyBlue text-white rounded py-1 px-3 ms-4">{{hotel.price}}₹/Night</small>
+                            class="absolute start-0 top-100 translate-middle-y bg-mySkyBlue text-white rounded py-1 px-3 ms-4">{{hotel.price | currency: 'INR':'symbol':"1.0-2"}}/Night</small>
                         </div>
                     </div>
 
@@ -99,7 +106,7 @@
                                 <small class="border-end me-3 pe-3" *ngIf="hotel.tv"><i class="fa fa-tv text-mySkyBlue me-2"></i></small>
                                 <small *ngIf="hotel.freeParking"><i class="fa fa-car text-mySkyBlue me-2 "></i></small>
                         </div>
-                        <p class="text-body mb-3">{{hotel.description.slice(0,200)}}</p>
+                        <p class="text-body mb-3">{{hotel.description.slice(0,180)}}</p>
                         <div class="flex justify-between">
                             <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
                                 href="">View Detail</a>
@@ -120,8 +127,8 @@
                        <img class="w-full h-[240px] transition-transform transform hover:scale-105"
                             [src]="activity.image" alt="">
                        <small
-                           class="absolute start-0 top-100 translate-middle-y bg-mySkyBlue text-white rounded py-1 px-3 ms-4">{{activity.price}}₹</small>
-                   </div>
+                       class="absolute start-0 top-100 translate-middle-y bg-mySkyBlue text-white rounded py-1 px-3 ms-4">{{activity.price | currency: 'INR':'symbol':"1.0-2"}}/Night</small>
+                    </div>
                </div>
        
                <div class="p-6 mt-2">
@@ -137,7 +144,7 @@
                        <small class="border-end me-3 pe-3"><i
                                class="fa fa-clock text-mySkyBlue me-2"></i>{{activity.duration}}</small>
                    </div>
-                   <p class="text-body mb-3">{{activity.description.slice(0, 200)}}</p>
+                   <p class="text-body mb-3">{{activity.description.slice(0, 180)}}</p>
                    <div class="flex justify-between">
                        <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
                           href="">View Detail</a>
@@ -161,7 +168,7 @@
                             <img class="w-full h-[240px]  transition-transform transform hover:scale-105"
                                 [src]="hotel.image" alt="">
                             <small
-                                class="absolute start-0 top-100 translate-middle-y bg-mySkyBlue text-white rounded py-1 px-3 ms-4">{{hotel.price}}₹/Night</small>
+                            class="absolute start-0 top-100 translate-middle-y bg-mySkyBlue text-white rounded py-1 px-3 ms-4">{{hotel.price | currency: 'INR':'symbol':"1.0-2"}}/Night</small>
                         </div>
                     </div>
 
@@ -177,21 +184,28 @@
                             </div>
                         </div>
                         <div class="flex mb-3">
-                            <small class="border-end me-3 pe-3"><i class="fa fa-bed text-mySkyBlue me-2"></i>{{hotel.beds}}
+                            <small class="border-end pr-2"><i class="fa fa-bed text-mySkyBlue me-2"></i>{{hotel.beds}}
                                 </small>
-                            <small class="border-end me-3 pe-3"><i class="fa fa-bath text-mySkyBlue me-2"></i>{{hotel.bath}}
+                            <small class="border-end px-2"><i class="fa fa-bath text-mySkyBlue me-2"></i>{{hotel.bath}}
                                 </small>
-                                <small class="border-end me-3 pe-3" *ngIf="hotel.wifiEnabled"><i class="fa fa-wifi text-mySkyBlue me-2"></i></small>
-                                <small class="border-end me-3 pe-3" *ngIf="hotel.privatePool" ><i class="fa fa-swimming-pool text-mySkyBlue me-2"></i></small>
-                                <small class="border-end me-3 pe-3" *ngIf="hotel.tv"><i class="fa fa-tv text-mySkyBlue me-2"></i></small>
+                                <small class="border-end px-2" *ngIf="hotel.wifiEnabled"><i class="fa fa-wifi text-mySkyBlue me-2"></i></small>
+                                <small class="border-end px-2" *ngIf="hotel.privatePool" ><i class="fa fa-swimming-pool text-mySkyBlue me-2"></i></small>
+                                <small class="border-end px-2" *ngIf="hotel.tv"><i class="fa fa-tv text-mySkyBlue me-2"></i></small>
                                 <small *ngIf="hotel.freeParking"><i class="fa fa-car text-mySkyBlue me-2 "></i></small>
                         </div>
-                        <p class="text-body mb-3">{{hotel.description.slice(0,200)}}</p>
+                        <p class="font-semibold mb-2">
+                            <i class="fas fa-map-marker-alt text-mySkyBlue me-2"></i>
+                            {{hotel.hotelLocation.slice(0,30)}}</p>
+                        <p class="text-body mb-3">{{hotel.description.slice(0,180)}}</p>
                         <div class="flex justify-between">
-                            <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
-                                href="">View Detail</a>
-                            <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
-                                href="">Book Now</a>
+                            <a *ngIf="!isUserRegistered" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
+                            (click)="NavigateToLogin()">Add To Cart</a>
+                            <a *ngIf="isUserRegistered" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
+                            (click)="addToCart(hotel)" >Add To Cart</a>
+                            <a *ngIf="!isUserRegistered" (click)="NavigateToLogin()"  class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
+                               >Book Now</a>
+                               <a *ngIf="isUserRegistered" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
+                               >Book Now</a>
                         </div>
                     </div>
                 </div>

@@ -185,10 +185,10 @@
             (click)="navigateTohome()">Home</a>
         <a class="text-white font-bold capitalize text-decoration-none hover:opacity-75"
             (click)="navigateToHotels()">Hotels</a>
-        <a href="#" class="text-white font-bold capitalize text-decoration-none hover:opacity-75 ">Activities</a>
-        <div class="flex items-center hover-move-up-scale">
+        <a href="#" class="text-white font-bold capitalize text-decoration-none hover:opacity-75 ">Contact Us</a>
+        <div class="flex items-center hover-move-up-scale" *ngIf="isUserRegistered"  (click)="navigateToCart()">
             <i class="text-white fas fa-shopping-cart mr-1"></i>
-            <span class="text-white font-bold capitalize ">Cart</span>
+            <span class="text-white font-bold capitalize">Cart</span>
         </div>
         <button *ngIf="!isUserRegistered"
             class="bg-white text-myDarkGray  px-4 py-2 rounded font-bold capitalize hover:shadow-md hover:shadow-white  hover-move-up"

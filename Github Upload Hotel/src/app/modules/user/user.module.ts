@@ -12,6 +12,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { UserRoutingModule } from './user-routing.module';
 import { CartComponent } from './components/cart/cart.component';
+import { SearchPipe } from './pipes/search.pipe';
+import { HotelDetailsComponent } from './components/hotel-details/hotel-details.component';
 
 
 
@@ -26,7 +28,9 @@ import { CartComponent } from './components/cart/cart.component';
     AllhotelsComponent,
     LoginComponent,
     SignUpComponent,
-    CartComponent
+    CartComponent,
+    SearchPipe,
+    HotelDetailsComponent
   ],
   imports: [
     CommonModule,

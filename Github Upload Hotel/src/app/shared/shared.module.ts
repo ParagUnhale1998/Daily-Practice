@@ -59,7 +59,7 @@ const materialModules = [
   declarations: [
     HeaderComponent,
     FooterComponent,
-    HighlightDirective
+    HighlightDirective,
   ],
   imports: [
     CommonModule,

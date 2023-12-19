@@ -1,0 +1,7 @@
+/* Assuming you're using SCSS, update the class definition */
+.custom-radio {
+    // Override styles for disabled state
+    &[disabled] {
+        background-color: #3498db; // This is a blue color, you can change it to your preferred blue shade
+    }
+}
