@@ -23,25 +23,25 @@
 </div>
 <section id="Booking" class="bg-white w-screen pb-10 border-b-[1px]">
     <div class="md:container  mx-auto p-8 bg-white ">
-        <div class="md:flex items-center justify-between mb-4 border-b-2">
+        <div class="md:flex items-center justify-between mb-4 border-b-2" *ngIf="hotelData">
             <!-- Hotel Image (On Left on Larger Screens) -->
             <div class="w-full md:w-1/2 h-auto border-2 object-cover mb-4 md:mb-0 rounded-md">
-                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/2f/76/bd/premium-indulgence-wing.jpg?w=1200&h=-1&s=1"
+                <img [src]="hotelData.image"
                     alt="hotelName" class="w-full h-auto rounded-md" />
             </div>
             <!-- Hotel Information (On Right on Larger Screens) -->
             <div class="md:w-1/2 md:ml-8">
                 <!-- Hotel Name -->
-                <h1 class="text-4xl font-extrabold text-gray-600 mb-4"><i class="fas fa-hotel text-mySkyBlue mr-2"></i>Vivanta Dal View
+                <h1 class="text-4xl font-extrabold text-gray-600 mb-4"><i class="fas fa-hotel text-mySkyBlue mr-2"></i>{{hotelData.hotelName}}
                 </h1>
         
                 <!-- Location -->
                 <p class="text-gray-600 mb-2">
-                    <i class="fas fa-map-marker-alt text-mySkyBlue mr-2"></i>Kralsangri Brein, Srinagar 191121 India
+                    <i class="fas fa-map-marker-alt text-mySkyBlue mr-2"></i>{{hotelData.hotelLocation}}
                 </p>
         
                 <!-- Star Ratings & Price -->
-                <div class="flex items-center mb-4">
+                <div class="flex items-start flex-col justify-start  mb-2">
                     <div class="text-yellow-500">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -49,150 +49,42 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
+                    
+                   
                 </div>
         
                 <!-- Description -->
-                <p class="text-gray-700 mb-6">
-                    Finding an ideal luxury resort in Srinagar does not have to be difficult. Welcome to Vivanta Dal View, a
-                    nice option for travelers like you. Given the close proximity of popular landmarks, such as Pari Mahal
-                    (1.5 mi) and Kathi Darwaza (2.6 mi), guests of Vivanta Dal View Srinagar can easily experience some of
-                    Srinagar's most well-known attractions. You'll enjoy relaxing rooms that offer a flat-screen TV, air
-                    conditioning, and a minibar, and you can stay connected during your stay as Vivanta Dal View Srinigar By
-                    Taj Hotel offers guests free internet access. The resort features room service, a concierge, and a rooftop
-                    terrace.
+                <p class="text-gray-700 mb-4">
+                    {{hotelData.description}}...
                 </p>
         
                 <!-- Service Icons -->
+                <div class="flex items-center gap-4 m-0 mb-2">
+                    <div class="text-mySkyBlue"><i class="fas fa-bed"></i> {{hotelData.beds}} Bed</div>
+                    <div class="text-mySkyBlue"><i class="fas fa-bath"></i> {{hotelData.bath}} Bath</div>
+                </div>
                 <div class="flex items-center justify-between mb-4">
+                    
                     <div class="flex space-x-4 ">
-                        <div class="text-mySkyBlue"><i class="fas fa-wifi"></i> WiFi</div>
-                        <div class="text-mySkyBlue"><i class="fas fa-tv"></i> TV</div>
-                        <div class="text-mySkyBlue"><i class="fas fa-car"></i> Free Parking</div>
+                         
+                        <div *ngIf="hotelData.wifiEnabled" class="text-mySkyBlue"><i class="fas fa-wifi"></i> WiFi</div>
+                        <div *ngIf="hotelData.privatePool" class="text-mySkyBlue"><i class="fas fa-swimming-pool"></i> Private Pool</div>
+                        <div *ngIf="hotelData.tv" class="text-mySkyBlue"><i class="fas fa-tv"></i> TV</div>
+                        <div *ngIf="hotelData.freeParking" class="text-mySkyBlue"><i class="fas fa-car"></i> Free Parking</div>
                     </div>
-                    <p class="text-lg font-bold m-0 p-0 text-green-500">{{ 25265 | currency: 'INR':'symbol':"1.0-2"}}<span class="text-gray-600 font-semibold">/Night</span></p>
+                    <p class="border p-2 rounded  shadow-sm text-lg font-bold m-0 text-green-500 ">{{hotelData.price
+                        | currency: 'INR':'symbol':"1.0-2"}}<span class="text-gray-600 font-semibold">/Night</span></p>
                 </div>
             </div>
         </div>
         
 
         <!-- Booking Form -->
+        <section id="booking" class="w-full">
         <p class="w-full text-2xl font-semibold text-center text-gray-600 m-0 p-0">Complete These Form For Bookings</p>
-        <p class="w-full text-center text-xl text-mySkyBlue">_______</p>
-        <form class="w-full md:w-[70%] mx-auto rounded border-2 p-2 shadow-md">
-            <div class="w-full flex gap-2 items-center justify-center flex-wrap">
-                <div class="w-full md:w-[45%] flex-grow flex flex-col item-start justify-start relative">
-                    <label for="destination" class="pl-2 text-gray-500">Name</label>
-                    <div class="relative" style="border: none">
-                        <input type="text" id="destination" placeholder="Enter Full Name"
-                            class="w-full px-4 py-2 text-gray-800 font-bold placeholder-gray-500 outline-none border-b-2 border-gray-300 focus:outline-none focus:placeholder-gray-400 focus:border-mySkyBlue transition-all duration-300" />
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-2">
-                            <i class="text-mySkyBlue fas fa-user"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full md:w-[45%] flex-grow flex flex-col item-start justify-start relative">
-                    <label for="destination" class="pl-2 text-gray-500">Email</label>
-                    <div class="relative" style="border: none">
-                        <input type="text" id="destination" placeholder="Enter Email Address"
-                            class="w-full px-4 py-2 text-gray-800 font-bold placeholder-gray-500 outline-none border-b-2 border-gray-300 focus:outline-none focus:placeholder-gray-400 focus:border-mySkyBlue transition-all duration-300" />
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-2">
-                            <i class="text-mySkyBlue fas fa-user"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full md:w-[45%] flex-grow flex flex-col item-start justify-start relative">
-                    <label for="destination" class="pl-2 text-gray-500">Phone Number</label>
-                    <div class="relative" style="border: none">
-                        <input type="text" id="destination" placeholder="Enter Phone Number"
-                            class="w-full px-4 py-2 text-gray-800 font-bold placeholder-gray-500 outline-none border-b-2 border-gray-300 focus:outline-none focus:placeholder-gray-400 focus:border-mySkyBlue transition-all duration-300" />
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-2">
-                            <i class="text-mySkyBlue fas fa-user"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full  md:w-[70%] lg:w-[45%] flex-grow flex item-center justify-center relative">
-                    <div class="relative flex flex-col item-start justify-start">
-                        <label for="checkin" class="pl-2 text-gray-500">Check-in</label>
-                        <p-calendar [(ngModel)]="dateCheckIn" [showIcon]="true" [ngModelOptions]="{ standalone: true }"
-                            inputStyleClass="w-1/4 px-2 py-2 text-gray-800 rounded-none border-b-2 border-gray-300  font-bold placeholder-gray-500 shadow-none  outline-none   focus:outline-none focus:placeholder-gray-400  focus:border-mySkyBlue transition-all duration-300 "></p-calendar>
-                    </div>
-                    <div class="relative flex flex-col item-start justify-start">
-                        <label for="checkout" class="pl-2 text-gray-500">Check-out</label>
-
-                        <p-calendar [(ngModel)]="dateCheckOut" [showIcon]="true" [ngModelOptions]="{ standalone: true }"
-                            inputStyleClass="w-1/4 px-2 py-2 text-gray-800 rounded-none border-b-2 border-gray-300  font-bold placeholder-gray-500 shadow-none  outline-none   focus:outline-none focus:placeholder-gray-400  focus:border-mySkyBlue transition-all duration-300 "></p-calendar>
-                    </div>
-                </div>
-                <div class="w-full flex-grow flex items-center justify-between">
-                    <div class=" w-full relative flex items-center justify-start flex-wrap bg-white">
-                        <div class="w-full flex items-center justify-center gap-2">
-                            <button class="font-semibold text-gray-700 rounded-none flex items-center">
-                                <i class="fas text-mySkyBlue fa-bed mr-2 text-lg"></i>
-                                {{ rooms }} Rooms - {{ adults + children }} Guests
-                                <i class="ml-2 text-mySkyBlue fas fa-users"></i>
-                            </button>
-                        </div>
-                        <ul class="w-full text-center mt-2">
-                            <li class="flex items-center justify-between p-2">
-                                <span class="text-secondary text-base font-medium">Rooms</span>
-                                <div class="flex items-center justify-around gap-2">
-                                    <button
-                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
-                                        (click)="decrementRooms()">
-                                        <i class="fas fa-minus btn-icon__inner text-2xl p-1 px-2"></i>
-                                    </button>
-                                    <span>{{ rooms }}</span>
-                                    <button
-                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
-                                        (click)="incrementRooms()">
-                                        <i class="fas fa-plus btn-icon__inner text-2xl p-1 px-2"></i>
-                                    </button>
-                                </div>
-                            </li>
-                            <li class="flex items-center justify-between p-2">
-                                <span class="text-secondary text-base font-medium">Adults</span>
-                                <div class="flex items-center justify-around gap-2">
-                                    <button
-                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
-                                        (click)="decrementAdults()">
-                                        <i class="fas fa-minus btn-icon__inner text-2xl p-1 px-2"></i>
-                                    </button>
-                                    <span>{{ adults }}</span>
-                                    <button
-                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
-                                        (click)="incrementAdults()">
-                                        <i class="fas fa-plus btn-icon__inner text-2xl p-1 px-2"></i>
-                                    </button>
-                                </div>
-                            </li>
-                            <li class="flex items-center justify-between p-2">
-                                <span class="text-secondary text-base font-medium">Children</span>
-                                <div class="flex items-center justify-around gap-2">
-                                    <button
-                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
-                                        (click)="decrementChildren()">
-                                        <i class="fas fa-minus btn-icon__inner text-2xl p-1 px-2"></i>
-                                    </button>
-                                    <span>{{ children }}</span>
-                                    <button
-                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
-                                        (click)="incrementChildren()">
-                                        <i class="fas fa-plus btn-icon__inner text-2xl p-1 px-2"></i>
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full  flex items-center justify-center mt-2">
-                <button
-                    class="w-full  md:w-[40%] bg-mySkyBlue text-white px-6 py-3 rounded-md hover-move-up focus:outline-none focus:bg-blue-600 transition-all duration-300">
-                    <i class="text-white fas fa-credit-card mr-2"></i>Proceed To Checkout
-                </button>
-
-            </div>
-        </form>
+        <p class="w-full text-center font-bold  text-xl text-mySkyBlue">_______</p>
+        <app-booking [hotelId]="hotelId" [hotelPrice]="hotelData?.price"></app-booking>
+        </section>
     </div>
 </section>
 <app-footer></app-footer>

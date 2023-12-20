@@ -15,7 +15,10 @@ export class HotelsDataService {
   getAllHotels(): Observable<any[]> {
     return this.http.get<any[]>(this.baseUrl);
   }
- 
+  getHotelById(hotelId: number): Observable<any> {
+    const url = `${this.baseUrl}/${hotelId}`;
+    return this.http.get(url);
+  }
   getFakeTourData(): Observable<any[]> {
     return this.http.get<any[]>(this.fakeTourDataURL);
   }

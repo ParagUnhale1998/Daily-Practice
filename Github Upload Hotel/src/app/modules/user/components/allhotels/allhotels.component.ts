@@ -49,7 +49,9 @@ NavigateToLogin(){
 
 }
 navigateToBooking(hotel:any){
-  this.router.navigateByUrl('/user/hotelDetails')
+  this.router.navigate(['user/hotelDetails'], {
+    queryParams: {hotelId: hotel.id },
+  });
 }
 
 onRatingChange(event: any) {

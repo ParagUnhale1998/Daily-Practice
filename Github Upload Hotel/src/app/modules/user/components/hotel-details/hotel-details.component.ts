@@ -1,63 +1,40 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HotelService } from 'src/app/modules/hotel-owner/services/hotel.service';
 
 @Component({
   selector: 'app-hotel-details',
   templateUrl: './hotel-details.component.html',
-  styleUrls: ['./hotel-details.component.scss']
+  styleUrls: ['./hotel-details.component.scss'],
 })
-export class HotelDetailsComponent implements OnInit{
+export class HotelDetailsComponent implements OnInit {
   
-  dateCheckIn: Date ;
-  dateCheckOut: Date ;
-  rooms: number = 1;
-  adults: number = 2;
-  children: number = 0;
-
+  hotelId: any;
+  hotelData: any;
   isRoomsDropdownOpen = false;
 
   toggleRoomsDropdown() {
     this.isRoomsDropdownOpen = !this.isRoomsDropdownOpen;
   }
-  constructor(){
-       // Get today's date
-       const today: Date = new Date();
-
-       // Assign the today's date to your variables
-       this.dateCheckIn = today;
-       this.dateCheckOut = today;
-       console.log( this.dateCheckIn,this.dateCheckOut)
+  constructor(private route: ActivatedRoute,private hotelService:HotelService) {
+    // Get today's date
+   
   }
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      const hotelId = params['hotelId'];
+      this.hotelId = hotelId;
+      this. getHotelData()
+    })
+   
     
   }
 
-  incrementRooms() {
-    this.rooms++;
+  getHotelData() {
+    this.hotelService.getHotelById(this.hotelId).subscribe(data => {
+      this.hotelData = data
+    })
   }
 
-  decrementRooms() {
-    if (this.rooms > 1) {
-      this.rooms--;
-    }
-  }
-
-  incrementAdults() {
-    this.adults++;
-  }
-
-  decrementAdults() {
-    if (this.adults > 1) {
-      this.adults--;
-    }
-  }
-
-  incrementChildren() {
-    this.children++;
-  }
-
-  decrementChildren() {
-    if (this.children > 0) {
-      this.children--;
-    }
-  }
+  
 }

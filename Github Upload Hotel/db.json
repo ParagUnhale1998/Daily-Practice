@@ -715,5 +715,25 @@
       "duration": "2 hours",
       "description": "Immerse yourself in the rich cultural heritage of Varanasi with a guided cultural walk along the ghats and narrow lanes."
     }
+  ],
+  "bookings": [
+    {
+      "hotelId": "5",
+      "ownerId": "paragunhale1998@gmail.com",
+      "fullName": "parag unhale",
+      "email": "paragunhale@gmail.com",
+      "phoneNumber": "928481566",
+      "rooms": 2,
+      "adults": 4,
+      "children": 2,
+      "dateCheckIn": "2023-12-20T15:04:58.453Z",
+      "dateCheckOut": "2023-12-26T18:30:00.000Z",
+      "totalPrice": 200608,
+      "nights": 7,
+      "hotelName": "Sterling Wayanad",
+      "hotelPrice": 14222,
+      "hotelLocation": "Valluvadi Rd, Kidanganad 673592 India",
+      "id": 1
+    }
   ]
 }
