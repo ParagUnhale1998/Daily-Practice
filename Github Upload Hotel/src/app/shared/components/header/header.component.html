@@ -93,14 +93,14 @@
             Sign in or Register</button>
     </nav>
 </div> -->
-<nav id="navbar1" class="mx-auto borderWhite flex item-center justify-between p-2 px-4">
-    <div class="contact p-3">
-        <ul id="menu-top-bar-left" class="flex items-center list-none mb-0">
-            <li class="borderRight pr-2 text-sm ">
+<nav id="navbar1" class="mx-auto borderWhite flex flex-col sm:flex-row items-center justify-between p-2 px-4">
+    <div class="contact md:p-3">
+        <ul id="menu-top-bar-left" class="flex items-center list-none mb-0  text-xs lg:text-sm">
+            <li class="borderRight pr-2  ">
                 <a href="tel:(000)999-898-999" class="text-white text-decoration-none hover:opacity-75 ">Call us:
                     (000) 999 - 898 - 999</a>
             </li>
-            <li class="text-sm">
+            <li class="">
                 <a href="mailto:info@mytravel.com" class="text-white ml-2 text-decoration-none hover:opacity-75">Email:
                     info@mytravel.com</a>
             </li>
@@ -108,7 +108,7 @@
     </div>
 
     <div class="signInContainer  flex  items-center justify-center gap-2">
-        <div class="socialLinks  flex  items-center justify-center borderRight pr-2">
+        <div class="hidden socialLinks  lg:flex  items-center justify-center borderRight pr-2">
             <ul id="menu-social-media" class=" p-0 m-0 flex items-center justify-center gap-3">
                 <li>
                     <a href="https://www.facebook.com/"
@@ -136,13 +136,13 @@
                 </li>
             </ul>
         </div>
-        <div class="login borderRight pr-2 ">
+        <div class="login  md:border-r-[1px] border-gray-500 md:pr-2 ">
 
-            <i class=" text-white fa-solid fa-hotel mr-2 ml-1 text-xl"></i>
-            <span class="font-bold text-white mr-1 hover:opacity-75 cursor-pointer "
+            <i class=" text-white fa-solid fa-hotel mr-2 ml-1 text-xs  md:text-xl"></i>
+            <span class="font-bold text-white mr-1 hover:opacity-75 cursor-pointer text-xs  md:text-sm"
                 (click)="navigateToOwnerLogin()">Create Business Account.</span>
         </div>
-        <div class="selectLanguage">
+        <div class="hidden md:block selectLanguage">
             <div class="relative inline-block">
 
                 <button (click)="toggleDropdown()"
@@ -186,6 +186,8 @@
         <a class="text-white font-bold capitalize text-decoration-none hover:opacity-75"
             (click)="navigateToHotels()">Hotels</a>
         <a href="#" class="text-white font-bold capitalize text-decoration-none hover:opacity-75 ">Contact Us</a>
+        <a *ngIf="isUserRegistered" class="text-white font-bold capitalize text-decoration-none hover:opacity-75"
+        (click)="navigateToBookings()">My Bookings</a>
         <div class="flex items-center hover-move-up-scale" *ngIf="isUserRegistered"  (click)="navigateToCart()">
             <i class="text-white fas fa-shopping-cart mr-1"></i>
             <span class="text-white font-bold capitalize">Cart</span>

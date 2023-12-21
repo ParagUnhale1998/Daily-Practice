@@ -3,6 +3,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { HotelService } from '../../services/hotel.service';
+import { BookingsService } from '../../services/bookings.service';
+import { OwnerDataService } from '../../services/owner-data.service';
 
 @Component({
   selector: 'app-manage-bookings',
@@ -10,17 +12,18 @@ import { HotelService } from '../../services/hotel.service';
   styleUrls: ['./manage-bookings.component.scss']
 })
 export class ManageBookingsComponent {
-  displayedColumns: string[] = ['id', 'name','location','image','price','actions'];
+  displayedColumns: string[] = ['id', 'fullName', 'email', 'phoneNumber', 'rooms', 'dateCheckIn', 'dateCheckOut', 'totalPrice', 'hotelName', 'actions'];
   dataSource!: MatTableDataSource<any>;//userdata
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private hotelService: HotelService) {
+  constructor(private bookingsService: BookingsService,private ownerDataService:OwnerDataService) {
     // Fetch your hotel data from the service
-    this.hotelService.getHotels().subscribe((hotels) => {
-      console.log(hotels)
-      this.dataSource = new MatTableDataSource(hotels);
+    const ownerId =this.ownerDataService.getOwnerId();
+
+    this.bookingsService.getBookingsByOwner(ownerId).subscribe((bookings:any) => {
+      this.dataSource = new MatTableDataSource(bookings);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
@@ -35,14 +38,14 @@ export class ManageBookingsComponent {
     }
   }
 
-  editHotel(hotel: any) {
+  editBooking(booking: any) {
+    console.log('Edit booking:', booking);
     // Implement your edit logic here
-    console.log('Edit hotel:', hotel);
   }
-  
-  deleteHotel(hotel: any) {
+
+  deleteBooking(booking: any) {
+    console.log('Delete booking:', booking);
     // Implement your delete logic here
-    console.log('Delete hotel:', hotel);
   }
 }
 

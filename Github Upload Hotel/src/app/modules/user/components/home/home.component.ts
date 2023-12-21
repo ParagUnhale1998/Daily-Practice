@@ -118,5 +118,10 @@ export class HomeComponent {
       this.isUserRegistered = isRegistered;
     });
   }
-
+ 
+  SearchHotel(searchValue:any){
+    this.router.navigate(['user/allhotels'], {
+      queryParams: {searchValue: searchValue },
+    });
+  }
 }

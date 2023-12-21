@@ -14,11 +14,11 @@ export class BookingsService {
   createBooking(bookingData: any): Observable<any> {
     return this.http.post(this.apiUrl, bookingData);
   }
-
-  getBookingsforUser(userId: string): Observable<any> {
-    const url = `${this.apiUrl}?userId=${userId}`;
+  getBookingsByOwner(ownerId: string): Observable<any> {
+    const url = `${this.apiUrl}?ownerId=${ownerId}`;
     return this.http.get(url);
   }
+
   getBookings(): Observable<any> {
     return this.http.get(this.apiUrl);
   }

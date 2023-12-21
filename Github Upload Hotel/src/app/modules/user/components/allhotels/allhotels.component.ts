@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HotelsDataService } from '../../services/hotels-data.service';
 import { DataSharingService } from '../../services/data-sharing.service';
 
@@ -19,13 +19,18 @@ searchInput :string = ''
 isSearching: boolean = false;
 
 
-constructor(private router: Router,private hotelsDataService: HotelsDataService,private dataSharing:DataSharingService){
+constructor(private route:ActivatedRoute, private router: Router,private hotelsDataService: HotelsDataService,private dataSharing:DataSharingService){
+
   this.dataSharing.userIsRegistered$.subscribe((isRegistered) => {
     this.isUserRegistered = isRegistered;
   });
 }
 
 ngOnInit(): void {
+  this.route.queryParams.subscribe((params) => {
+   this.searchInput = params['searchValue'];
+   this.updateSearchStatus()
+  })
   this.loadAllHotels();
 
 }
@@ -83,16 +88,16 @@ updateSearchStatus() {
 }
 
 SearchHotels() {
-  this.selectedFilter = 'search';
-    // this.filteredHotels = this.allHotels.filter((hotel: any) => {
-    //   return JSON.stringify(hotel).toLowerCase().includes(this.searchInput.toLowerCase());
-    // });
+  // this.updateSearchStatus()
+  //   this.filteredHotels = this.allHotels.filter((hotel: any) => {
+  //     return JSON.stringify(hotel).toLowerCase().includes(this.searchInput.toLowerCase());
+  //   });
   }
   
-  resetSearch() {
-    this.selectedFilter = 'all';
+//   resetSearch() {
+//     this.selectedFilter = 'all';
 
-}
+// }
 
   
 

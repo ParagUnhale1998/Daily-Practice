@@ -40,6 +40,9 @@ export class HeaderComponent {
     this.router.navigateByUrl('/user/cart');
 
   }
+  navigateToBookings(){
+    this.router.navigateByUrl('/user/myBookings');
+  }
   logout(){
     this.router.navigateByUrl('/user')
     this.dataSharing.setUserRegistrationState(false)

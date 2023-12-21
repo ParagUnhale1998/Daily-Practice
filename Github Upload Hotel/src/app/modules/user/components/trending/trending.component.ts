@@ -106,4 +106,9 @@ export class TrendingComponent implements OnInit {
     this.router.navigateByUrl('/user/login')
 
   }
+  navigateToBooking(hotel:any){
+    this.router.navigate(['user/hotelDetails'], {
+      queryParams: {hotelId: hotel.id },
+    });
+  }
 }

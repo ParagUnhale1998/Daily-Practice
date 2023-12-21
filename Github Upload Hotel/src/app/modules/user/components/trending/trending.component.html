@@ -64,7 +64,7 @@
                             (click)="addToCart(hotel)" >Add To Cart</a>
                             <a *ngIf="!isUserRegistered" (click)="NavigateToLogin()"  class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
                                >Book Now</a>
-                               <a *ngIf="isUserRegistered" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
+                               <a *ngIf="isUserRegistered" (click)="navigateToBooking(hotel)" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
                                >Book Now</a>
                         </div>
                     </div>
@@ -109,9 +109,9 @@
                         <p class="text-body mb-3">{{hotel.description.slice(0,180)}}</p>
                         <div class="flex justify-between">
                             <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
-                                href="">View Detail</a>
+                                >View Detail</a>
                             <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
-                                href="">Book Now</a>
+                                >Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -147,9 +147,9 @@
                    <p class="text-body mb-3">{{activity.description.slice(0, 180)}}</p>
                    <div class="flex justify-between">
                        <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
-                          href="">View Detail</a>
+                          >View Detail</a>
                        <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
-                          href="">Book Now</a>
+                          >Book Now</a>
                    </div>
                </div>
            </div>
@@ -204,7 +204,7 @@
                             (click)="addToCart(hotel)" >Add To Cart</a>
                             <a *ngIf="!isUserRegistered" (click)="NavigateToLogin()"  class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
                                >Book Now</a>
-                               <a *ngIf="isUserRegistered" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
+                               <a *ngIf="isUserRegistered" (click)="navigateToBooking(hotel)" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
                                >Book Now</a>
                         </div>
                     </div>

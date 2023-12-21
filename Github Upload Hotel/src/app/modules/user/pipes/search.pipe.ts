@@ -9,10 +9,9 @@ export class SearchPipe implements PipeTransform {
       return hotelsData;
     }
 
-    searchInput = searchInput.toLowerCase();
     return hotelsData.filter(hotel => {
       // Modify this condition based on the property you want to search by
-      return  JSON.stringify(hotel).toLowerCase().includes(searchInput);
+      return  JSON.stringify(hotel).toLowerCase().includes(searchInput.toLowerCase());
     });
 
 

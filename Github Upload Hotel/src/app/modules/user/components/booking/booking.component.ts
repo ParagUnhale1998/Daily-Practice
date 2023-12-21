@@ -82,6 +82,7 @@ getHotelData() {
       hotelName: [null,],
       hotelPrice: [null, ],
       hotelLocation: [null,],
+      hotelImage: [null,],
     });
   }
 
@@ -95,6 +96,7 @@ onSubmit() {
   this.bookingForm.get('hotelName')?.setValue(this.hotelData.hotelName);
   this.bookingForm.get('hotelPrice')?.setValue(this.hotelData.price);
   this.bookingForm.get('hotelLocation')?.setValue(this.hotelData.hotelLocation);
+  this.bookingForm.get('hotelImage')?.setValue(this.hotelData.image);
   this.bookingForm.get('rooms')?.setValue(this.rooms);
   this.bookingForm.get('adults')?.setValue(this.adults);
   this.bookingForm.get('children')?.setValue(this.children);

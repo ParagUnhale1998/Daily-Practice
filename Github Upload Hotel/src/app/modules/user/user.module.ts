@@ -14,6 +14,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { CartComponent } from './components/cart/cart.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { HotelDetailsComponent } from './components/hotel-details/hotel-details.component';
+import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
 
 
 
@@ -30,7 +31,8 @@ import { HotelDetailsComponent } from './components/hotel-details/hotel-details.
     SignUpComponent,
     CartComponent,
     SearchPipe,
-    HotelDetailsComponent
+    HotelDetailsComponent,
+    MyBookingsComponent
   ],
   imports: [
     CommonModule,
