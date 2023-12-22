@@ -28,4 +28,7 @@ export class SidenavComponent {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+  toggleSidenav(){
+    this.sharedService.toggleSidenav()
+  }
 }

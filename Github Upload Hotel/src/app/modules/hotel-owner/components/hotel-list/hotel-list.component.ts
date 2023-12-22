@@ -21,22 +21,14 @@ export class HotelListComponent {
 
   constructor(private hotelService: HotelService, private ownerDataService: OwnerDataService,private router :Router) {
     // Get the user data from the service
-    const userData = this.ownerDataService.getUserData();
-    console.log('hotel list'+ userData.id)
-    if (userData) {
-      // Set the owner ID
-      this.ownerId = userData.id;
-
+    this.ownerId =this.ownerDataService.getOwnerId();
       // Fetch hotels for the specific owner
       this.hotelService.getHotelsForOwner(this.ownerId).subscribe((hotels) => {
         this.dataSource = new MatTableDataSource(hotels);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       });
-    } else {
-      // Handle the case when user data is not available (e.g., not logged in)
-      console.error('User data not available');
-    }
+  
   }
 
   applyFilter(event: Event) {

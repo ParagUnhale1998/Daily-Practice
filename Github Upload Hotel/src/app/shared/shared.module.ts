@@ -27,7 +27,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 const materialModules = [
   FormsModule,
@@ -52,7 +58,7 @@ const materialModules = [
   SliderModule,
   RatingModule,
   MatSidenavModule,
-  HttpClientModule
+  HttpClientModule,
 ];
 
 @NgModule({
@@ -63,6 +69,13 @@ const materialModules = [
   ],
   imports: [
     CommonModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     ...materialModules  // Spread the array directly here
   ],
   exports: [
