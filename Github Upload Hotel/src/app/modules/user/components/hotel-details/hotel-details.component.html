@@ -13,7 +13,7 @@
             <span class="hidden md:inline-block text-mySkyBlue font-bold capitalize bg-white p-2 mx-1 rounded">My Travels</span>
         </h1>
         <span  class="inline-block md:hidden text-mySkyBlue font-bold capitalize bg-white p-2 mx-1 text-2xl rounded">My Travels</span>
-        <p class="text-white mt-4 text-2xl mb-2 capitalize font-sans">
+        <p class="text-white mt-4 text-2xl mb-2 p-2 capitalize font-sans">
             Explore our curated collection of luxury hotels. Plan your dream stay and unlock exclusive offers
             to enjoy exceptional service during your visit.
         </p>
@@ -22,7 +22,7 @@
     
     
 </div>
-<section id="Booking" class="bg-white w-screen pb-10 border-b-[1px]">
+<section id="Booking" class="bg-white w-screen pb-10 border-b-[1px]" >
     <div class="md:container  mx-auto p-8 bg-white ">
         <div class="md:flex items-center justify-between mb-4 border-b-2" *ngIf="hotelData">
             <!-- Hotel Image (On Left on Larger Screens) -->
@@ -81,7 +81,7 @@
         
 
         <!-- Booking Form -->
-        <section id="booking" class="w-full">
+        <section id="booking" class="w-full" *ngIf="isUserRegistered" >
         <p class="w-full text-2xl font-semibold text-center text-gray-600 m-0 p-0">Complete These Form For Bookings</p>
         <p class="w-full text-center font-bold  text-xl text-mySkyBlue">_______</p>
         <app-booking [hotelId]="hotelId" [hotelPrice]="hotelData?.price"></app-booking>

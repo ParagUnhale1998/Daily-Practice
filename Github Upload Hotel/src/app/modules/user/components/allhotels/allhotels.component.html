@@ -88,9 +88,12 @@
                         *ngFor="let hotel of filteredHotels | search: searchInput">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="relative ">
+                                
                                 <div class="">
+                                    <div class="loading-skeleton"></div>
+
                                     <img class="w-full h-[240px]  transition-transform transform hover:scale-105"
-                                        [src]="hotel.image" alt="">
+                                    appLazyLoad [lazyLoadSrc]="hotel.image" alt="">
                                     <small
                                         class="absolute start-0 top-100 translate-middle-y bg-mySkyBlue text-white rounded py-1 px-3 ms-4">{{hotel.price
                                         | currency: 'INR':'symbol':"1.0-2"}}/Night</small>

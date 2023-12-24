@@ -15,6 +15,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { HotelDetailsComponent } from './components/hotel-details/hotel-details.component';
 import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
+import { SharedDirectiveModule } from 'src/app/shared/shared-directive/shared-directive.module';
 
 
 
@@ -38,7 +39,7 @@ import { MyBookingsComponent } from './components/my-bookings/my-bookings.compon
     CommonModule,
     UserRoutingModule,
     SharedModule,
-
+    SharedDirectiveModule
   ]
 })
 export class UserModule { }

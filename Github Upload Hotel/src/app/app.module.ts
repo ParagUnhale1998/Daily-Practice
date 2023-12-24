@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { ToastrModule } from 'ngx-toastr';
+import { SharedDirectiveModule } from './shared/shared-directive/shared-directive.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     NgbModule,
     SharedModule,
-    
+    SharedDirectiveModule,
+    ToastrModule.forRoot()
     
   ],
   providers: [],

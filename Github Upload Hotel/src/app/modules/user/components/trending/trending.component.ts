@@ -114,4 +114,5 @@ export class TrendingComponent implements OnInit {
   navigateToHotel(){
     this.router.navigateByUrl('/user/allhotels')
   }
+  
 }

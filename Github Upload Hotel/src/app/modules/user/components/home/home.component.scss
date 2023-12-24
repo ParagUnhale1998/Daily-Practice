@@ -1,3 +1,13 @@
+
+/* hotel-details.component.css */
+:enter {
+  transition: opacity 0.5s;
+}
+
+:leave {
+  transition: opacity 0.5s;
+}
+
 .dropdownImage{
     opacity: 0;
     transition: opacity 0.4s ease-in-out;

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./top-destination.component.scss']
 })
 export class TopDestinationComponent {
-
+  
   constructor(private router:Router){}
 
 
@@ -15,5 +15,15 @@ export class TopDestinationComponent {
     this.router.navigate(['user/allhotels'], {
       queryParams: {searchValue: searchValue },
     });
+  }
+  
+  onImageLoad() {
+    // Add 'loaded' class to trigger the blur-fade-in animation
+    const imageElement = document.querySelectorAll('.blurred-image');
+    if (imageElement) {
+      imageElement.forEach((element) => {
+        element.classList.add('loaded');
+      });
+    }
   }
 }

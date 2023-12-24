@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 import { DataSharingService } from 'src/app/modules/user/services/data-sharing.service';
 
 @Component({
@@ -22,19 +21,14 @@ export class HeaderComponent {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  constructor(private router: Router,private dataSharing:DataSharingService,private translate: TranslateService){
-    translate.setDefaultLang('en');
+  constructor(private router: Router,private dataSharing:DataSharingService){
 
     this.dataSharing.userIsRegistered$.subscribe((isRegistered) => {
       this.isUserRegistered = isRegistered;
     });
   }
 
-  switchLanguage() {
-    const currentLang = this.translate.currentLang;
-    const newLang = currentLang === 'en' ? 'fr' : 'en';
-    this.translate.use(newLang);
-  }
+
   
   navigateTohome(){
     this.router.navigateByUrl('/user')

@@ -30,6 +30,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CoreModule } from '../core/core.module';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -59,6 +61,8 @@ const materialModules = [
   RatingModule,
   MatSidenavModule,
   HttpClientModule,
+  CoreModule,
+  LazyLoadImageModule
 ];
 
 @NgModule({

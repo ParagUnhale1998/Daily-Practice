@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { DataSharingService } from '../../services/data-sharing.service';
 import { Router } from '@angular/router';
+import { TosterMessageService } from 'src/app/core/services/toster-message.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent {
  
     loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: UserService,private dataService:DataSharingService,private router:Router) {
+  constructor(private fb: FormBuilder, private authService: UserService,private dataService:DataSharingService,private router:Router,private tosterMessage:TosterMessageService) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -37,22 +38,33 @@ export class LoginComponent {
           if (email === userData.email && password === userData.password) {
             this.dataService.userEmail = email
             this.dataService.setUserRegistrationState(true)
-            this.router.navigateByUrl('/user')
+            this.tosterMessage.showSuccess('Login successful','Success')
             console.log('Login successful', response);
+            this.loginForm.reset()
+            setTimeout(() => {
+              this.router.navigateByUrl('/user');
+            }, 300);
+
             // Handle success, e.g., redirect to another page
           } else {
             console.error('Invalid username or password');
+            this.tosterMessage.showWarning('Invalid username or password','Failed')
+
             // Handle error, e.g., display an error message
           }
         },
         (error) => {
           console.error('Login failed', error);
+          this.tosterMessage.showError('Incorrect username or password','Login failed')
+
           // Handle error, e.g., display an error message
         }
       );
     } else {
       // Form is invalid, mark fields as touched to display errors
       this.markFormGroupTouched(this.loginForm);
+      this.tosterMessage.showWarning('Please Enter Email and Password','Form Invalid');
+
     }
   }
   
