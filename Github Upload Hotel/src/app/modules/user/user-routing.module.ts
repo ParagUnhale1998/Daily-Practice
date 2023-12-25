@@ -6,6 +6,8 @@ import { LoginComponent } from './components/login/login.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HotelDetailsComponent } from './components/hotel-details/hotel-details.component';
 import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
+import { ContactUSComponent } from './components/contact-us/contact-us.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -14,6 +16,7 @@ const routes: Routes = [
   { path: 'hotelDetails', component: HotelDetailsComponent },
   { path: 'cart', component: CartComponent },
   { path: 'myBookings', component: MyBookingsComponent },
+  { path: 'contactUs', component: AboutUsComponent },
 
 ];
 

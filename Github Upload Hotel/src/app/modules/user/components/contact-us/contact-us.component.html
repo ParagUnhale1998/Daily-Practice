@@ -1,0 +1,105 @@
+<header id="header" class="bg-cover bg-center w-full h-full">
+    <div id="background-Dark" class="absolute w-full h-[80vh]  z-[-1]">
+        <div class="absolute inset-0 bg-black " style="opacity: 50%;"></div>
+        <img class="w-full h-[80vh] object-cover"
+            src="https://www.fabhotels.com/blog/wp-content/uploads/2019/02/Velhe1.jpg" alt="">
+    </div>
+    <app-header></app-header>
+    <div id="hero-section" class=" hero relative flex flex-col items-center justify-center">
+        <div id="serch-container"
+            class=" container h-[80vh] md:h-[80vh] flex items-center justify-center text-white text-center">
+            <div class="flex items-center justify-center flex-col">
+                <h1 class="text-[7vw] md:text-[5vw] font-extrabold mb-4 fontHeebo ">Connect with Us!
+                </h1>
+                <p class="text-[3vw] md:text-[1.5vw] font-semibold capitalize"> We're here to make your experience
+                    exceptional. Have a question, suggestion, or just want to say hello? Your thoughts matter to us.
+                    Feel free to reach out!</p>
+            </div>
+        </div>
+        <div class=" container absolute bottom-10 searchContainer">
+            <app-search></app-search>
+        </div>
+    </div>
+</header>
+
+<div class="w-screen border-b-[1px] pb-2">
+    <!-- spinner.component.html -->
+    <div id="spinner" class="show fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full h-screen flex items-center justify-center">
+        <div class="spinner-border text-mySkyBlue" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+  
+    <div class="container mx-auto p-2">
+        <div class="text-center wow fadeInUp " data-wow-delay="0.1s">
+            <h6 class="section-title text-center  text-mySkyBlue uppercase fontHeebo m-0 p-0 flex flex-col">Contact Us
+                <span class="m-0 p-0 mb-4 font-bold text-mySkyBlue">____</span></h6>
+
+            <h1 class="mb-5"><span class="text-mySkyBlue font-bold uppercase fontHeebo">Contact</span> For Any Query
+            </h1>
+        </div>
+        <div class="flex flex-wrap">
+            <div class="w-full mb-2">
+                <div class="flex flex-wrap  gy-4">
+                    <div class="md:w-1/3 pr-4 pl-4">
+                        <h6 class="section-title text-start text-mySkyBlue uppercase">Booking</h6>
+                        <p><i class="fa fa-envelope-open text-mySkyBlue me-2"></i>MyTravelBooking@example.com</p>
+                    </div>
+                    <div class="md:w-1/3 pr-4 pl-4">
+                        <h6 class="section-title text-start text-mySkyBlue uppercase">General</h6>
+                        <p><i class="fa fa-envelope-open text-mySkyBlue me-2"></i>MyTravelInfo@example.com</p>
+                    </div>
+                    <div class="md:w-1/3 pr-4 pl-4">
+                        <h6 class="section-title text-start text-mySkyBlue uppercase">Technical</h6>
+                        <p><i class="fa fa-envelope-open text-mySkyBlue me-2"></i>MyTravelTech@example.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-[95%] md:w-1/2 wow fadeIn mb-3 md:mb-0" data-wow-delay="0.1s p-2 ">
+                <iframe class="position-relative rounded w-100 h-100" [src]="getGoogleMapsUrl()" frameborder="0"
+                    style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+                </iframe>
+            </div>
+
+            <div class="w-full  md:w-1/2 pr-4 pl-4 ">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <form class="max-w-md mx-auto">
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="">
+                                <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                                <input type="text" id="name" name="name"
+                                    class="mt-1 p-2 w-full border rounded-md focus:border-none focus:outline-blue-400 focus:shadow-blue-400 focus:shadow-sm">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+                                <input type="email" id="email" name="email"
+                                    class="mt-1 p-2 w-full border rounded-md focus:border-none focus:outline-blue-400 focus:shadow-blue-400 focus:shadow-sm">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                                <input type="text" id="subject" name="subject"
+                                    class="mt-1 p-2 w-full border rounded-md focus:border-none focus:outline-blue-400 focus:shadow-blue-400 focus:shadow-sm">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                                <textarea id="message" name="message" rows="4"
+                                    class="mt-1 p-2 w-full border rounded-md focus:border-none focus:outline-blue-400 focus:shadow-blue-400 focus:shadow-sm"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit"
+                                    class="w-full p-3 bg-mySkyBlue text-white hover:shadow-lg rounded-md move-up ">Send
+                                    Message</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HotelService } from '../../services/hotel.service';
 import { OwnerDataService } from '../../services/owner-data.service';
 import { ActivatedRoute } from '@angular/router';
+import { TosterMessageService } from 'src/app/core/services/toster-message.service';
 
 @Component({
   selector: 'app-add-hotel',
@@ -21,7 +22,8 @@ export class AddHotelComponent implements OnInit {
     private fb: FormBuilder,
     private hotelService: HotelService,
     private ownerDataService: OwnerDataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private tosterService :TosterMessageService
   ) {
     this.ownerId = this.ownerDataService.getOwnerId();
     console.log('add hotel' + this.ownerId);
@@ -79,9 +81,11 @@ export class AddHotelComponent implements OnInit {
         this.hotelService.updateHotel(this.ownerId,this.hotelID,hotelData).subscribe(
           () => {
             console.log('Hotel edited successfully');
+            this.tosterService.showSuccess('Hotel Edit Successful', 'The hotel details have been updated.');
             this.resetForm();
           },
           (error) => {
+            this.tosterService.showError('Error Editing Hotel', 'An error occurred while editing the hotel.');
             console.error('Error editing hotel', error);
           }
         );
@@ -96,6 +100,7 @@ export class AddHotelComponent implements OnInit {
               .updateOwnerHotels(this.ownerId, newHotelId)
               .subscribe(
                 () => {
+                  this.tosterService.showSuccess('Hotel Added', 'Your new hotel has been added.');
                   console.log('Hotel added successfully');
                   // Reset the form after successful submission
                   this.addHotelForm.reset();
@@ -103,17 +108,20 @@ export class AddHotelComponent implements OnInit {
                   this.addHotelForm.markAsUntouched();
                 },
                 (error) => {
+                  this.tosterService.showError('Error Updating Owner Hotels', 'An error occurred while updating owner hotels.');
                   console.error('Error updating owner hotels', error);
                 }
               );
           },
           (error) => {
+            this.tosterService.showError('Error Adding Hotel', 'An error occurred while adding the hotel.');
             console.error('Error adding hotel', error);
           }
         );
       }
     } else {
       this.markFormGroupTouched(this.addHotelForm);
+      this.tosterService.showWarning('Invalid Form', 'Please fill in the required fields.');
     }
   }
   private isEditMode(): boolean {

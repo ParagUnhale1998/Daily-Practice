@@ -115,115 +115,8 @@
             </div>
             
         </div>
-        <div class=" container absolute bottom-10    searchContainer">
-            <div class="flex item-center justify-between  bg-white shadow-lg p-6 gap-2 rounded-md">
-
-                <!-- Destination Input -->
-                <div class="flex-grow flex flex-col item-start justify-start  relative">
-                    <label for="destination" class="pl-2 text-gray-500">Destination or Hotel</label>
-                    <div class="relative" style="border:none;">
-                        <input type="text" id="destination" placeholder="Where are you going?" #input
-                            class="w-full px-4 py-2 text-gray-800 font-bold placeholder-gray-500  outline-none border-b-2 border-gray-300  focus:outline-none focus:placeholder-gray-400  focus:border-mySkyBlue transition-all duration-300">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-2">
-                            <i class="text-mySkyBlue fas fa-map-marker-alt"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Date Picker -->
-                <div class="hidden lg:flex flex-grow  item-center justify-center">
-                    <div class="relative  flex flex-col item-start justify-start">
-                        <label for="checkin" class="pl-2 text-gray-500 ">Check-in</label>
-                        <p-calendar [(ngModel)]="dateCheckIn" [showIcon]="true"
-                            inputStyleClass="w-1/4 px-2 py-2 text-gray-800 rounded-none border-b-2 border-gray-300  font-bold placeholder-gray-500 shadow-none  outline-none   focus:outline-none focus:placeholder-gray-400  focus:border-mySkyBlue transition-all duration-300 "></p-calendar>
-                    </div>
-                    <div class="relative flex flex-col item-start justify-start ">
-                        <label for="checkout" class="pl-2 text-gray-500">Check-out</label>
-                        <p-calendar [(ngModel)]="dateCheckOut" [showIcon]="true"
-                            inputStyleClass="w-1/4 px-2 py-2 text-gray-800 rounded-none border-b-2 border-gray-300  font-bold placeholder-gray-500 shadow-none  outline-none   focus:outline-none focus:placeholder-gray-400  focus:border-mySkyBlue transition-all duration-300 "></p-calendar>
-                    </div>
-                </div>
-
-                <!-- Rooms and Guests Dropdown -->
-                <div class="hidden xl:flex flex-grow  items-center justify-between">
-                    <div class="relative inline-block ">
-                        <label for="Rooms and Guests" class="pl-5 text-gray-500">Rooms and Guests</label>
-
-                        <button (click)="toggleRoomsDropdown()"
-                            class="text-black px-4 py-2 rounded-none  focus:outline-none focus:shadow-outline-blue hover:opacity-75 flex items-center">
-                            <i class="fas fa-bed mr-2 text-lg"></i>
-                            {{ rooms }} Rooms - {{ adults + children }} Guests
-                            <i class="fas fa-caret-down ml-2 text-xl "></i>
-                        </button>
-
-                        <ul *ngIf="isRoomsDropdownOpen"
-                            [ngStyle]="{ 'display': isRoomsDropdownOpen ? 'block' : 'none' }"
-                            class=" w-full absolute right-0 dropdown-menu text-center dropdown-unfold dropdown-menu-right mt-2">
-                            <li class="flex items-center justify-between p-2">
-                                <span class="text-secondary text-base font-medium">Rooms</span>
-                                <div class="flex items-center justify-around gap-2">
-                                    <button
-                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
-                                        (click)="decrementRooms()">
-                                        <i class="fas fa-minus btn-icon__inner text-2xl p-1 px-2"></i>
-                                    </button>
-                                    <span>{{rooms}}</span>
-                                    <button
-                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
-                                        (click)="incrementRooms()">
-                                        <i class="fas fa-plus btn-icon__inner text-2xl p-1 px-2"></i>
-                                    </button>
-                                </div>
-                            </li>
-                            <li class="flex items-center justify-between p-2">
-                                <span class="text-secondary text-base font-medium">Adults</span>
-                                <div class="flex items-center justify-around gap-2">
-                                    <button
-                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
-                                        (click)="decrementAdults()">
-                                        <i class="fas fa-minus btn-icon__inner text-2xl p-1 px-2"></i>
-                                    </button>
-                                    <span>{{adults}}</span>
-                                    <button
-                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
-                                        (click)="incrementAdults()">
-                                        <i class="fas fa-plus btn-icon__inner text-2xl p-1 px-2"></i>
-                                    </button>
-                                </div>
-                            </li>
-                            <li class="flex items-center justify-between p-2">
-                                <span class="text-secondary text-base font-medium">Children</span>
-                                <div class="flex items-center justify-around gap-2">
-                                    <button
-                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
-                                        (click)="decrementChildren()">
-                                        <i class="fas fa-minus btn-icon__inner text-2xl p-1 px-2"></i>
-                                    </button>
-                                    <span>{{children}}</span>
-                                    <button
-                                        class="btn-icon btn-outline-secondary rounded-full hover:bg-gray-200 transition-all duration-300"
-                                        (click)="incrementChildren()">
-                                        <i class="fas fa-plus btn-icon__inner text-2xl p-1 px-2"></i>
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-
-                </div>
-
-                <!-- Search Button -->
-                <div class="flex-grow flex items-center justify-between">
-                    <button (click)="SearchHotel(input.value)" 
-                        class="w-full bg-mySkyBlue text-white px-6 py-3 rounded-md hover-move-up focus:outline-none focus:bg-blue-600 transition-all duration-300">
-                        <i class="text-white fas fa-search mr-2"></i>Search
-                    </button>
-                </div>
-            </div>
-
-
-
+        <div class=" container absolute bottom-10 searchContainer">
+           <app-search></app-search>
         </div>
     </div>
 </header>
@@ -244,7 +137,7 @@
         <p class=" text-lg mb-0 px-md-3 px-lg-0"> Northern Ireland is being offered a trial separation for Britain there
             is a </p>
         <p class="text-lg  px-md-3 px-lg-0 mb-4"> one</p>
-        <a href="https://mytravel.madrasthemes.com/blog/"
+        <a 
             class="border-2 border-white text-decoration-none hover:bg-white text-white py-2 px-4    transition-transform transform hover:scale-105 "
             role="button">
             <span class="text-lg hover:text-gray-600 ">Get Inspired</span>

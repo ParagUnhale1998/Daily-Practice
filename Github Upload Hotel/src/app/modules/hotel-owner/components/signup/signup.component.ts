@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HotelService } from '../../services/hotel.service';
 import { Router } from '@angular/router';
 import { OwnerDataService } from '../../services/owner-data.service';
+import { TosterMessageService } from 'src/app/core/services/toster-message.service';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
   registrationForm!: FormGroup;
   isMatch!: boolean;
 
-  constructor(private fb: FormBuilder,private hotelOwnerService:HotelService,private router :Router,private ownerDataService:OwnerDataService) {}
+  constructor(private fb: FormBuilder,private hotelOwnerService:HotelService,private router :Router,private ownerDataService:OwnerDataService,private tosterService:TosterMessageService) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -73,19 +74,25 @@ export class SignupComponent implements OnInit {
       // Assuming your OwnerService is injected in the component
       this.hotelOwnerService.addOwner(ownerData).subscribe(
         (response) => {
+          this.tosterService.showSuccess('Registration Successful', 'Welcome, ' + ownerData.username);
+        
           this.ownerDataService.setUserData(ownerData);
-          this.router.navigateByUrl('/owner/profile')
+          setTimeout(() => {
+            this.router.navigateByUrl('/owner/profile')
+          }, 300);
           console.log('Owner added successfully:', response);
            
           // Optionally, you can reset the form after successful submission
           this.registrationForm.reset();
         },
         (error) => {
+          this.tosterService.showError('Error Adding Owner', 'An error occurred while adding the owner.');
           console.error('Error adding owner:', error);
         }
       );
     } else {
       // Form is invalid, handle accordingly
+      this.tosterService.showWarning('Invalid Form', 'Please fill in the required fields.');
     }
   }
   

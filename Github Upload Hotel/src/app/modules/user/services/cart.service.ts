@@ -1,44 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { DataSharingService } from './data-sharing.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-
-  private apiBaseUrl = 'http://localhost:3000'; 
-
-  private cartItems: any[] = [];
-
-  constructor(private http: HttpClient) {}
-
-  getCartItems(): any[] {
-    return this.cartItems;
+  private baseUrl = 'http://localhost:3000/users';
+  private apiBaseUrl = 'http://localhost:3000';
+   userID :any;
+   
+  constructor(private http: HttpClient,private dataService:DataSharingService) {
+    this.userID = this.dataService.userEmail;
   }
 
-  addToCart(item: any): void {
-    this.cartItems.push(item);
+  addToCart(oldCartData:any, hotel: any): Observable<any> {
+    const url = `${this.baseUrl}/${this.userID}`;
+    const oldCart = oldCartData; // Get old cart before adding
+    const updatedCart = [...oldCart, hotel];
+    return this.http.patch(url, { cart: updatedCart });
   }
 
-  removeFromCart(itemId: any): void {
-    const index = this.cartItems.findIndex((item) => item.id === itemId);
-    if (index !== -1) {
-      this.cartItems.splice(index, 1);
-    }
-  }
-
-  clearCart(): void {
-    this.cartItems = [];
-  }
-
-  patchUserCart(userId: string, cartData: any): Observable<any> {
-    const url = `${this.apiBaseUrl}/users/${userId}`; // Replace with your API endpoint
-    return this.http.patch(url, { cart: cartData });
+  removeFromCart(oldCartData:any, hoteID: any): Observable<any> {
+    const url = `${this.baseUrl}/${this.userID}`;
+    const oldCart = oldCartData; // Get old cart before removing
+    const updatedCart = oldCart.filter((h: any) => h.id !== hoteID);
+    return this.http.patch(url, { cart: updatedCart });
   }
 
   getHotelById(hotelId: number): Observable<any> {
     const url = `${this.apiBaseUrl}/hotels/${hotelId}`;
     return this.http.get(url);
   }
+
 }

@@ -16,6 +16,8 @@ import { SearchPipe } from './pipes/search.pipe';
 import { HotelDetailsComponent } from './components/hotel-details/hotel-details.component';
 import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
 import { SharedDirectiveModule } from 'src/app/shared/shared-directive/shared-directive.module';
+import { ContactUSComponent } from './components/contact-us/contact-us.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
 
@@ -33,7 +35,9 @@ import { SharedDirectiveModule } from 'src/app/shared/shared-directive/shared-di
     CartComponent,
     SearchPipe,
     HotelDetailsComponent,
-    MyBookingsComponent
+    MyBookingsComponent,
+    ContactUSComponent,
+    AboutUsComponent
   ],
   imports: [
     CommonModule,

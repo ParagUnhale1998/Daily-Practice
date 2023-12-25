@@ -32,6 +32,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CoreModule } from '../core/core.module';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { ContactComponent } from './components/contact/contact.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -62,7 +63,8 @@ const materialModules = [
   MatSidenavModule,
   HttpClientModule,
   CoreModule,
-  LazyLoadImageModule
+  LazyLoadImageModule,
+  
 ];
 
 @NgModule({
@@ -70,6 +72,7 @@ const materialModules = [
     HeaderComponent,
     FooterComponent,
     HighlightDirective,
+    ContactComponent,
   ],
   imports: [
     CommonModule,

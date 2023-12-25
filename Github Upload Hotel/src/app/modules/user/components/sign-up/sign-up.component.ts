@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ValidatorFn, ValidationErrors, Abst
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { DataSharingService } from '../../services/data-sharing.service';
+import { TosterMessageService } from 'src/app/core/services/toster-message.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -20,7 +21,7 @@ export class SignUpComponent {
   signUpForm!: FormGroup;
   isMatch!: boolean;
 
-  constructor(private fb: FormBuilder, private userService: UserService,private router:Router,private dataSharing:DataSharingService) { }
+  constructor(private fb: FormBuilder, private userService: UserService,private router:Router,private dataSharing:DataSharingService,private toster : TosterMessageService) { }
 
   ngOnInit(): void {
    
@@ -52,19 +53,26 @@ export class SignUpComponent {
       // Call the user service to register the user
       this.userService.createUser(userData).subscribe(
         (response) => {
+          this.toster.showSuccess('Registration Successful', 'Welcome to our platform!');
           this.dataSharing.setUserRegistrationState(true)
-          this.router.navigateByUrl('/user')
+          setTimeout(() => {
+            this.router.navigateByUrl('/user')
+          }, 300);
           console.log('Registration successful', response);
           // Handle success, e.g., redirect to another page
         },
         (error) => {
           console.error('Registration failed', error);
+          this.toster.showError('Registration Failed', 'Please try again later.');
+
           // Handle error, e.g., display an error message
         }
       );
     } else {
       // Form is invalid, mark fields as touched to display errors
       this.markFormGroupTouched(this.signUpForm);
+      this.toster.showWarning('Invalid Form', 'Please fill out all required fields.');
+
     }
   }
 

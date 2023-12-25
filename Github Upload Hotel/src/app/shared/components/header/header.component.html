@@ -185,7 +185,7 @@
             (click)="navigateTohome()">Home</a>
         <a class="text-white font-bold capitalize text-decoration-none hover:opacity-75"
             (click)="navigateToHotels()">Hotels</a>
-        <a href="#" class="text-white font-bold capitalize text-decoration-none hover:opacity-75 ">Contact Us</a>
+        <a  class="text-white font-bold capitalize text-decoration-none hover:opacity-75" (click)="navigateToContactUs()">Contact Us</a>
         <a *ngIf="isUserRegistered" class="text-white font-bold capitalize text-decoration-none hover:opacity-75"
             (click)="navigateToBookings()">My Bookings</a>
         <div class="flex items-center hover-move-up-scale" *ngIf="isUserRegistered" (click)="navigateToCart()">
@@ -266,7 +266,9 @@
                 </li>
                 <li>
                     <a
-                        class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0  hover:text-black ">
+                        class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0  hover:text-black "
+                        (click)="navigateToContactUs()"
+                        >
                         <i class=" text-black fas fa-envelope"></i>
 
                         Contact Us</a>

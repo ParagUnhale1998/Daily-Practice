@@ -10,6 +10,7 @@
 @import "primeng/resources/primeng.css";
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
 
 *,
 *::before,
@@ -111,4 +112,21 @@ a {
   left: -55px;
   margin-top: -1px;
   background: var(--primary);
+}
+
+.fontHeebo {
+  font-family: 'Heebo', sans-serif !important;
+}
+
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease-out, visibility 0s linear .5s;
+  z-index: 99999;
+}
+
+#spinner.show {
+  transition: opacity .5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
 }

@@ -3,6 +3,8 @@ import { HotelService } from 'src/app/modules/hotel-owner/services/hotel.service
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataSharingService } from '../../services/data-sharing.service';
 import { BookingsService } from '../../services/bookings.service';
+import { TosterMessageService } from 'src/app/core/services/toster-message.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -27,7 +29,7 @@ export class BookingComponent implements OnInit{
   totalPriceBeforeTaxes!: number;
   hotelData:any
   userID:any
-  constructor(private hotelService:HotelService,private fb: FormBuilder,private userDataSharing:DataSharingService,private bookingService :BookingsService) {
+  constructor(private hotelService:HotelService,private fb: FormBuilder,private userDataSharing:DataSharingService,private bookingService :BookingsService,private toster : TosterMessageService,private router:Router) {
     const today: Date = new Date();
     this.dateCheckIn = today;
   // Check-In Date
@@ -109,17 +111,25 @@ onSubmit() {
     
     this.bookingService.createBooking(formData).subscribe(
       (response) => {
+        this.toster.showSuccess('Booking Successful', 'Enjoy your stay!');
+        setTimeout(() => {
+          this.router.navigateByUrl('user/myBookings')
+        }, 300);
         console.log('Booking created successfully:', response);
         this.bookingForm.reset()
         // Optionally, fetch updated booking list
       },
       (error) => {
         console.error('Error creating booking:', error);
+        this.toster.showError('Booking Failed', 'Please try again later.');
+
       }
     );
   } else {
     // Form is invalid, display error messages
     console.log('Form is invalid');
+    this.toster.showWarning('Invalid Booking', 'Please fill out all required fields.');
+
   }
 }
 

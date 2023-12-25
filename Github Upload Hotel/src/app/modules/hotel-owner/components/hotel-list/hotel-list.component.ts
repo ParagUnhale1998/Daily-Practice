@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { HotelService } from '../../services/hotel.service';
 import { OwnerDataService } from '../../services/owner-data.service';
 import { Router } from '@angular/router';
+import { TosterMessageService } from 'src/app/core/services/toster-message.service';
 
 @Component({
   selector: 'app-hotel-list',
@@ -19,7 +20,7 @@ export class HotelListComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private hotelService: HotelService, private ownerDataService: OwnerDataService,private router :Router) {
+  constructor(private hotelService: HotelService, private ownerDataService: OwnerDataService,private router :Router,private tosterService:TosterMessageService) {
     // Get the user data from the service
     this.ownerId =this.ownerDataService.getOwnerId();
       // Fetch hotels for the specific owner
@@ -55,6 +56,7 @@ export class HotelListComponent {
     this.hotelService.deleteHotel(hotel.id, this.ownerId).subscribe(
       () => {
         console.log('Hotel deleted successfully');
+        this.tosterService.showSuccess('Hotel Deleted', 'The hotel has been deleted successfully.');
 
          // Fetch the updated list of hotels for the owner
       this.hotelService.getHotelsForOwner(this.ownerId).subscribe((updatedHotels) => {
@@ -65,6 +67,8 @@ export class HotelListComponent {
       });
       },
       (error) => {
+        this.tosterService.showError('Error Deleting Hotel', 'An error occurred while deleting the hotel.');
+
         console.error('Error deleting hotel', error);
       }
     );

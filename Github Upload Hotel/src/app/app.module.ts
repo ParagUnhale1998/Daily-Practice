@@ -20,7 +20,8 @@ import { SharedDirectiveModule } from './shared/shared-directive/shared-directiv
     NgbModule,
     SharedModule,
     SharedDirectiveModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    
     
   ],
   providers: [],

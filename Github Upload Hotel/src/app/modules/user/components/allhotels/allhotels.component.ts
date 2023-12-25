@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HotelsDataService } from '../../services/hotels-data.service';
 import { DataSharingService } from '../../services/data-sharing.service';
+import { TosterMessageService } from 'src/app/core/services/toster-message.service';
 
 @Component({
   selector: 'app-allhotels',
@@ -19,7 +20,7 @@ searchInput :string = ''
 isSearching: boolean = false;
 
 
-constructor(private route:ActivatedRoute, private router: Router,private hotelsDataService: HotelsDataService,private dataSharing:DataSharingService){
+constructor(private route:ActivatedRoute, private router: Router,private hotelsDataService: HotelsDataService,private dataSharing:DataSharingService,private toster : TosterMessageService){
 
   this.dataSharing.userIsRegistered$.subscribe((isRegistered) => {
     this.isUserRegistered = isRegistered;
@@ -44,6 +45,8 @@ loadAllHotels() {
 }
 
 addToCart(hotel:any){
+  // this.toster.showSuccess('Hotel Added To Cart ', 'Successful!')
+  
   this.router.navigate(['user/cart'], {
     queryParams: {hotelId: hotel.id },
   });

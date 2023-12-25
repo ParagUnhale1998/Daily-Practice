@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { DataSharingService } from '../../services/data-sharing.service';
+import { TosterMessageService } from 'src/app/core/services/toster-message.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,22 +21,17 @@ export class CartComponent implements OnInit {
     private userService: UserService,
     private cartService: CartService,
     private dataService :DataSharingService,
-  ) {}
+    private toster :TosterMessageService,
+    private router : Router
+  ) { }
 
   ngOnInit(): void {
-    
-    this.getUserData()
+    this.getUserData();
     this.route.queryParams.subscribe((params) => {
-      const hotelId = params['hotelId'];
-      this.hotelId = hotelId;
+      this.hotelId = params['hotelId']; // Convert the parameter to a number
+      console.log(this,this.hotelId)
+      this.getHotelData();
     });
-    this.getHotelData()
-    this.loadCartItems();
-
-  }
-  
-  loadCartItems() {
-    this.cartItems = this.cartService.getCartItems();
   }
 
   getUserData() {
@@ -44,66 +40,47 @@ export class CartComponent implements OnInit {
     
     this.userService.getUserByEmail(userId).subscribe((data) => {
       this.userData = data;
+      this.cartItems = data.cart
       console.log(this.userData);
-
-      // Load user's cart items only if the user is logged in
-      if (this.userData) {
-        this.loadUserCartItems();
-      }
-    });
-  }
-
-  loadUserCartItems() {
-    // Assuming you have a method to get cart items from the user data
-    // Replace this with your actual method or service call
-    const userCartItems = this.userData.cart || [];
-    
-    // Load cart items into the CartService
-    userCartItems.forEach((item: any) => {
-      this.cartService.addToCart(item);
-    });
-
-    // Optionally, update the user's cart on the server side
-    this.cartService.patchUserCart(this.userData.id, userCartItems).subscribe(() => {
-      console.log('User cart loaded successfully');
     });
   }
 
   getHotelData() {
     this.cartService.getHotelById(this.hotelId).subscribe(data => {
       this.hotelData = data
+      console.log(this.hotelData)
       this.addItemToCart()
     })
   }
 
   addItemToCart() {
-    if (this.userData && this.hotelData) {
-      const isAlreadyInCart = this.cartService.getCartItems().some(
-        (item: any) => item.id === this.hotelData.id
-      );
-      if (!isAlreadyInCart) {
-        this.cartService.addToCart(this.hotelData);
-        this.patchUserCart();
-      } else {
-        alert('Hotel is already in the cart.');
+    this.cartService.addToCart(this.cartItems, this.hotelData).subscribe(
+      (response) => {
+        this.cartItems = response.cart;
+        this.toster.showSuccess('Item added to cart successfully!', 'success');
+      },
+      (error) => {
+        this.toster.showError('Failed to add item to cart.', 'error');
       }
-    }
+    );
   }
 
-  removeFromCart(hotelId: any) {
-    this.cartService.removeFromCart(hotelId);
-    this.patchUserCart();
+
+  removeItemFromCart(hotelID: any) {
+    this.cartService.removeFromCart(this.cartItems, hotelID).subscribe(
+      (response) => {
+        this.cartItems = response.cart;
+        this.toster.showSuccess('Item removed from cart successfully!', 'success');
+      },
+      (error) => {
+        this.toster.showError('Failed to remove item from cart.', 'error');
+      }
+    );
   }
 
-  clearCart() {
-    this.cartService.clearCart();
-    this.patchUserCart();
-  }
-
-  patchUserCart() {
-    const updatedCart = this.cartService.getCartItems();
-    this.cartService.patchUserCart(this.userData.id, updatedCart).subscribe(() => {
-      console.log('User cart updated successfully');
+  navigateToBooking(hotel:any){
+    this.router.navigate(['user/hotelDetails'], {
+      queryParams: {hotelId: hotel.id },
     });
   }
 }

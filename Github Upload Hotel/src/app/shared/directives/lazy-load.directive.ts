@@ -9,7 +9,7 @@ export class LazyLoadDirective implements OnInit {
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit(): void {
-    console.log('LazyLoadDirective initialized');
+    // console.log('LazyLoadDirective initialized');
 
     this.showLoadingSkeleton(); // Display loading skeleton initially
     this.lazyLoadImage();
@@ -26,7 +26,7 @@ export class LazyLoadDirective implements OnInit {
   }
 
   private lazyLoadImage(): void {
-    console.log('LazyLoadDirective is lazy loading image');
+    // console.log('LazyLoadDirective is lazy loading image');
 
     const options = {
       root: null,
@@ -45,7 +45,7 @@ export class LazyLoadDirective implements OnInit {
   }
 
   private loadImage(): void {
-    console.log('LazyLoadDirective is loading the image');
+    // console.log('LazyLoadDirective is loading the image');
 
     // Remove the blur effect and loading skeleton when the actual image is loaded.
     this.renderer.removeStyle(this.el.nativeElement, 'backdrop-filter');
@@ -62,7 +62,7 @@ export class LazyLoadDirective implements OnInit {
 
     // If there's an error loading the image, you can handle it by setting a different placeholder or taking appropriate action.
     image.onerror = (error) => {
-      console.error('Error loading image:', error);
+      // console.error('Error loading image:', error);
       // Set a placeholder or error state.
       const errorPlaceholderSrc = 'path-to-error-placeholder-image'; // Replace with your error placeholder image URL
       this.renderer.setAttribute(this.el.nativeElement, 'src', errorPlaceholderSrc);
