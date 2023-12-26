@@ -33,7 +33,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CoreModule } from '../core/core.module';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { ContactComponent } from './components/contact/contact.component';
-
+import { LoaderComponent } from './components/loader/loader.component';
+import { ProgressBarModule } from 'primeng/progressbar';
+// For dynamic progressbar demo
+import { ToastModule } from 'primeng/toast';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -57,6 +60,8 @@ const materialModules = [
   CalendarModule,
   DropdownModule,
   TabViewModule,
+  ToastModule,
+  ProgressBarModule,
   CarouselModule,
   SliderModule,
   RatingModule,
@@ -73,6 +78,7 @@ const materialModules = [
     FooterComponent,
     HighlightDirective,
     ContactComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -89,6 +95,7 @@ const materialModules = [
     ...materialModules ,
      HeaderComponent,
   FooterComponent, // Spread the array directly here
+  LoaderComponent
   ]
 })
 export class SharedModule { }

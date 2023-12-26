@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'hotelDetails', component: HotelDetailsComponent },
   { path: 'cart', component: CartComponent },
   { path: 'myBookings', component: MyBookingsComponent },
-  { path: 'contactUs', component: AboutUsComponent },
+  { path: 'contactUs', component: ContactUSComponent },
+  { path: 'aboutUs', component: AboutUsComponent },
 
 ];
 

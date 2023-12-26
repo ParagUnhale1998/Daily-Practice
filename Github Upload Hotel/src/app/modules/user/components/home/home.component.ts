@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { DataSharingService } from '../../services/data-sharing.service';
+import { LoadingService } from 'src/app/core/services/loading.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,7 @@ export class HomeComponent {
 
   isUserRegistered = false;
 
-  constructor(private router: Router, private dataSharing: DataSharingService) {
+  constructor(private router: Router, private dataSharing: DataSharingService,private loadingService: LoadingService) {
     // Get today's date
     const today: Date = new Date();
 
@@ -68,6 +69,8 @@ export class HomeComponent {
   responsiveOptions: any[] | undefined;
 
   ngOnInit() {
+   
+
     this.testimonials = [
       {
         name: 'Jessica Brown',

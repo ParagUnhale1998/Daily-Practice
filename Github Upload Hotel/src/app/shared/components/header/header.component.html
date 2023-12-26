@@ -95,10 +95,10 @@
 </div> -->
 <nav id="navbar1" class="mx-auto borderWhite flex flex-col sm:flex-row items-center justify-between p-2 px-4">
     <div class="contact md:p-3">
-        <ul id="menu-top-bar-left" class="flex items-center list-none mb-0  text-xs lg:text-sm">
-            <li class="borderRight pr-2  ">
-                <a href="tel:(000)999-898-999" class="text-white text-decoration-none hover:opacity-75 ">Call us:
-                    (000) 999 - 898 - 999</a>
+        <ul id="menu-top-bar-left" class="flex items-center list-none mb-0 text-xs lg:text-sm">
+            <li class="borderRight pr-2">
+                <a href="tel:(000)999-898-999" class="text-white text-decoration-none hover:opacity-75">Call us: (000)
+                    999 - 898 - 999</a>
             </li>
             <li class="">
                 <a href="mailto:info@mytravel.com" class="text-white ml-2 text-decoration-none hover:opacity-75">Email:
@@ -107,9 +107,9 @@
         </ul>
     </div>
 
-    <div class="signInContainer  flex  items-center justify-center gap-2">
-        <div class="hidden socialLinks  lg:flex  items-center justify-center borderRight pr-2">
-            <ul id="menu-social-media" class=" p-0 m-0 flex items-center justify-center gap-3">
+    <div class="signInContainer flex items-center justify-center gap-2">
+        <div class="hidden socialLinks lg:flex items-center justify-center borderRight pr-2">
+            <ul id="menu-social-media" class="p-0 m-0 flex items-center justify-center gap-3">
                 <li>
                     <a href="https://www.facebook.com/"
                         class="p-2 text-white btn-social btn-facebook hover:opacity-75 hover:shadow-md hover:shadow-white">
@@ -136,48 +136,44 @@
                 </li>
             </ul>
         </div>
-        <div class="login  md:border-r-[1px] border-gray-500 md:pr-2 ">
-
-            <i class=" text-white fa-solid fa-hotel mr-2 ml-1 text-xs  md:text-xl"></i>
-            <span class="font-bold text-white mr-1 hover:opacity-75 cursor-pointer text-xs  md:text-sm"
+        <div class="login md:border-r-[1px] border-gray-500 md:pr-2">
+            <i class="text-white fa-solid fa-hotel mr-2 ml-1 text-xs md:text-xl"></i>
+            <span class="font-bold text-white mr-1 hover:opacity-75 cursor-pointer text-xs md:text-sm"
                 (click)="navigateToOwnerLogin()">Create Business Account.</span>
         </div>
         <div class="hidden md:block selectLanguage">
             <div class="relative inline-block">
-
                 <button (click)="toggleDropdown()"
-                    class=" text-white px-2 py-2 rounded-md focus:outline-none focus:shadow-outline-blue hover:opacity-75">
+                    class="text-white px-2 py-2 rounded-md focus:outline-none focus:shadow-outline-blue hover:opacity-75">
                     ENG
                     <i class="text-white fas fa-caret-down mr-2 ml-1 text-xl"></i>
                 </button>
 
-                <ul *ngIf="isDropdownOpen" [ngStyle]="{ 'display': isDropdownOpen ? 'block' : 'none' }"
-                    class="absolute right-0  dropdown-menu text-center dropdown-unfold dropdown-menu-right mt-0">
+                <ul *ngIf="isDropdownOpen" [ngStyle]="{ display: isDropdownOpen ? 'block' : 'none' }"
+                    class="absolute right-0 dropdown-menu text-center dropdown-unfold dropdown-menu-right mt-0">
                     <li>
                         <a (click)="toggleDropdown()" href="#"
-                            class="dropdown-item  active:bg-transparent active:text-black ">USD</a>
+                            class="dropdown-item active:bg-transparent active:text-black">USD</a>
                     </li>
                     <li>
                         <a (click)="toggleDropdown()" href="#"
-                            class="dropdown-item active:bg-transparent active:text-black ">EUR</a>
+                            class="dropdown-item active:bg-transparent active:text-black">EUR</a>
                     </li>
                     <li>
                         <a (click)="toggleDropdown()" href="#"
-                            class="dropdown-item active:bg-transparent active:text-black ">TUR</a>
+                            class="dropdown-item active:bg-transparent active:text-black">TUR</a>
                     </li>
                 </ul>
             </div>
-
-
         </div>
     </div>
 </nav>
 
-<div id="navbar-main" class="container  border-gray-500 p-2 hidden lg:flex items-center justify-between">
+<div id="navbar-main" class="container border-gray-500 p-2 hidden lg:flex items-center justify-between">
     <div class="flex items-center">
         <img src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/04/logo-white.svg" alt="Logo"
-            class="mr-2 h-8 w-8">
-        <span class="text-white font-bold  text-3xl">MyTravel </span>
+            class="mr-2 h-8 w-8" />
+        <span class="text-white font-bold text-3xl">MyTravel </span>
     </div>
 
     <nav class="flex items-center space-x-8">
@@ -185,7 +181,10 @@
             (click)="navigateTohome()">Home</a>
         <a class="text-white font-bold capitalize text-decoration-none hover:opacity-75"
             (click)="navigateToHotels()">Hotels</a>
-        <a  class="text-white font-bold capitalize text-decoration-none hover:opacity-75" (click)="navigateToContactUs()">Contact Us</a>
+        <a class="text-white font-bold capitalize text-decoration-none hover:opacity-75"
+            (click)="navigateToContactUs()" *ngIf="!isUserRegistered">Contact Us</a>
+        <a class="text-white font-bold capitalize text-decoration-none hover:opacity-75"
+            (click)="navigateToAboutUs()" *ngIf="!isUserRegistered">About Us</a>
         <a *ngIf="isUserRegistered" class="text-white font-bold capitalize text-decoration-none hover:opacity-75"
             (click)="navigateToBookings()">My Bookings</a>
         <div class="flex items-center hover-move-up-scale" *ngIf="isUserRegistered" (click)="navigateToCart()">
@@ -193,104 +192,111 @@
             <span class="text-white font-bold capitalize">Cart</span>
         </div>
         <button *ngIf="!isUserRegistered"
-            class="bg-white text-myDarkGray  px-4 py-2 rounded font-bold capitalize hover:shadow-md hover:shadow-white  hover-move-up"
+            class="bg-white text-myDarkGray px-4 py-2 rounded font-bold capitalize hover:shadow-md hover:shadow-white hover-move-up"
             (click)="navigateToLogin()">
-            <i class="text-black fas fa-user "></i>
-            Sign in or Register</button>
+            <i class="text-black fas fa-user"></i>
+            Sign in or Register
+        </button>
         <button *ngIf="isUserRegistered"
             class="bg-white text-myDarkGray px-4 py-2 rounded font-bold capitalize hover:shadow-md hover:shadow-white hover-move-up"
             (click)="logout()">
             <i class="text-black fas fa-sign-out-alt"></i>
             Logout
         </button>
-
-
     </nav>
 </div>
 
-<nav class="w-full" style="z-index: 1000;">
+<nav class="w-full" style="z-index: 1000">
     <div
         class="w-full md:container flex lg:hidden flex-wrap items-center justify-between max-w-screen-xl p-2 px-4 mx-auto">
         <div class="flex items-center">
             <img src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/04/logo-white.svg" alt="Logo"
-                class="mr-2 h-8 w-8">
-            <span class="text-white font-bold  text-3xl">MyTravel</span>
+                class="mr-2 h-8 w-8" />
+            <span class="text-white font-bold text-3xl">MyTravel</span>
         </div>
         <div class="flex items-center lg:order-2">
             <div class="hidden mt-2 mr-4 sm:inline-block">
                 <span></span>
             </div>
             <button *ngIf="!isUserRegistered"
-                class=" text-myDarkGray  px-4 py-2 rounded font-bold capitalize  bg-gray-100 hover:bg-white "
+                class="text-myDarkGray px-4 py-2 rounded font-bold capitalize bg-gray-100 hover:bg-white"
                 (click)="navigateToLogin()">
-                <i class="text-black fas fa-user "></i>
-                Sign in </button>
+                <i class="text-black fas fa-user"></i>
+                Sign in
+            </button>
 
             <button *ngIf="isUserRegistered"
-                class=" text-myDarkGray  px-4 py-2 rounded font-bold capitalize  bg-gray-100 hover:bg-white "
+                class="text-myDarkGray px-4 py-2 rounded font-bold capitalize bg-gray-100 hover:bg-white"
                 (click)="navigateToHotels()">
-                <i class="text-black fas fa-hotel "></i>
-                Hotels</button>
+                <i class="text-black fas fa-hotel"></i>
+                Hotels
+            </button>
 
             <button (click)="toggleMobileMenu()"
-                class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden bg-gray-100 hover:bg-white  focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden bg-gray-100 hover:bg-white focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                 aria-expanded="true">
                 <span class="sr-only">Open main menu</span>
-                <svg *ngIf="!isMobileMenuOpen" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <svg *ngIf="!isMobileMenuOpen" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
                         d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
                         clip-rule="evenodd"></path>
                 </svg>
-                <svg *ngIf="isMobileMenuOpen"  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                <svg *ngIf="isMobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
                 </svg>
-                
             </button>
         </div>
 
         <div class="container absolute top-24 right-5 items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
-            [ngClass]="{ 'hidden': !isMobileMenuOpen, 'lg:flex': isMobileMenuOpen }" id="mobile-menu-2"
-            style="z-index: 1000;">
+            [ngClass]="{ hidden: !isMobileMenuOpen, 'lg:flex': isMobileMenuOpen }" id="mobile-menu-2"
+            style="z-index: 1000">
             <ul class="flex flex-col mt-4 gap-2 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                 <li class="">
-                    <a class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0  hover:text-black "
+                    <a class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0 hover:text-black"
                         (click)="navigateTohome()">
-                        <i class=" text-black fas fa-home"></i>
+                        <i class="text-black fas fa-home"></i>
                         Home</a>
                 </li>
                 <li>
-                    <a class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0  hover:text-black "
+                    <a class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0 hover:text-black"
                         (click)="navigateToHotels()">
-                        <i class=" text-black fas fa-hotel"></i>
+                        <i class="text-black fas fa-hotel"></i>
                         Hotels</a>
                 </li>
                 <li>
-                    <a
-                        class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0  hover:text-black "
-                        (click)="navigateToContactUs()"
-                        >
-                        <i class=" text-black fas fa-envelope"></i>
+                    <a class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0 hover:text-black"
+                        (click)="navigateToContactUs()" *ngIf="!isUserRegistered">
+                        <i class="text-black fas fa-envelope"></i>
 
                         Contact Us</a>
-
                 </li>
                 <li>
-                    <a class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0  hover:text-black "
+                    <a class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0 hover:text-black"
+                        (click)="navigateToAboutUs()">
+                        <i class="text-black fas fa-envelope"></i>
+
+                        About Us</a>
+                </li>
+                <li>
+                    <a class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0 hover:text-black"
                         (click)="navigateToBookings()">
-                        <i class=" text-black fas fa-book"></i>
+                        <i class="text-black fas fa-book"></i>
 
                         My Bookings</a>
                 </li>
                 <li>
-                    <a class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0  hover:text-black "
+                    <a class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0 hover:text-black"
                         *ngIf="isUserRegistered" (click)="navigateToCart()">
-                        <i class=" text-black fas fa-shopping-cart"></i>
+                        <i class="text-black fas fa-shopping-cart"></i>
                         Cart
                     </a>
                 </li>
                 <li>
                     <a *ngIf="isUserRegistered"
-                        class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0  hover:text-black "
+                        class="block py-2 pl-3 pr-4 text-myDarkGray font-semibold bg-gray-100 hover:bg-white rounded lg:bg-transparent lg:myDarkGray lg:p-0 hover:text-black"
                         (click)="logout()">
                         <i class="text-black fas fa-sign-out-alt"></i>
                         Logout

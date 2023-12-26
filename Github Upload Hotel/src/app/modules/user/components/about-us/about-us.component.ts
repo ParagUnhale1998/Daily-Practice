@@ -32,7 +32,8 @@ export class AboutUsComponent {
       if (this.countValue >= 1000) {
         clearInterval(interval);
       }
-    }, 60); // Adjust the interval based on your desired animation speed
+    }, 150); // Adjust the interval based on your desired animation speed
   }
   
 }
+

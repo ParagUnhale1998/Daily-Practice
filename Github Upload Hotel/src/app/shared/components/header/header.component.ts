@@ -55,6 +55,9 @@ export class HeaderComponent {
   navigateToContactUs(){
     this.router.navigateByUrl('/user/contactUs');
   }
+  navigateToAboutUs(){
+    this.router.navigateByUrl('/user/aboutUs');
+  }
   logout(){
     this.tosterService.showSuccess('Logout Successful', 'Goodbye! See you soon.');
     this.router.navigateByUrl('/user')

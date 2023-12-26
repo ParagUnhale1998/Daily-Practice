@@ -42,14 +42,7 @@ export class ContactUSComponent {
     }, 60); // Adjust the interval based on your desired animation speed
   }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      const spinnerElement = document.getElementById('spinner');
-      if (spinnerElement) {
-        spinnerElement.classList.remove('show');
-      }
-    }, 1);
-  }
+ 
 }
 
 
