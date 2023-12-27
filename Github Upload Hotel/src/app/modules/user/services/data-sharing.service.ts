@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,13 @@ export class DataSharingService {
   setUserRegistrationState(isRegistered: boolean): void {
     this.userIsRegisteredSubject.next(isRegistered);
   }
-
+  
   userEmail!:string;
   // userEmail:string= 'paragunhale1998@gmail.com'
+  constructor(private authLoginService:AuthService) {
+    this.userEmail = this.authLoginService.getDecryptedUserEmail()
+    const userAuthinticated :boolean = this.authLoginService.isAuthenticated()
+    this.setUserRegistrationState(userAuthinticated)
+}
+
 }

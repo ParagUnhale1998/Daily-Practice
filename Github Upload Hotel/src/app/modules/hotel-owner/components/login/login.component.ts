@@ -5,6 +5,7 @@ import { HotelService } from '../../services/hotel.service';
 import { Router } from '@angular/router';
 import { OwnerDataService } from '../../services/owner-data.service';
 import { TosterMessageService } from 'src/app/core/services/toster-message.service';
+import { FakeJwtService } from 'src/app/core/services/fake-jwt.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent {
   showSignUp = false;
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder,private hotelOwnerService:HotelService,private router :Router,private ownerDataService:OwnerDataService,private tosterService:TosterMessageService){
+  constructor(private fb: FormBuilder,private hotelOwnerService:HotelService,private router :Router,private ownerDataService:OwnerDataService,private tosterService:TosterMessageService,private fakeJwtService:FakeJwtService){
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -57,13 +58,25 @@ export class LoginComponent {
   submitLogin() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
+      this.fakeJwtService.login(email, password)
+        .then(() => {
+          console.log('Login successful');
+          // Redirect or perform actions upon successful login
+        })
+        .catch(error => {
+          console.error('Login failed', error);
+          // Handle login failure, show error message, etc.
+        });
+    
       this.hotelOwnerService.getOwner(email).subscribe(
         (response) => {
           const userData = response; // Assuming the response contains user data
   
           // Check if the entered username and password match the data from the server
           if (email === userData.email && password === userData.password) {
-            this.ownerDataService.setUserData(userData);
+
+            // this.ownerDataService.setOwnerId(userData.id);
+
             this.tosterService.showSuccess('Login Successful', 'Welcome back, ' + userData.username);
             setTimeout(() => {
               this.router.navigateByUrl('/owner/profile')

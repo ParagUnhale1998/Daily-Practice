@@ -13,6 +13,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -31,7 +32,14 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
   imports: [
     CommonModule,
     HotelOwnerRoutingModule,
-    SharedModule
+    SharedModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem('authToken'),
+        allowedDomains: ['example.com'],
+        disallowedRoutes: ['example.com/unauthorized'],
+      },
+    }),
   ]
 })
 export class HotelOwnerModule { }

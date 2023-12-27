@@ -76,7 +76,9 @@ export class SignupComponent implements OnInit {
         (response) => {
           this.tosterService.showSuccess('Registration Successful', 'Welcome, ' + ownerData.username);
         
-          this.ownerDataService.setUserData(ownerData);
+          // this.ownerDataService.setUserData(ownerData);
+          this.ownerDataService.setOwnerId(ownerData.id);
+
           setTimeout(() => {
             this.router.navigateByUrl('/owner/profile')
           }, 300);

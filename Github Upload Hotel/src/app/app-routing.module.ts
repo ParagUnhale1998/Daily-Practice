@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'user', loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule) },
   { path: 'owner', loadChildren: () => import('./modules/hotel-owner/hotel-owner.module').then(m => m.HotelOwnerModule) },
   { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
-
+  { path: '**', redirectTo: 'user' }, 
 ];
 
 @NgModule({

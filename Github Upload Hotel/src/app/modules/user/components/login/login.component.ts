@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { DataSharingService } from '../../services/data-sharing.service';
 import { Router } from '@angular/router';
 import { TosterMessageService } from 'src/app/core/services/toster-message.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent {
  
     loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: UserService,private dataService:DataSharingService,private router:Router,private tosterMessage:TosterMessageService) {
+  constructor(private fb: FormBuilder, private authService: UserService,private dataService:DataSharingService,private router:Router,private tosterMessage:TosterMessageService,private authLoginService:AuthService) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -36,8 +37,10 @@ export class LoginComponent {
           
           // Check if the entered username and password match the data from the server
           if (email === userData.email && password === userData.password) {
-            this.dataService.userEmail = email
-            this.dataService.setUserRegistrationState(true)
+            this.authLoginService.login(email)
+            this.dataService.userEmail = this.authLoginService.getDecryptedUserEmail()
+            const userAuthinticated :boolean = this.authLoginService.isAuthenticated()
+            this.dataService.setUserRegistrationState(userAuthinticated)
             this.tosterMessage.showSuccess('Login successful','Success')
             console.log('Login successful', response);
             this.loginForm.reset()

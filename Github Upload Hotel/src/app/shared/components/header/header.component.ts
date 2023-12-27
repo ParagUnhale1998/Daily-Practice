@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { TosterMessageService } from 'src/app/core/services/toster-message.service';
 import { DataSharingService } from 'src/app/modules/user/services/data-sharing.service';
 
@@ -22,7 +23,7 @@ export class HeaderComponent {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  constructor(private router: Router,private dataSharing:DataSharingService,private tosterService:TosterMessageService){
+  constructor(private router: Router,private dataSharing:DataSharingService,private tosterService:TosterMessageService,private authService:AuthService){
 
     this.dataSharing.userIsRegistered$.subscribe((isRegistered) => {
       this.isUserRegistered = isRegistered;
@@ -61,6 +62,7 @@ export class HeaderComponent {
   logout(){
     this.tosterService.showSuccess('Logout Successful', 'Goodbye! See you soon.');
     this.router.navigateByUrl('/user')
+    this.authService.logout()
     this.dataSharing.setUserRegistrationState(false)
     this.dataSharing.userEmail=''
 

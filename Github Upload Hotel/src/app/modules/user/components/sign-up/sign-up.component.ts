@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { DataSharingService } from '../../services/data-sharing.service';
 import { TosterMessageService } from 'src/app/core/services/toster-message.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -21,7 +22,7 @@ export class SignUpComponent {
   signUpForm!: FormGroup;
   isMatch!: boolean;
 
-  constructor(private fb: FormBuilder, private userService: UserService,private router:Router,private dataSharing:DataSharingService,private toster : TosterMessageService) { }
+  constructor(private fb: FormBuilder, private userService: UserService,private router:Router,private dataService:DataSharingService,private toster : TosterMessageService,private authLoginService:AuthService) { }
 
   ngOnInit(): void {
    
@@ -54,7 +55,13 @@ export class SignUpComponent {
       this.userService.createUser(userData).subscribe(
         (response) => {
           this.toster.showSuccess('Registration Successful', 'Welcome to our platform!');
-          this.dataSharing.setUserRegistrationState(true)
+          // this.dataSharing.setUserRegistrationState(true)
+          const email = response.email
+          this.authLoginService.login(email)
+          this.dataService.userEmail = this.authLoginService.getDecryptedUserEmail()
+          const userAuthinticated :boolean = this.authLoginService.isAuthenticated()
+          this.dataService.setUserRegistrationState(userAuthinticated)
+
           setTimeout(() => {
             this.router.navigateByUrl('/user')
           }, 300);
