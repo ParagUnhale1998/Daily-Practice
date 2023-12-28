@@ -6,6 +6,7 @@ import { HotelListComponent } from './components/hotel-list/hotel-list.component
 import { AddHotelComponent } from './components/add-hotel/add-hotel.component';
 import { ManageBookingsComponent } from './components/manage-bookings/manage-bookings.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { hotelOwnerGuard } from './guards/hotel-owner.guard';
 
 const routes: Routes = [
   {
@@ -13,12 +14,12 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: '', redirectTo: 'profile', pathMatch: 'full' },
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profile', component: ProfileComponent ,canActivate: [hotelOwnerGuard]},
       // { path: 'dashbord', component: DashboardComponent },
-      { path: 'all-hotels', component: HotelListComponent },
-      { path: 'add-hotel', component: AddHotelComponent },
-      { path: 'add-hotel/:mode/:hotelId', component: AddHotelComponent },
-      { path: 'booking-list', component: ManageBookingsComponent },
+      { path: 'all-hotels', component: HotelListComponent ,canActivate: [hotelOwnerGuard] },
+      { path: 'add-hotel', component: AddHotelComponent ,canActivate: [hotelOwnerGuard]},
+      { path: 'add-hotel/:mode/:hotelId', component: AddHotelComponent,canActivate: [hotelOwnerGuard] },
+      { path: 'booking-list', component: ManageBookingsComponent ,canActivate: [hotelOwnerGuard]},
       
     ],
     
