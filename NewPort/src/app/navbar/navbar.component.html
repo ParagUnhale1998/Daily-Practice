@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="absolute   -z-10 " viewBox="0 0 1440 320">
+  <path fill="rgb(255, 231, 224)" fill-opacity="2"
+    d="M0,256L60,218.7C120,181,240,107,360,96C480,85,600,139,720,144C840,149,960,107,1080,85.3C1200,64,1320,64,1380,64L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+  </path>
+</svg>
+<!-- <header [ngClass]="{ 'sticky': isSticky }"> -->
+<header id="header">
+  <nav id="navbar" class="relative container mx-auto p-6 ">
+    <div class="flex item-center justify-between">
+      <!-- Logo -->
+      <div class="pt2">
+        <img src="assets/coding.svg" class="w-12" alt="">
+      </div>
+      <!-- tabs -->
+      <div class="hidden space-x-6 md:flex font-bold" [class.hamburger]="hamburgerIsTrue">
+        <a href="#" class="hover:text-darkGrayishBlue scale md:hover:border-b-2 hover:border-orange-500"
+          [class.hamburger-A]="hamburgerIsTrue">Home</a>
+        <a href="#" class="hover:text-darkGrayishBlue scale md:hover:border-b-2 hover:border-orange-500"
+          [class.hamburger-A]="hamburgerIsTrue">My Projects</a>
+        <a href="#services" class="hover:text-darkGrayishBlue scale md:hover:border-b-2 hover:border-orange-500"
+          [class.hamburger-A]="hamburgerIsTrue">Services</a>
+        <a href="#footer" class="hover:text-darkGrayishBlue scale md:hover:border-b-2 hover:border-orange-500"
+          [class.hamburger-A]="hamburgerIsTrue">Contacts</a>
+      </div>
+      <!-- hamburger menu  -->
+      <button id="menu-btn" class="block bg md:hidden hover:bg-brightRedSupLight rounded focus:bg-brightRedSupLight"
+        (click)="hamburgerIsTrue =!hamburgerIsTrue">
+        <svg class="w-10 h-10 block inline mr-2 md:inline " fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,64 @@
+<section id="services" class="hidden md:block">
+  <div class="container  md:p-10 px-5 my-10  mx-auto text-center">
+    <a class="opacity-25" href="#footer"><img src="../../assets/arrow.png" class="absolute w-10 right-2" alt=""></a>
+    <h3 class="text-center text-darkGrayishBlue text-3xl font-bold">My Services</h3>
+  
+      <div class="flex flex-col mt-24 md:flex-row md:space-x-6">
+        <!-- Testimonials-1 -->
+        <div class="flex shadow-lg flex-col items-center p-6 space-y-6 rounded-lg bg-white border border-gray-300 md:w-1/3">
+          <img src="../assets/services4.png" class="w-16 -mt-14 border bg-white rounded-full p-1 border-gray-300" alt="">
+  
+          <h5 class="text-lg text-gray-600 font-bold">Static Websites</h5>
+  
+          <p class="text-sm text-darkGrayishBlue">
+            “We make static websites with beautiful landing pages, ensuring fast responsiveness and better user
+            experience.”
+          </p>
+        </div>
+  
+        <!-- Testimonials-2 -->
+        <div
+          class=" flex shadow-lg flex-col items-center p-6 space-y-6 rounded-lg bg-white border border-gray-300 md:flex md:w-1/3">
+          <img src="../assets/services1.png" class="w-16 -mt-14 border bg-white rounded-full p-1 border-gray-300" alt="">
+  
+          <h5 class="text-lg text-gray-600 font-bold">Dynamic Websites</h5>
+  
+          <p class="text-sm text-darkGrayishBlue">
+            “We create dynamic website pages and functionality to make websites awesome, fast, and provide a smooth user
+            experience.”
+          </p>
+        </div>
+  
+        <!-- Testimonials-3 -->
+        <div
+          class=" flex shadow-lg flex-col items-center p-6 space-y-6 rounded-lg bg-white border border-gray-300 md:flex md:w-1/3">
+          <img src="../assets/services.png" class="w-16 -mt-14 border bg-white rounded-full p-1 border-gray-300" alt="">
+  
+          <h5 class="text-lg text-gray-600 font-bold">Bug Fixes</h5>
+  
+          <p class="text-sm text-darkGrayishBlue">
+            “
+            We fix bugs in websites within our tech stack, addressing issues Like responsive design glitches and form
+            validation to seamless API integrations”
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="Testimonials  on small Screen " class="block md:hidden">
+    <div class="container   max-w-6xl px-5 my-5 mx-auto text-center">
+      <h3 class="text-center text-darkGrayishBlue text-4xl font-bold">My Services</h3>
+  
+      <div class="flex flex-col mt-14 md:flex-row md:space-x-6">
+        <div *ngFor="let testimonial of testimonials; let i = index" [class.hidden]="i !== currentTestimonialIndex">
+          <div class="flex flex-col shadow items-center p-6 space-y-6 rounded-lg bg-white border border-gray-300 md:w-1/3">
+            <img [src]="testimonial.image" class="w-16 -mt-14 border rounded-full p-1 border-gray-300" alt="">
+            <h5 class="text-lg text-gray-600 font-bold">{{ testimonial.title }}</h5>
+            <p class="text-sm text-darkGrayishBlue">{{ testimonial.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
