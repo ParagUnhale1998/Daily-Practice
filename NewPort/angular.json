@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Portfolio-New": {
+    "PortFolio2023": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -16,30 +16,42 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
+          
           "options": {
-            "outputPath": "dist/portfolio-new",
+            "outputPath": "dist/port-folio2023",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/animate.css/animate.min.css",
               "node_modules/aos/dist/aos.css",
+              "node_modules/primeng/resources/primeng.min.css",
+
+
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/aos/dist/aos.js"
-            ]
+            ],
+            "allowedCommonJsDependencies": ["aos"]
+
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -47,7 +59,10 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "aot": true,
+              "optimization": true
+
             },
             "development": {
               "buildOptimizer": false,
@@ -64,10 +79,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Portfolio-New:build:production"
+              "browserTarget": "PortFolio2023:build:production"
             },
             "development": {
-              "browserTarget": "Portfolio-New:build:development"
+              "browserTarget": "PortFolio2023:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,17 +90,27 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Portfolio-New:build"
+            "browserTarget": "PortFolio2023:build"
+            
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/manifest.webmanifest"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         }
@@ -93,6 +118,6 @@
     }
   },
   "cli": {
-    "analytics": "0a9099b0-8679-4467-a008-0d7e650b2d6e"
+    "analytics": "cae2dea1-393d-4a9a-9899-323535583b26"
   }
 }

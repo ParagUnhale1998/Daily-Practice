@@ -1,12 +1,13 @@
 {
-  "name": "portfolio-new",
+  "name": "port-folio2023",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "analyze-bundle": "ng build --stats-json && webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -18,18 +19,14 @@
     "@angular/platform-browser": "^16.1.0",
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
+    "@angular/service-worker": "^16.1.0",
     "@fortawesome/fontawesome-free": "^6.5.1",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
-    "autoprefixer": "^10.4.16",
-    "easing": "^1.2.1",
-    "ngx-animate": "^1.0.1",
-    "ngx-scrollreveal": "^3.0.0",
-    "postcss": "^8.4.31",
+    "http-server": "^14.1.1",
+    "primeng": "^16.9.1",
     "rxjs": "~7.8.0",
-    "tailwindcss": "^3.3.5",
     "tslib": "^2.3.0",
-    "wowjs": "^1.1.3",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
@@ -38,14 +35,17 @@
     "@angular/compiler-cli": "^16.1.0",
     "@types/aos": "^3.0.7",
     "@types/jasmine": "~4.3.0",
-    "css-loader": "^6.8.1",
+    "autoprefixer": "^10.4.16",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "style-loader": "^3.3.3",
-    "typescript": "~5.1.3"
+    "postcss": "^8.4.32",
+    "postcss-import": "^15.1.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "~5.1.3",
+    "webpack-bundle-analyzer": "^4.10.1"
   }
 }

@@ -4,29 +4,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HeroComponent } from './hero/hero.component';
-import { AboutComponent } from './about/about.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { ServicesComponent } from './services/services.component';
-import { FooterComponent } from './footer/footer.component';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    HeroComponent,
-    AboutComponent,
-    ProjectsComponent,
-    ServicesComponent,
-    FooterComponent
-  ],
+    AppComponent 
+   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],  bootstrap: [AppComponent]
 })
 export class AppModule { }
