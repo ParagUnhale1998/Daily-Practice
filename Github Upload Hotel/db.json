@@ -910,9 +910,77 @@
       "hotelLocation": "Survey no. 157/9 Village-Taraste Pitasai Kumbet Road, Post-Pitsai, Raigad 402111,maharashtra, India",
       "hotelImage": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/63/f7/98/the-camel-cabin.jpg?w=1200&h=-1&s=1",
       "id": 3
+    },
+    {
+      "hotelId": "6",
+      "ownerId": "owner@gmail.com",
+      "userId": "user@gmail.com",
+      "fullName": "Jhon Doe",
+      "email": "jhondoe@gmail.com",
+      "phoneNumber": "7894561231",
+      "rooms": 1,
+      "adults": 2,
+      "children": 2,
+      "dateCheckIn": "2023-12-31T06:54:32.953Z",
+      "dateCheckOut": "2024-01-10T18:30:00.000Z",
+      "totalPrice": 40266,
+      "nights": 11,
+      "hotelName": "Rambagh Palace",
+      "hotelPrice": 3706,
+      "hotelLocation": "Bhawani Singh Road, Jaipur , Rajastan , 302005,  Jaipur , Rajastan , India",
+      "hotelImage": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/07/d5/77/rambagh-palace-exterior.jpg?w=1200&h=-1&s=1",
+      "id": 4
+    },
+    {
+      "hotelId": "23",
+      "ownerId": "paragunhale1998@gmail.com",
+      "userId": "user@gmail.com",
+      "fullName": "Sanket Unhale",
+      "email": "sanketunhale@gmail.com",
+      "phoneNumber": "456789165",
+      "rooms": 2,
+      "adults": 4,
+      "children": 2,
+      "dateCheckIn": "2023-12-31T07:51:06.078Z",
+      "dateCheckOut": "2024-01-22T18:30:00.000Z",
+      "totalPrice": 2301500,
+      "nights": 23,
+      "hotelName": "The Taj Mahal Palace",
+      "hotelPrice": 50000,
+      "hotelLocation": "Apollo Bunder Road, Mumbai 400001,maharashtra, India",
+      "hotelImage": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/07/ee/c7/exterior.jpg?w=1200&h=-1&s=1",
+      "id": 5
     }
   ],
-  "login":[
-    
+  "login": [],
+  "contacts": [
+    {
+      "name": "paragunhale",
+      "email": "paragunhale@gmail.com",
+      "subject": "Hotel Booking Not Working ",
+      "message": "",
+      "id": 1
+    },
+    {
+      "name": "user 123",
+      "email": "unhaleparag@gmail.com",
+      "subject": "login not working",
+      "message": "",
+      "id": 2
+    },
+    {
+      "name": "ParagUnhale Developer",
+      "email": "paragunhale1998@gmail.com",
+      "subject": "contact not working from backend",
+      "message": null,
+      "id": 3
+    },
+    {
+      "name": "ParagUnhale Developer 1",
+      "email": "unhaleparag123@gmail.com",
+      "subject": "Hotel Booking Not Working ",
+      "message": "",
+      "id": 4
+    }
   ]
 }

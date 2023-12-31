@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+/*import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { DataSharingService } from '../../services/data-sharing.service';
@@ -125,6 +125,89 @@ export class HomeComponent {
   SearchHotel(searchValue:any){
     this.router.navigate(['user/allhotels'], {
       queryParams: {searchValue: searchValue },
+    });
+  }
+}
+*/
+
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataSharingService } from '../../services/data-sharing.service';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
+})
+export class HomeComponent implements OnInit {
+  isRoomsDropdownOpen: boolean = false;
+  rooms: number = 1;
+  adults: number = 2;
+  children: number = 0;
+  dateCheckIn: Date | undefined;
+  dateCheckOut: Date | undefined;
+  isUserRegistered: boolean = false;
+  activeIndex: number = 0;
+  // testimonials: any[] | undefined;
+  // responsiveOptions: any[] | undefined;
+
+  // private readonly DEFAULT_IMAGE_URL = 'https://mytravel.madrasthemes.com/wp-content/uploads/2022/02/img1-avatar.jpeg';
+
+  constructor(
+    private router: Router,
+    private dataSharing: DataSharingService,
+  ) {
+    // Get today's date
+    const today: Date = new Date();
+
+    // Assign today's date to your variables
+    this.dateCheckIn = today;
+    this.dateCheckOut = today;
+  }
+
+  ngOnInit() {  
+    this.dataSharing.userIsRegistered$.subscribe((isRegistered) => {
+      this.isUserRegistered = isRegistered;
+    });
+  }
+
+  toggleRoomsDropdown() {
+    this.isRoomsDropdownOpen = !this.isRoomsDropdownOpen;
+  }
+
+  incrementRooms() {
+    this.rooms++;
+  }
+
+  decrementRooms() {
+    if (this.rooms > 1) {
+      this.rooms--;
+    }
+  }
+
+  incrementAdults() {
+    this.adults++;
+  }
+
+  decrementAdults() {
+    if (this.adults > 1) {
+      this.adults--;
+    }
+  }
+
+  incrementChildren() {
+    this.children++;
+  }
+
+  decrementChildren() {
+    if (this.children > 0) {
+      this.children--;
+    }
+  }
+
+  SearchHotel(searchValue: any) {
+    this.router.navigate(['user/allhotels'], {
+      queryParams: { searchValue: searchValue },
     });
   }
 }

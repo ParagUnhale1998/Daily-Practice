@@ -23,6 +23,7 @@ import { AuthUserInterceptor } from './interceptors/auth-user.interceptor';
       useClass: AuthInterceptor,
       multi: true,
     },
+    
   ]
   
 })

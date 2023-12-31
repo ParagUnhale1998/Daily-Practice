@@ -17,14 +17,16 @@ import { trigger, style, animate, transition } from '@angular/animations';
 })
 
 export class AboutUsComponent {
-  countValue = 0;
-  roomsValue = 0;
-  clientValues = 0;
+  countValue: number = 0;
+  roomsValue: number = 0;
+  clientValues: number = 0;
+  private readonly INTERVAL_DURATION_MS = 60;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.autoIncrement();
   }
-  private autoIncrement() {
+
+  private autoIncrement(): void {
     const interval = setInterval(() => {
       this.countValue += 40;
       this.roomsValue += 497;
@@ -32,7 +34,7 @@ export class AboutUsComponent {
       if (this.countValue >= 1000) {
         clearInterval(interval);
       }
-    }, 150); // Adjust the interval based on your desired animation speed
+    }, this.INTERVAL_DURATION_MS);
   }
   
 }

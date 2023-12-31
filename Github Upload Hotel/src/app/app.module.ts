@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
 import { SharedDirectiveModule } from './shared/shared-directive/shared-directive.module';
 import { CoreModule } from './core/core.module';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CoreModule } from './core/core.module';
     
     
   ],
-  providers: [],
+  providers: [    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

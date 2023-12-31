@@ -1,36 +1,41 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private apiBaseUrl = 'http://localhost:3000'; // Update with your JSON Server base URL
+  private readonly apiBaseUrl = `${environment.API_ENDPOINT}/users`;;
 
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<any> {
-    return this.http.get(`${this.apiBaseUrl}/users`);
+  getUsers(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiBaseUrl);
   }
 
   getUserByEmail(email: string): Observable<any> {
-    return this.http.get(`${this.apiBaseUrl}/users/${email}`);
+    const userUrl = `${this.apiBaseUrl}/${email}`;
+    return this.http.get<any>(userUrl);
   }
 
   createUser(user: any): Observable<any> {
-    return this.http.post(`${this.apiBaseUrl}/users`, user);
+    return this.http.post(this.apiBaseUrl, user);
   }
 
   updateUser(email: string, updatedUser: any): Observable<any> {
-    return this.http.put(`${this.apiBaseUrl}/users/${email}`, updatedUser);
+    const userUrl = `${this.apiBaseUrl}/${email}`;
+    return this.http.put(userUrl, updatedUser);
   }
 
   patchUser(email: string, patchData: any): Observable<any> {
-    return this.http.patch(`${this.apiBaseUrl}/users/${email}`, patchData);
+    const userUrl = `${this.apiBaseUrl}/${email}`;
+    return this.http.patch(userUrl, patchData);
   }
 
   deleteUser(email: string): Observable<any> {
-    return this.http.delete(`${this.apiBaseUrl}/users/${email}`);
+    const userUrl = `${this.apiBaseUrl}/${email}`;
+    return this.http.delete(userUrl);
   }
 }

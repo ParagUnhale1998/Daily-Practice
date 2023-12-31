@@ -5,14 +5,14 @@
             src="https://wallpapercosmos.com/w/full/0/0/e/32746-3840x2160-desktop-4k-india-background-image.jpg" alt="">
     </div>
     <app-header></app-header>
-    <div class="text-center pt-5 mx-auto my-4 mb-8" >
+    <div class="text-center pt-5 mx-auto my-4 mb-8">
         <h6 class="section-title text-center text-white text-2xl font-serif">Discover Luxury Stay</h6>
         <h1 class="text-white capitalize font-serif mt-1">
             Experience comfort and elegance at our
             <span class="text-mySkyBlue bg-white p-1 rounded font-bold capitalize">My Travels hotels.</span>
         </h1>
     </div>
-    
+
 </div>
 
 <section id="allHotels" class="border-b-[1px] border-gray-200">
@@ -23,7 +23,7 @@
                 <!-- Search Bar -->
                 <div class="mb-4 flex items-center justify-center bg-white rounded-l-md rounded-r-md">
                     <input type="text" placeholder="Search..." [(ngModel)]="searchInput" placeholder="Search"
-                    (input)="updateSearchStatus()"
+                        (input)="updateSearchStatus()"
                         class="w-auto  border-b-[3px] rounded-l-md focus:border-mySkyBlue px-4 py-3 flex-grow outline-none shadow-none  placeholder:text-base placeholder-gray-500">
                     <button (click)="SearchHotels()"
                         class="bg-mySkyBlue text-white px-6 py-3 border-b-[3px] rounded-r-md border-mySkyBlue  hover-move-up focus:outline-none focus:bg-blue-600 transition-all duration-300">
@@ -39,8 +39,8 @@
                     <!-- Filter Radio Buttons -->
                     <div class="flex flex-wrap items-center justify-around mb-2">
                         <div class="flex items-center mr-4 mb-2">
-                            <input type="radio" id="all" name="filterOption" [checked]="!isSearching" class="mr-2" [(ngModel)]="selectedFilter"
-                                [value]="'all'" (change)="onFilterChange()">
+                            <input type="radio" id="all" name="filterOption" [checked]="!isSearching" class="mr-2"
+                                [(ngModel)]="selectedFilter" [value]="'all'" (change)="onFilterChange()">
                             <label for="all" class="text-lg font-extralight">All</label>
                         </div>
                         <!-- Repeat the above structure for other radio buttons -->
@@ -84,16 +84,39 @@
                     <p class="text-gray-600 m-0 mb-0 p-2">Hotels Found: {{filteredHotels.length }}</p>
                 </div>
                 <div class="container flex flex-wrap  g-4">
+
+                    <div *ngIf="isLoading" class="w-full flex flex-wrap">
+                        <ng-container *ngFor="let index of [].constructor(30); let i = index">
+                            <div class="w-full mb-4 md:mr-2 md:w-[48%] lg:w-[32%] p-4 border-[1px]">
+                                <p-skeleton width="100%" height="150px"></p-skeleton>
+                                <p-skeleton width="5rem" styleClass="my-2" borderRadius="16px"></p-skeleton>
+                                <p-skeleton width="10rem" width="90%" styleClass="mb-2"
+                                    borderRadius="16px"></p-skeleton>
+                                <p-skeleton styleClass="mb-2" borderRadius="16px"></p-skeleton>
+                                <p-skeleton styleClass="mb-2" width="100%" height=".5rem"></p-skeleton>
+                                <p-skeleton styleClass="mb-2" width="100%" height=".5rem"></p-skeleton>
+                                <p-skeleton styleClass="mb-2" width="100%" height=".5rem"></p-skeleton>
+                                <p-skeleton styleClass="mb-2" width="100%" height=".5rem"></p-skeleton>
+                                <div class="flex justify-content-between mt-3">
+                                    <p-skeleton width="6rem" height="2rem"></p-skeleton>
+                                    <p-skeleton width="6rem" height="2rem"></p-skeleton>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+
+
+
                     <div class="lg:w-1/3 pr-4 pl-4 md:w-1/2 mb-4  wow fadeInUp" data-wow-delay="0.1s"
                         *ngFor="let hotel of filteredHotels | search: searchInput">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="relative ">
-                                
+
                                 <div class="">
                                     <div class="loading-skeleton"></div>
 
                                     <img class="w-full h-[240px]  transition-transform transform hover:scale-105"
-                                    appLazyLoad [lazyLoadSrc]="hotel.image" alt="">
+                                        appLazyLoad [lazyLoadSrc]="hotel.image" alt="">
                                     <small
                                         class="absolute start-0 top-100 translate-middle-y bg-mySkyBlue text-white rounded py-1 px-3 ms-4">{{hotel.price
                                         | currency: 'INR':'symbol':"1.0-2"}}/Night</small>
@@ -136,11 +159,11 @@
                                 <div class="flex justify-between">
                                     <a *ngIf="!isUserRegistered"
                                         class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
-                                        (click)="NavigateToLogin()">Add To Cart</a>
+                                        (click)="navigateToLogin()">Add To Cart</a>
                                     <a *ngIf="isUserRegistered"
                                         class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
                                         (click)="addToCart(hotel)">Add To Cart</a>
-                                    <a *ngIf="!isUserRegistered" (click)="NavigateToLogin()"
+                                    <a *ngIf="!isUserRegistered" (click)="navigateToLogin()"
                                         class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up">Book
                                         Now</a>
                                     <a *ngIf="isUserRegistered" (click)="navigateToBooking(hotel)"
@@ -158,4 +181,4 @@
     </div>
 </section>
 <app-footer></app-footer>
-<app-loader></app-loader>
+<!-- <app-loader></app-loader> -->

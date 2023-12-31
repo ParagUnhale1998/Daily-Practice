@@ -25,7 +25,7 @@
 <div class="w-screen border-b-[1px] pb-2">
  
     <div class="container mx-auto p-2">
-        <div class="text-center wow fadeInUp " data-wow-delay="0.1s">
+        <div class="text-center  " >
             <h6 class="section-title text-center  text-mySkyBlue uppercase fontHeebo m-0 p-0 flex flex-col">Contact Us
                 <span class="m-0 p-0 mb-4 font-bold text-mySkyBlue">____</span></h6>
 
@@ -50,34 +50,34 @@
                 </div>
             </div>
 
-            <div class="w-[95%] md:w-1/2 wow fadeIn mb-3 md:mb-0" data-wow-delay="0.1s p-2 ">
-                <iframe class="position-relative rounded w-100 h-100" [src]="getGoogleMapsUrl()" frameborder="0"
-                    style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+            <div class="w-[95%] md:w-1/2  mb-3 md:mb-0">
+                <iframe class="position-relative rounded w-100 h-100" [src]="googleMapsUrl" frameborder="0"
+                    style="min-height: 350px; border:0;" tabindex="0">
                 </iframe>
             </div>
 
             <div class="w-full  md:w-1/2 pr-4 pl-4 ">
-                <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <form class="max-w-md mx-auto">
+                <div  >
+                    <form class="max-w-md mx-auto"  [formGroup]="contactForm" (ngSubmit)="submitForm()">
                         <div class="grid grid-cols-1 gap-6">
                             <div class="">
                                 <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
-                                <input type="text" id="name" name="name"
+                                <input type="text" id="name" name="name" formControlName="name"
                                     class="mt-1 p-2 w-full border rounded-md focus:border-none focus:outline-blue-400 focus:shadow-blue-400 focus:shadow-sm">
                             </div>
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
-                                <input type="email" id="email" name="email"
+                                <input type="email" id="email" name="email" formControlName="email"
                                     class="mt-1 p-2 w-full border rounded-md focus:border-none focus:outline-blue-400 focus:shadow-blue-400 focus:shadow-sm">
                             </div>
                             <div>
                                 <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
-                                <input type="text" id="subject" name="subject"
+                                <input type="text" id="subject" name="subject" formControlName="subject"
                                     class="mt-1 p-2 w-full border rounded-md focus:border-none focus:outline-blue-400 focus:shadow-blue-400 focus:shadow-sm">
                             </div>
                             <div>
                                 <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                                <textarea id="message" name="message" rows="4"
+                                <textarea id="message" name="message" rows="4" formControlName="message"
                                     class="mt-1 p-2 w-full border rounded-md focus:border-none focus:outline-blue-400 focus:shadow-blue-400 focus:shadow-sm"></textarea>
                             </div>
                             <div>
@@ -97,4 +97,4 @@
     </div>
 </div>
 <app-footer></app-footer>
-<app-loader></app-loader>
+<!-- <app-loader></app-loader> -->

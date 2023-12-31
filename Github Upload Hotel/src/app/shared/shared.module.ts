@@ -35,6 +35,8 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { ContactComponent } from './components/contact/contact.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { SkeletonModule } from 'primeng/skeleton';
+
 // For dynamic progressbar demo
 import { ToastModule } from 'primeng/toast';
 export function HttpLoaderFactory(http: HttpClient) {
@@ -69,7 +71,7 @@ const materialModules = [
   HttpClientModule,
   CoreModule,
   LazyLoadImageModule,
-  
+  SkeletonModule
 ];
 
 @NgModule({
