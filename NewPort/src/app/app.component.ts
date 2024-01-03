@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 // import * as Aos from 'aos';
 import Aos from 'aos';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
-import { PrimeNGConfig } from 'primeng/api';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -45,37 +45,25 @@ export class AppComponent implements OnInit {
     this.hamburgerIsTrue = !this.hamburgerIsTrue
   }
  
-  constructor(private primengConfig: PrimeNGConfig){
+  constructor(private renderer: Renderer2, private el: ElementRef,private cdRef: ChangeDetectorRef){
 
   }
 
   ngOnInit(): void {
-    this.scrollEvenetsOnClick()
     Aos.init({
       easing: 'ease-in-out',
       once: false,
       delay: 200
     });
-
-    this.startSlideshow();
-
-        setInterval(() => {
+  
+    setInterval(() => {
       this.showNextTestimonial();
       Aos.refresh();
     }, 3000); // Switch testimonials every 5 seconds
-
-    //ng prime cursoul
-    this.images = this.travelWebsite.map((itemImageSrc, index) => {
-      return {
-        itemImageSrc,
-        thumbnailImageSrc: itemImageSrc, // You can customize this based on your thumbnail logic
-        alt: `Image ${index + 1}`,
-      };
-    });
-
-    // Call the init method to make responsiveOptions work
-    this.primengConfig.ripple = true;
+  
+    this.startSlideshow();
   }
+  
     //hero Section Ts
     openLinkedInProfile(): void {
       window.open('https://www.linkedin.com/in/parag-unhale', '_blank');
@@ -105,8 +93,9 @@ export class AppComponent implements OnInit {
       '../assets/projects/TravelWebsite/7.png',
       '../assets/projects/TravelWebsite/8.png',
       '../assets/projects/TravelWebsite/9.png',
-      '../assets/projects/TravelWebsite/10.png',
-      '../assets/projects/TravelWebsite/12.jpg',
+      '../assets/projects/TravelWebsite/10.jpg',
+      '../assets/projects/TravelWebsite/11.png',
+      '../assets/projects/TravelWebsite/12.png',
       '../assets/projects/TravelWebsite/13.png',
   
     ];
@@ -119,22 +108,23 @@ export class AppComponent implements OnInit {
     ];
     currentImageIndexTravel: number = 0
     currentImageIndexRecipe: number = 0
-  
-    // ngOnInit() {
-    //   this.startSlideshow();
-    // }
+ 
   
     startSlideshow() {
+      console.log('on')
       setInterval(() => {
+        console.log('on2')
         this.showNextImage();
-        Aos.refresh();
       }, 2000); // Change the interval as needed (milliseconds)
     }
   
     showNextImage() {
       this.currentImageIndexTravel = (this.currentImageIndexTravel + 1) % this.travelWebsite.length;
       this.currentImageIndexRecipe = (this.currentImageIndexRecipe + 1) % this.recipeWebsite.length;
-  }
+      this.cdRef.detectChanges();
+
+    }
+    
 
   //service Ts code 
   currentTestimonialIndex = 0;
@@ -183,5 +173,18 @@ export class AppComponent implements OnInit {
         document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
       });
     });
+  }
+
+ngAfterViewInit(): void {
+    setTimeout(() => {
+      const spinnerElement = this.el.nativeElement.querySelector('#spinner');
+      if (spinnerElement) {
+        this.renderer.removeClass(spinnerElement, 'show');
+      }
+    }, 1000);
+  }
+visible:boolean =true
+  visibleDiv(){
+this.visible = !this.visible
   }
 }
