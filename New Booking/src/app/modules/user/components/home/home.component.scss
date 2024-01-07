@@ -1,0 +1,41 @@
+
+/* hotel-details.component.css */
+:enter {
+  transition: opacity 0.5s;
+}
+
+:leave {
+  transition: opacity 0.5s;
+}
+
+.dropdownImage{
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+
+}
+.countryImageContainer:hover .dropdownImage{
+    opacity: 1;
+}
+
+.details {
+    position: absolute;
+    bottom: -100px;
+    width: 100%;
+    left: 0;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    padding: 1.5vw;
+    justify-content: space-between;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    gap: 10px;
+    transition: bottom 0.3s ease;
+  }
+
+  .countryImageContainer:hover .details {
+    bottom: 0;
+  }
+  .transparent-black-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha channel for transparency */
+  }

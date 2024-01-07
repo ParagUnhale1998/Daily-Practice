@@ -1,0 +1,43 @@
+Angular Material:
+
+Official Material Design components for Angular.
+Provides a set of pre-built, customizable UI components.
+Helps maintain a consistent look and feel with Material Design.
+NgRx:
+
+State management library for Angular applications.
+Implements the Redux pattern for managing application state.
+Useful for managing complex state and interactions between components.
+Angular Flex Layout:
+
+Provides a flexible and responsive layout system for Angular applications.
+Useful for creating responsive and adaptive user interfaces.
+PrimeNG:
+
+A collection of rich UI components for Angular.
+Includes various components like calendars, sliders, data tables, etc.
+Can enhance the visual appeal and functionality of your application.
+Angular Universal:
+
+Enables server-side rendering (SSR) for Angular applications.
+Improves performance and search engine optimization (SEO).
+Especially useful for content-heavy and dynamic applications.
+ngx-translate/core:
+
+Internationalization (i18n) library for Angular applications.
+Allows you to easily add multilingual support to your website.
+Angular Fire:
+
+Official library for Firebase and Angular integration.
+Provides Angular services for Firebase features like Firestore, Authentication, etc.
+ngx-charts:
+
+A charting library for Angular applications.
+Supports various types of charts and is customizable.
+ngx-pagination:
+
+Simple and customizable pagination component for Angular applications.
+Angular CLI:
+
+Official command-line interface for Angular development.
+Streamlines the development process with commands for generating components, services, modules, etc.

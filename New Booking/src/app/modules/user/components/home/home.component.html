@@ -1,0 +1,307 @@
+<!-- Header Section -->
+<header id="header" class="bg-cover bg-center w-full h-full">
+    <div id="background-Dark" class="absolute w-full h-[80vh]  z-[-1]">
+        <div class="absolute inset-0 bg-black " style="opacity: 50%;"></div>
+        <img class="w-full h-[80vh] object-cover" src="https://www.ihcltata.com/content/dam/tajhotels/ihcl/taj/Taj-banner.jpg" alt="">
+    </div>
+    <!-- 
+    <nav id="navbar1" class="mx-auto borderWhite flex item-center justify-between p-2 px-4">
+        <div class="contact p-3">
+            <ul id="menu-top-bar-left" class="flex items-center list-none mb-0">
+                <li class="borderRight pr-2 text-sm ">
+                    <a href="tel:(000)999-898-999" class="text-white text-decoration-none hover:opacity-75 ">Call us:
+                        (000) 999 - 898 - 999</a>
+                </li>
+                <li class="text-sm">
+                    <a href="mailto:info@mytravel.com"
+                        class="text-white ml-2 text-decoration-none hover:opacity-75">Email: info@mytravel.com</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="signInContainer  flex  items-center justify-center gap-2">
+            <div class="socialLinks  flex  items-center justify-center borderRight pr-2">
+                <ul id="menu-social-media" class=" p-0 m-0 flex items-center justify-center gap-3">
+                    <li>
+                        <a href="https://www.facebook.com/"
+                            class="p-2 text-white btn-social btn-facebook hover:opacity-75 hover:shadow-md hover:shadow-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twitter.com/"
+                            class="p-2 text-white btn-social btn-twitter hover:opacity-75 hover:shadow-md hover:shadow-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/"
+                            class="p-2 text-white btn-social btn-instagram hover:opacity-75 hover:shadow-md hover:shadow-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/"
+                            class="p-2 text-white btn-social btn-linkedin hover:opacity-75 hover:shadow-md hover:shadow-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="login borderRight pr-2 ">
+         
+                <i class=" text-white fa-solid fa-hotel mr-2 ml-1 text-xl"></i>
+                <span class="font-bold text-white mr-1 hover:opacity-75 cursor-pointer " (click)="navigateToOwnerLogin()">Create Business Account.</span>
+            </div>
+            <div class="selectLanguage">
+                <div class="relative inline-block">
+
+                    <button (click)="toggleDropdown()"
+                        class=" text-white px-2 py-2 rounded-md focus:outline-none focus:shadow-outline-blue hover:opacity-75">
+                        ENG
+                        <i class="text-white fas fa-caret-down mr-2 ml-1 text-xl"></i>
+                    </button>
+
+                    <ul *ngIf="isDropdownOpen" [ngStyle]="{ 'display': isDropdownOpen ? 'block' : 'none' }"
+                        class="absolute right-0  dropdown-menu text-center dropdown-unfold dropdown-menu-right mt-0">
+                        <li>
+                            <a (click)="toggleDropdown()" href="#"
+                                class="dropdown-item  active:bg-transparent active:text-black ">USD</a>
+                        </li>
+                        <li>
+                            <a (click)="toggleDropdown()" href="#"
+                                class="dropdown-item active:bg-transparent active:text-black ">EUR</a>
+                        </li>
+                        <li>
+                            <a (click)="toggleDropdown()" href="#"
+                                class="dropdown-item active:bg-transparent active:text-black ">TUR</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <div id="navbar-main" class="container border-gray-500 p-2 flex items-center justify-between">
+        <div class="flex items-center">
+            <img src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/04/logo-white.svg" alt="Logo"
+                class="mr-2 h-8 w-8">
+            <span class="text-white font-bold  text-3xl">MyTravel</span>
+        </div>
+
+        <nav class="flex items-center space-x-8">
+            <a  class="text-white font-bold capitalize text-decoration-none hover:opacity-75" >Home</a>
+            <a  class="text-white font-bold capitalize text-decoration-none hover:opacity-75" (click)="navigateToHotels()">Hotels</a>
+            <a href="#" class="text-white font-bold capitalize text-decoration-none hover:opacity-75 ">Activities</a>
+            <div class="flex items-center hover-move-up-scale">
+                <i class="text-white fas fa-shopping-cart mr-1"></i>
+                <span class="text-white font-bold capitalize ">Cart</span>
+            </div>
+            <button (click)="openBackDropCustomClass()"
+                class="bg-white text-myDarkGray  px-4 py-2 rounded font-bold capitalize hover:shadow-md hover:shadow-white  hover-move-up">
+                <i class="text-black fas fa-user "></i>
+                Sign in or Register</button>
+                
+        </nav>
+    </div> -->
+    <app-header></app-header>
+    <div id="hero-section" class=" hero relative flex flex-col items-center justify-center">
+        <div id="serch-container" class=" container h-[80vh] md:h-[80vh] flex items-center justify-center text-white text-center">
+            <div class="flex items-center justify-center flex-col">
+                <h1 class="text-[7vw] md:text-[5vw] font-extrabold mb-4 font-serif ">Let's Explore The World Together!</h1>
+                <p class="text-[3vw] md:text-[1.5vw] font-semibold capitalize">Find awesome hotels, tours, cars, and activities in India</p>
+            </div>
+            
+        </div>
+        <div class=" container absolute bottom-10 searchContainer">
+           <app-search></app-search>
+        </div>
+    </div>
+</header>
+
+<!-- Top Destionation Section -->
+
+<app-top-destination></app-top-destination>
+
+<!-- Trending Section  -->
+<app-trending></app-trending>
+
+<!-- Travel Tips Section -->
+<section id="teavel-tips" class="w-full h-96 flex items-center  justify-center text-center text-white"
+    style="background-image: url(https://mytravel.madrasthemes.com/wp-content/uploads/2022/02/img11920500.jpeg);">
+    <div class="flex flex-col items-center justify-center gap-2">
+        <h6 class="text-4xl font-bold mb-2">Travel Tips</h6>
+        <p class="text-lg mb-0 px-md-3 px-lg-0">Northern Ireland’s is now contingent. Britain is getting a divorce </p>
+        <p class=" text-lg mb-0 px-md-3 px-lg-0"> Northern Ireland is being offered a trial separation for Britain there
+            is a </p>
+        <p class="text-lg  px-md-3 px-lg-0 mb-4"> one</p>
+        <a 
+            class="border-2 border-white text-decoration-none hover:bg-white text-white py-2 px-4    transition-transform transform hover:scale-105 "
+            role="button">
+            <span class="text-lg hover:text-gray-600 ">Get Inspired</span>
+        </a>
+    </div>
+</section>
+
+<!-- Services container -->
+<section id="services" class="w-full bg-img-hero rounded  py-3 mt-4">
+    <div class="container mx-auto text-center space-1">
+        <div class="container mb-4">
+            <h2 class="text-3xl font-bold text-gray-600 text-center">Why Choose</h2>
+            <span class="text-mySkyBlue font-bold m-0 p-0">_____</span>
+        </div>
+        <div class="flex flex-wrap justify-center -mx-2 mt-4 ">
+            <div class="w-full md:w-1/2 lg:w-1/3 px-2 mt-4">
+                <a href="https://mytravel.madrasthemes.com/blog/"
+                    class="flex items-center justify-center p-3 text-decoration-none border border-white rounded min-w-200 transition-transform transform hover:scale-105"
+                    role="button">
+                    <div>
+                        <i class="fas fa-dollar-sign text-5xl mb-2 text-mySkyBlue"></i>
+                        <h5 class="text-gray-600 mb-2">Competitive Pricing</h5>
+                        <p class="text-gray-500">With 500+ suppliers and the purchasing power of 300 million members,
+                            mytravel.com can save you more!</p>
+                    </div>
+                </a>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-2 mt-4">
+                <a href="https://mytravel.madrasthemes.com/blog/"
+                    class="flex items-center justify-center p-3 text-decoration-none border border-white rounded min-w-200 transition-transform transform hover:scale-105"
+                    role="button">
+                    <div>
+                        <!-- <i class="fas fa-trophy "></i> -->
+                        <span class="material-symbols-outlined text-5xl mb-2 text-mySkyBlue">
+                            social_leaderboard
+                        </span>
+                        <h5 class="text-gray-600 mb-2">Award-Winning Service</h5>
+                        <p class="text-gray-500">Travel worry-free knowing that we're here if you need us, 24 hours a
+                            day</p>
+                    </div>
+                </a>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-2 mt-4">
+                <a href="https://mytravel.madrasthemes.com/blog/"
+                    class="flex items-center justify-center p-3 text-decoration-none border border-white rounded min-w-200 transition-transform transform hover:scale-105"
+                    role="button">
+                    <div>
+                        <i class="fas fa-globe text-5xl mb-2 text-mySkyBlue "></i>
+                        <h5 class="text-gray-600 mb-2">Worldwide Coverage</h5>
+                        <p class="text-gray-500">Over 1,200,000 hotels in more than 200 countries and regions & flights
+                            to over 5,000 cities</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Download App container -->
+<section id="download-app" class="bg-mySkyBlue py-5">
+    <div class="container mx-auto flex justify-between items-center mt-4">
+        <div class="w-full md:w-1/2 text-center md:text-left mb-4 md:mb-0 md:mt-9">
+            <h5 class="text-2xl md:text-4xl font-medium text-white mb-2">Explore the World with Our App</h5>
+            <p class="text-lg text-white mb-4 md:mb-5 pb-2">
+                Embark on a journey like never before! Download our app and unlock a world of travel experiences. From
+                breathtaking destinations to seamless trip planning, your next adventure is just a tap away.
+            </p>
+            <div class="flex items-center justify-center  w-full">
+                <div
+                    class="flex  items-center justify-between gap-2  btn-outline-white btn-wide rounded transition hover:bg-white duration-300 border py-2 px-4 mr-2">
+                    <div class="span">
+                        <img src="https://logowik.com/content/uploads/images/apple-black8038.jpg" alt=""
+                            class="w-12 h-12 rounded-full">
+                    </div>
+                    <div class="textContainer">
+                        <strong class="font-bold">App Store</strong>
+                        <span class="block font-normal text-sm">Available on the</span>
+                    </div>
+                </div>
+                <div
+                    class="flex  items-center justify-between gap-2  btn-outline-white btn-wide rounded transition hover:bg-white duration-300 border py-2 px-4 mr-2">
+                    <div class="span">
+                        <img src="https://static.vecteezy.com/system/resources/previews/022/613/026/original/google-play-store-icon-logo-symbol-free-png.png"
+                            alt="" class="w-12 h-12 rounded-full">
+                    </div>
+                    <div class="textContainer">
+                        <strong class="font-bold">Google Play</strong>
+                        <span class="block font-normal text-sm">Get it on</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="hidden md:block w-1/2 text-right">
+            <img loading="lazy" decoding="async"
+                src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/02/img3.png" alt="" class="img-fluid">
+        </div>
+    </div>
+</section>
+
+<!-- footer -->
+<!-- <footer id="footer" class="w-full py-4 flex-shrink-0 bg-white">
+    <div class="container mx-auto py-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="col-span-2 md:col-span-1">
+                <div class="flex items-center mb-2">
+                    <img src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/08/primary-logo.jpeg" alt="Logo"
+                        class="mr-2 h-8 w-8">
+                    <span class="text-mySkyBlue font-bold text-3xl">MyTravel</span>
+                </div>
+                <p class="text-gray-600">Unlock the wonders of the world with ExploreTravel. Your journey begins now!
+                </p>
+                <p class="text-gray-600 mb-0">&copy; 2023 ExploreTravel. All rights reserved. <a
+                        class="text-gray-600 hover:text-black" href="#">Parag Unhale</a></p>
+            </div>
+            <div class="col-span-1">
+                <ul class="list-none">
+                    <li><a href="#" class="text-gray-700">Home</a></li>
+                    <li><a href="#" class="text-gray-700">About</a></li>
+                    <li><a href="#" class="text-gray-700">Get started</a></li>
+                    <li><a href="#" class="text-gray-700">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-span-1">
+                <ul class="list-none">
+                    <li>
+                        <a href="#" class="flex items-center hover:text-black">
+                            <i class="fab fa-facebook-square text-sky-950 text-xl mr-2"></i> Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center hover:text-black">
+                            <i class="fab fa-twitter-square text-blue-500 text-xl mr-2"></i> Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center hover:text-black">
+                            <i class="fab fa-instagram-square text-red-600 text-xl mr-2"></i> Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center hover:text-black">
+                            <i class="fab fa-linkedin text-xl text-blue-700 mr-2"></i> LinkedIn
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <h5 class="text-mySkyBlue mb-3">Subscribe to Our Newsletter</h5>
+                <p class="text-gray-600">Stay updated with the latest travel news, exclusive offers, and more.</p>
+                <form action="#">
+                    <div class="flex items-center mb-3">
+                        <input type="text" id="destination" placeholder="Your Email"
+                            class=" px-4 py-2 text-gray-800 font-bold placeholder-gray-500  outline-none border-b-2 border-gray-300  focus:outline-none focus:placeholder-gray-400  focus:border-mySkyBlue transition-all duration-300">
+                        <button
+                            class="bg-mySkyBlue text-white p-2 px-4 rounded-md hover-move-up focus:outline-none focus:bg-blue-600 transition-all duration-300">
+                            <i class="fas fa-paper-plane "></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer> -->
+<app-footer></app-footer>
+<!-- <app-loader></app-loader> -->

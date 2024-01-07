@@ -1,0 +1,63 @@
+<footer id="footer" class="w-full py-4 flex-shrink-0 bg-white">
+    <div class="container mx-auto py-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="col-span-2 md:col-span-1">
+                <div class="flex items-center mb-2">
+                    <img src="https://mytravel.madrasthemes.com/wp-content/uploads/2022/08/primary-logo.jpeg" alt="Logo"
+                        class="mr-2 h-8 w-8">
+                    <span class="text-mySkyBlue font-bold text-3xl">MyTravel</span>
+                </div>
+                <p class="text-gray-600">Unlock the wonders of the world with ExploreTravel. Your journey begins now!
+                </p>
+                <p class="text-gray-600 mb-0">&copy; 2023 ExploreTravel. All rights reserved. <a
+                        class="text-gray-600 hover:text-black" href="#">Parag Unhale</a></p>
+            </div>
+            <div class="col-span-1">
+                <ul class="list-none">
+                    <li><a [routerLink]="['/user']"  class="text-gray-700 hover:text-mySkyBlue">Home</a></li>
+                    <li><a [routerLink]="['/user/aboutUs']" class="text-gray-700 hover:text-mySkyBlue">About Us</a></li>
+                    <li><a [routerLink]="['/user/contactUs']" class="text-gray-700 hover:text-mySkyBlue">Contact Us</a></li>
+                    <li><a href="#" class="text-gray-700 hover:text-mySkyBlue">Get started</a></li>
+                </ul>
+            </div>
+            <div class="col-span-1">
+                <ul class="list-none">
+                    <li>
+                        <a href="#" class="flex items-center hover:text-black">
+                            <i class="fab fa-facebook-square text-sky-950 text-xl mr-2"></i> Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center hover:text-black">
+                            <i class="fab fa-twitter-square text-blue-500 text-xl mr-2"></i> Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center hover:text-black">
+                            <i class="fab fa-instagram-square text-red-600 text-xl mr-2"></i> Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center hover:text-black">
+                            <i class="fab fa-linkedin text-xl text-blue-700 mr-2"></i> LinkedIn
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <h5 class="text-mySkyBlue mb-3">Subscribe to Our Newsletter</h5>
+                <p class="text-gray-600">Stay updated with the latest travel news, exclusive offers, and more.</p>
+                <form action="#">
+                    <div class="flex items-center mb-3">
+                        <input type="text" id="destination" placeholder="Your Email"
+                            class=" px-4 py-2 text-gray-800 font-bold placeholder-gray-500  outline-none border-b-2 border-gray-300  focus:outline-none focus:placeholder-gray-400  focus:border-mySkyBlue transition-all duration-300">
+                        <button
+                            class="bg-mySkyBlue text-white p-2 px-4 rounded-md hover-move-up focus:outline-none focus:bg-blue-600 transition-all duration-300">
+                            <i class="fas fa-paper-plane "></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,92 @@
+<div class="w-full h-[80vh] relative">
+    <div id="background-Dark" class="fixed inset-0 w-full h-[80vh] z-[-1]">
+        <div class="absolute inset-0 bg-black " style="opacity: 60%;"></div>
+        <img class="w-full h-[80vh] object-cover"
+            src="https://gumlet.assettype.com/freepressjournal/2023-03/28892f6a-c3e0-4589-99e1-773e5baf5bcb/Untitled_design__1_.png"
+            alt="">
+    </div>
+    <app-header></app-header>
+    <div class="text-center wow fadeInUp pt-5 mx-auto my-4 mb-8 space-y-1" data-wow-delay="0.1s">
+        <h6 class="section-title text-center text-white text-2xl font-serif">Your Hotel Experience Awaits</h6>
+        <h1 class="text-white capitalize font-serif">
+            Book Your Dream Hotel with
+            <span class="hidden md:inline-block text-mySkyBlue font-bold capitalize bg-white p-2 mx-1 rounded">My Travels</span>
+        </h1>
+        <span  class="inline-block md:hidden text-mySkyBlue font-bold capitalize bg-white p-2 mx-1 text-2xl rounded">My Travels</span>
+        <p class="text-white mt-4 text-2xl mb-2 p-2 capitalize font-sans">
+            Explore our curated collection of luxury hotels. Plan your dream stay and unlock exclusive offers
+            to enjoy exceptional service during your visit.
+        </p>
+        <span class="text-mySkyBlue  font-mono text-xl font-bold p-1 bg-white">Book Your Luxury Experience Now.</span>
+    </div>
+    
+    
+</div>
+<section id="Booking" class="bg-white w-screen pb-10 border-b-[1px]" >
+    <div class="md:container  mx-auto p-8 bg-white ">
+        <div class="md:flex items-center justify-between mb-4 border-b-2" *ngIf="hotelData">
+            <!-- Hotel Image (On Left on Larger Screens) -->
+            <div class="w-full md:w-1/2 h-auto border-2 object-cover mb-4 md:mb-0 rounded-md">
+                <img [src]="hotelData.image"
+                    alt="hotelName" class="w-full h-auto rounded-md" />
+            </div>
+            <!-- Hotel Information (On Right on Larger Screens) -->
+            <div class="md:w-1/2 md:ml-8">
+                <!-- Hotel Name -->
+                <h1 class="text-4xl font-extrabold text-gray-600 mb-4"><i class="fas fa-hotel text-mySkyBlue mr-2"></i>{{hotelData.hotelName}}
+                </h1>
+        
+                <!-- Location -->
+                <p class="text-gray-600 mb-2">
+                    <i class="fas fa-map-marker-alt text-mySkyBlue mr-2"></i>{{hotelData.hotelLocation}}
+                </p>
+        
+                <!-- Star Ratings & Price -->
+                <div class="flex items-start flex-col justify-start  mb-2">
+                    <div class="text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                   
+                </div>
+        
+                <!-- Description -->
+                <p class="text-gray-700 mb-4">
+                    {{hotelData.description}}...
+                </p>
+        
+                <!-- Service Icons -->
+                <div class="flex items-center gap-4 m-0 mb-2">
+                    <div class="text-mySkyBlue"><i class="fas fa-bed"></i> {{hotelData.beds}} Bed</div>
+                    <div class="text-mySkyBlue"><i class="fas fa-bath"></i> {{hotelData.bath}} Bath</div>
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    
+                    <div class="flex space-x-4 ">
+                         
+                        <div *ngIf="hotelData.wifiEnabled" class="text-mySkyBlue"><i class="fas fa-wifi"></i> WiFi</div>
+                        <div *ngIf="hotelData.privatePool" class="text-mySkyBlue"><i class="fas fa-swimming-pool"></i> Private Pool</div>
+                        <div *ngIf="hotelData.tv" class="text-mySkyBlue"><i class="fas fa-tv"></i> TV</div>
+                        <div *ngIf="hotelData.freeParking" class="text-mySkyBlue"><i class="fas fa-car"></i> Free Parking</div>
+                    </div>
+                    <p class="border p-2 rounded  shadow-sm text-lg font-bold m-0 text-green-500 ">{{hotelData.price
+                        | currency: 'INR':'symbol':"1.0-2"}}<span class="text-gray-600 font-semibold">/Night</span></p>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Booking Form -->
+        <section id="booking" class="w-full" *ngIf="isUserRegistered" >
+        <p class="w-full text-2xl font-semibold text-center text-gray-600 m-0 p-0">Complete These Form For Bookings</p>
+        <p class="w-full text-center font-bold  text-xl text-mySkyBlue">_______</p>
+        <app-booking [hotelId]="hotelId" [hotelPrice]="hotelData?.price"></app-booking>
+        </section>
+    </div>
+</section>
+<app-footer></app-footer>
+<app-loader></app-loader>

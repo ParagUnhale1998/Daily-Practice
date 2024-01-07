@@ -1,0 +1,37 @@
+<div [ngClass]="{'hidden': !isSidenavOpen}"
+    class=" h-full absolute inset-0 md:relative md:flex flex-col w-64 bg-mySkyBlue z-50 md:z-0 ">
+    <div class="flex items-center justify-start px-8  h-16 bg-sky-700 text-white">
+        <span class="font-bold uppercase"> <i class="fas fa-tachometer-alt fa-fw mr-2"></i>
+            Dashbord</span>
+            
+    </div>
+    <div class="flex flex-col flex-1 overflow-y-auto">
+        <nav class="flex-1 px-2 py-4 bg-mySkyBlue">
+            <a [routerLink]="['/owner/profile']" routerLinkActive="active" (click)="toggleSidenav()"
+                class="flex items-center px-4 py-2 text-white hover:bg-sky-500">
+                <i class="fas fa-user fa-fw mr-2"></i>
+
+                Profile
+            </a>
+            <a [routerLink]="['/owner/all-hotels']" routerLinkActive="active" (click)="toggleSidenav()"
+                class="flex items-center px-4 py-2 mt-2 text-white hover:bg-sky-500">
+                <i class="fas fa-hotel fa-fw mr-2"></i>
+                All Hotels
+            </a>
+            <a [routerLink]="['/owner/booking-list']" routerLinkActive="active" (click)="toggleSidenav()"
+                class="flex items-center px-4 py-2 mt-2 text-white hover:bg-sky-500">
+                <i class="fas fa-book fa-fw mr-2"></i>
+                Bookings
+            </a>
+            <a [routerLink]="['/owner/add-hotel']" routerLinkActive="active" (click)="toggleSidenav()"
+                class="flex items-center px-4 py-2 mt-2 text-white hover:bg-sky-500">
+                <i class="fas fa-plus fa-fw mr-2"></i>
+                Add Hotel
+            </a>
+            <a [routerLink]="['/user']" (click)="logout()" class="flex items-center px-4 py-2 mt-2 text-white hover:bg-sky-500">
+                <i class="fas fa-sign-out-alt fa-fw mr-2"></i>
+                Logout
+            </a>
+        </nav>
+    </div>
+</div>

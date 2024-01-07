@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+/* styles.css or styles.scss */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+// @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  cursor: pointer;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+}
+.borderWhite {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.318);
+}
+.borderRight {
+  border-right: 1px solid rgba(255, 255, 255, 0.318);
+}
+.hover-scale {
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+.hover-move-up {
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+}
+
+.move-up {
+  &:hover {
+    transform: translateY(-5px);
+
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+}
+
+// On Hover Move Up and Scale Animation
+.hover-move-up-scale {
+  &:hover {
+    transform: translateY(-5px) scale(1.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+}
+// Border Expand Animation
+.border-expand {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  &:hover {
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px; // Initial border height
+      background-color: #000; // Border color
+      transition: all 0.3s ease;
+      transform-origin: bottom right;
+      transform: scaleX(0); // Initial border width
+    }
+  }
+}
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  &:hover {
+    opacity: 1;
+  }
+}
+/* your-component.component.css or your-component.component.scss */
+.section-title::after {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 2px;
+  top: 50%;
+  right: -55px;
+  margin-top: -1px;
+  background: var(--primary); /* Make sure --primary is defined in your styles or set a color value */
+}
+.section-title::before {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 2px;
+  top: 50%;
+  left: -55px;
+  margin-top: -1px;
+  background: var(--primary);
+}
+
+.fontHeebo {
+  font-family: 'Heebo', sans-serif !important;
+}
+

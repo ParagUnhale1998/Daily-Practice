@@ -1,0 +1,174 @@
+<section id="top-destination" class="relative w-screen flex items-center flex-col justify-center mt-8">
+    <!-- First sub-container with heading -->
+    <div class="container flex items-center justify-center flex-col  mb-4">
+        <h2 class="text-3xl font-bold text-gray-600 text-center">Top Destination</h2>
+        <span class="text-mySkyBlue font-bold m-0 p-0">_____</span>
+    </div>
+    <!-- Second sub-container with images -->
+    <div class="container flex flex-wrap items-center justify-center">
+        <!-- First row with 2 big images -->
+        <div (click)="searchHotel('Maharashtra')"
+            class=" w-full sm:w-1/2 md:w-1/2 lg:w-1/2 relative p-2 pb-0 move-up hover:shadow-sm h-80 countryImageContainer overflow-hidden">
+            
+            <img src="https://www.justahotels.com/wp-content/uploads/2023/09/Maharashtra-scaled.jpg" alt="Maharashtra"
+                class="w-full h-full object-cover blurred-image" (load)="onImageLoad()">
+
+            <div class="relative container overflow-hidde">
+                <div class=" details ">
+                    <div class="absolute bottom-2 w-full left-0 h-80 overflow-hidden"
+                        style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+
+                    <div class="relative z-10 ">
+                        <a (click)="searchHotel('Maharashtra')"
+                            class="text-white text-decoration-none font-bold text-2xl tracking-wider  block ">Maharashtra</a>
+                        <div class="flex flex-col items-start gap-2 justify-start dropdownImage border-t-[1px] mb-4">
+                            <a  (click)="searchHotel('Maharashtra')"
+                                class="text-decoration-none hover:opacity-75 text-white">30 Hotel</a>
+                            <a  (click)="searchHotel('Maharashtra')"
+                                class="text-decoration-none hover:opacity-75 text-white">48 Tours</a>
+                            <a  (click)="searchHotel('Maharashtra')"
+                                class="text-decoration-none hover:opacity-75 text-white">46 Activity</a>
+                            <a  (click)="searchHotel('Maharashtra')"
+                                class="text-decoration-none hover:opacity-75 text-white ">32 Yacht</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div (click)="searchHotel('Jammu')"
+            class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 relative p-2 pb-0 move-up hover:shadow-sm h-80 countryImageContainer overflow-hidden">
+
+            <img src="https://images.pexels.com/photos/12750077/pexels-photo-12750077.jpeg?cs=srgb&dl=pexels-tauseef-khaliq-12750077.jpg&fm=jpg" alt="Jammu And Kashmir"
+                class="w-full h-full object-cover  blurred-image" (load)="onImageLoad()">
+
+            <div class="relative container overflow-hidde">
+                <div class=" details">
+                    <div class="absolute bottom-2 w-full left-0 h-80 overflow-hidden"
+                        style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+
+                    <div class="relative z-10 ">
+                        <a    (click)="searchHotel('Jammu')"
+                            class="text-white text-decoration-none font-bold text-2xl tracking-wider  block ">Jammu And Kashmir
+                            </a>
+                        <div class="flex flex-col items-start gap-2 justify-start dropdownImage border-t-[1px]">
+                            <a    (click)="searchHotel('Jammu')"
+                                class="text-decoration-nonehover:opacity-75 hover:opacity-75 text-white">30 Hotel</a>
+                            <a   (click)="searchHotel('Jammu')"
+                                class="text-decoration-none hover:opacity-75 text-white">48 Tours</a>
+                            <a  (click)="searchHotel('Jammu')"
+                                class="text-decoration-none hover:opacity-75 text-white">46 Activity</a>
+                            <a  (click)="searchHotel('Jammu')"
+                                class="text-decoration-none hover:opacity-75 text-white">32 Yacht</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div (click)="searchHotel('goa')"
+            class="lg:w-1/4 md:w-1/2 sm:w-1/2 w-full relative p-2 pb-0 move-up hover:shadow-sm h-80 countryImageContainer overflow-hidden">
+
+            <img src="https://www.hellovisit.in/uploads/0000/1/2021/12/12/family-holiday-packages-in-goa1.jpg" alt="Goa"
+                class="w-full h-full object-cover blurred-image" (load)="onImageLoad()">
+            <div class="relative container overflow-hidde">
+                <div class=" details">
+                    <div class="absolute bottom-2 w-full left-0 h-80 overflow-hidden"
+                        style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+
+                    <div class="relative z-10 ">
+                        <a (click)="searchHotel('goa')"
+                            class="text-white text-decoration-none font-bold text-2xl tracking-wider  block ">Goa</a>
+                        <div class="flex flex-col items-start gap-2 justify-start dropdownImage border-t-[1px]">
+                            <a (click)="searchHotel('goa')"
+                                class="text-decoration-none hover:opacity-75 text-white">30 Hotel</a>
+                            <a (click)="searchHotel('goa')"
+                                class="text-decoration-none hover:opacity-75 text-white">48 Tours</a>
+                            <a (click)="searchHotel('goa')"
+                                class="text-decoration-none hover:opacity-75 text-white">46 Activity</a>
+                            <a (click)="searchHotel('goa')"
+                                class="text-decoration-none hover:opacity-75 text-white">32 Yacht</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div (click)="searchHotel('himachal')"
+            class="lg:w-1/4 md:w-1/2 sm:w-1/2 w-full relative p-2 pb-0 move-up hover:shadow-sm h-80 countryImageContainer overflow-hidden">
+
+            <img src="https://wallpapercave.com/wp/wp4528676.jpg"
+                alt="Himachal Pradesh" class="w-full h-full object-cover blurred-image" (load)="onImageLoad()">
+            <div class="relative container overflow-hidde">
+                <div class=" details">
+                    <div class="absolute bottom-2 w-full left-0 h-80 overflow-hidden"
+                        style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+
+                    <div class="relative z-10 ">
+                        <a (click)="searchHotel('himachal')"
+                            class="text-white text-decoration-none font-bold text-2xl tracking-wider  block ">Himachal Pradesh</a>
+                        <div class="flex flex-col items-start gap-2 justify-start dropdownImage border-t-[1px]">
+                            <a (click)="searchHotel('himachal')"
+                                class="text-decoration-none  text-white">30 Hotel</a>
+                            <a (click)="searchHotel('himachal')"
+                                class="text-decoration-none  text-white">48 Tours</a>
+                            <a (click)="searchHotel('himachal')"
+                                class="text-decoration-none  text-white">46 Activity</a>
+                            <a (click)="searchHotel('himachal')"
+                                class="text-decoration-none  text-white">32 Yacht</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div (click)="searchHotel('Keral')"
+            class="lg:w-1/4 md:w-1/2 sm:w-1/2 w-full relative p-2 pb-0 move-up hover:shadow-sm h-80 countryImageContainer overflow-hidden">
+
+            <img src="https://c4.wallpaperflare.com/wallpaper/115/795/754/the-sky-the-sun-clouds-trees-wallpaper-preview.jpg"
+                alt="Keral and Karnataka" class="w-full h-full object-cover blurred-image" (load)="onImageLoad()">
+            <div class="relative container overflow-hidde">
+                <div class=" details">
+                    <div class="absolute bottom-2 w-full left-0 h-80 overflow-hidden"
+                        style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+                    <div class="relative z-10 ">
+                        <a (click)="searchHotel('Keral')"
+                            class="text-white text-decoration-none font-bold text-2xl tracking-wider  block ">Keral and Karnataka</a>
+                        <div class="flex flex-col items-start gap-2 justify-start dropdownImage border-t-[1px]">
+                            <a (click)="searchHotel('Keral')"
+                                class="text-decoration-none hover:opacity-75 text-white">30 Hotel</a>
+                            <a (click)="searchHotel('Keral')"
+                                class="text-decoration-none hover:opacity-75 text-white">48 Tours</a>
+                            <a (click)="searchHotel('Keral')"
+                                class="text-decoration-none hover:opacity-75 text-white">46 Activity</a>
+                            <a (click)="searchHotel('Keral')"
+                                class="text-decoration-none hover:opacity-75 text-white">32 Yacht</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div (click)="searchHotel('rajastan')"
+            class="lg:w-1/4 md:w-1/2 sm:w-1/2 w-full relative p-2 pb-0 move-up hover:shadow-sm h-80 countryImageContainer overflow-hidden">
+            <img src="https://images.pling.com/img/00/00/68/45/84/1926407/jaipur-nahargarh-rajasthan-india-2021-bing-4k-photo-wallpaper-1920x1080-10wallpaper.com.jpg"
+                alt="Jaipur" class="w-full h-full object-cover blurred-image" (load)="onImageLoad()">
+            <div class="relative container overflow-hidde">
+                <div class=" details">
+                    <div class="absolute bottom-2 w-full left-0 h-80 overflow-hidden"
+                        style="background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);"></div>
+                    <div class="relative z-10 ">
+                        <a (click)="searchHotel('rajastan')"
+                            class="text-white text-decoration-none font-bold text-2xl tracking-wider  block ">Jaipur</a>
+                        <div class="flex flex-col items-start gap-2 justify-start dropdownImage border-t-[1px]">
+                            <a (click)="searchHotel('rajastan')"
+                                class="text-decoration-none hover:opacity-75 text-white">30 Hotel</a>
+                            <a (click)="searchHotel('rajastan')"
+                                class="text-decoration-none hover:opacity-75 text-white">48 Tours</a>
+                            <a (click)="searchHotel('rajastan')"
+                                class="text-decoration-none hover:opacity-75  text-white">46 Activity</a>
+                            <a (click)="searchHotel('rajastan')"
+                                class="text-decoration-none hover:opacity-75 text-white">32 Yacht</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+</section>

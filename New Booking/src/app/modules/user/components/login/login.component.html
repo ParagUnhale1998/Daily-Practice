@@ -1,0 +1,83 @@
+<div class="w-full h-[80vh] relative">
+    <div id="background-Dark" class="fixed inset-0 w-full h-[80vh] z-[-1]">
+        <div class="absolute inset-0 bg-black " style="opacity: 60%;"></div>
+        <img class="w-full h-[80vh] object-cover"
+            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/56/ef/3f/kaldan-samudhra.jpg?w=1200&h=-1&s=1"
+            alt="">
+    </div>
+    <app-header></app-header>
+    
+    <div class="text-center mx-auto mt-36">
+        <h6 class="section-title text-center text-white text-[5vw] md:text-[3vw] font-extrabold">Discover Luxury Stay</h6>
+        <h1 class="text-white capitalize text-[6vw] md:text-[4vw] font-extrabold">
+          Welcome to our<span class="text-mySkyBlue bg-white p-1 ml-2 rounded font-bold capitalize">MyTravels</span>
+        </h1>
+        <p class="text-white p-1 md:p-0 text-2xl capitalize font-medium">
+          Log in or register to unlock exclusive offers and book your dream stay.
+        </p>
+      </div>
+      
+      
+</div>
+
+<section class="bg-white w-screen border-b-[1px] ">
+    <div class="max-w-full text-myGrayBlack mx-auto sm:px-4 ">
+        <div class="flex flex-col md:flex-row justify-center items-center" *ngIf="!showSignUp">
+            <div class="  w-full  md:w-1/2 lg:w-1/2 pr-4 pl-4 bg-gray p-12 text-center">
+                <h4 class="text-center fw-bolder fs-2">Register</h4>
+                <p class="mb-3 fs-7">Register Now and Fell the New Digital World</p>
+                <a>
+                    <button (click)="toggleSection()"
+                        class="inline-block align-middle text-center select-none border-2  whitespace-no-wrap rounded-full py-2 px-4 text-mySkyBlue font-bold  border-mySkyBlue hover:bg-mySkyBlue hover:text-white">Sign
+                        Up</button>
+                </a>
+                <div class="img-cover p-6">
+                    <img src="assets/loginbg.svg" alt="">
+                </div>
+            </div>
+            <div class=" w-full md:w-1/2 lg:w-1/2 pr-4 pl-4">
+                <div class="w-full flex flex-wrap  md:flex">
+                    <div class="md:w-2/3 pr-4 pl-4 p-6 w-full m-auto text-center justify-center items-center">
+                        <h4 class="text-center fw-bolder mb-4 fs-2">Login</h4>
+                        <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+
+                            <div class="relative flex items-stretch w-full mb-4 rounded border-[1px] border-gray-300">
+                                <span class="p-2 bg-slate-100"><i class="fas fa-user bg-transparent"></i></span>
+                                <input type="text" formControlName="email" autocomplete="username"
+                                    class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                    placeholder="Enter Username" >
+                            </div>
+                            <div class="relative flex items-stretch w-full  mb-4 rounded border-[1px]  border-gray-300">
+                                <span class="p-2 bg-slate-100"><i class="fas fa-lock bg-transparent"></i></span>
+                                <input type="password"  formControlName="password" autocomplete="current-password"
+                                    class="block w-full border-none outline-none shadow-none py-1 px-2 bg-slate-100 hover:bg-white focus:bg-white"
+                                    placeholder="Enter  Password" >
+                            </div>
+                            
+                            <button  type="submit"
+                            class="move-up inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-3 px-4 leading-tight text-xl fw-bold fs-7 bg-mySkyBlue text-white hover:bg-blue-600 w-full">Login</button>
+                        </form>
+
+                            <p class="text-center  py-4 fw-bold text-sm">Or Sign in with social platforms</p>
+
+                            <ul class="flex flex-wrap items-center justify-center  mx-auto">
+                                <!-- Font Awesome icons -->
+                                <li class="float-start px-3 "><a href=""><i
+                                            class=" text-2xl fab fa-facebook text-myGrayBlack move-up hover:text-mySkyBlue"></i></a>
+                                </li>
+                                <li class="float-start px-3"><a href=""><i
+                                            class="text-2xl fab  fa-google text-myGrayBlack move-up hover:text-mySkyBlue"></i></a>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div *ngIf="showSignUp">
+            <app-sign-up (toggle)="toggleSection()"></app-sign-up>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>
+<app-loader></app-loader>

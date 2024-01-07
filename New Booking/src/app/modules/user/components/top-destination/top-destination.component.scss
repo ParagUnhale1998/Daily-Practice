@@ -1,0 +1,72 @@
+.dropdownImage{
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+
+}
+.countryImageContainer:hover .dropdownImage{
+    opacity: 1;
+}
+
+.details {
+    position: absolute;
+    bottom: -100px;
+    width: 100%;
+    left: 0;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    padding: 1.5vw;
+    justify-content: space-between;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    gap: 10px;
+    transition: bottom 0.3s ease;
+  }
+
+  .countryImageContainer:hover .details {
+    bottom: 0;
+  }
+  .transparent-black-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha channel for transparency */
+  }
+
+  .loading-skeleton {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+  
+  @keyframes loading {
+    to {
+      background-position: -200% 100%;
+    }
+  }
+  
+ /* Your component styles */
+.blurred-image-container {
+  position: relative;
+}
+
+.blurred-image {
+
+  filter: blur(20px); /* Adjust blur amount as needed */
+}
+
+/* Animation for smooth transition from blurred to clear */
+.blurred-image.loaded {
+  animation: blur-fade-in 0.5s forwards;
+}
+
+@keyframes blur-fade-in {
+  from {
+    filter: blur(20px);
+  }
+  to {
+    filter: blur(0);
+  }
+}

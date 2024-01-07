@@ -1,0 +1,125 @@
+<div class="w-full h-full  flex flex-col md:flex-row  items-start justify-between">
+    <div class="lg:w-1/2 p-4 md:w-1/2 w-full mb-4">
+        <div class="">
+            <div class="room-item shadow rounded overflow-hidden bg-white">
+                <div class="relative">
+                    <img *ngIf="image.value" class="max-w-full h-auto" [src]="image.value"
+                        alt="">
+                        <img *ngIf="!image.value"  class="max-w-full h-auto"
+                        src="https://thumbs.dreamstime.com/b/hotel-bed-room-21064950.jpg" alt="">
+                    <small
+                        class="absolute start-0 top-100 translate-middle-y bg-mySkyBlue text-white rounded py-1 px-3 ms-4">{{price.value ? price.value : '1000'}}₹/Night</small>
+                </div>
+                <div class="p-6 mt-2">
+                    <div class="flex justify-between mb-3">
+                        <h5 class="mb-0">{{hotelName.value ? hotelName.value : 'Junior Suite'}}</h5>
+                        <div class="ps-2">
+                            <small class="fa fa-star text-mySkyBlue"></small>
+                            <small class="fa fa-star text-mySkyBlue"></small>
+                            <small class="fa fa-star text-mySkyBlue"></small>
+                            <small class="fa fa-star text-mySkyBlue"></small>
+                            <small class="fa fa-star text-mySkyBlue"></small>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <small class="border-end me-3 pe-3"><i class="fa fa-bed text-mySkyBlue me-2"></i>{{beds.value ? beds.value : 2 }}</small>
+                        <small class="border-end me-3 pe-3"><i class="fa fa-bath text-mySkyBlue me-2"></i>{{bath.value ? bath.value : 4 }}</small>
+                        <small class="border-end me-3 pe-3" *ngIf="wifiEnabled"><i class="fa fa-wifi text-mySkyBlue me-2"></i>Wifi</small>
+                        <small class="border-end me-3 pe-3" *ngIf="privatePool" ><i class="fa fa-swimming-pool text-mySkyBlue me-2"></i>Pool</small>
+                        <small class="border-end me-3 pe-3" *ngIf="tv"><i class="fa fa-tv text-mySkyBlue me-2"></i>TV</small>
+                        <small *ngIf="freeParking"><i class="fa fa-car text-mySkyBlue me-2 "></i>Parking</small>
+                      </div>
+                      
+                    <p class="text-body mb-3">{{description.value ? description.value : "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem" }}</p>
+                    <div class="flex justify-between">
+                        <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap  no-underline  leading-tight text-xs  bg-mySkyBlue text-white hover:bg-mySkyBlue rounded py-2 px-4 move-up"
+                            href="">View Detail</a>
+                        <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap no-underline  leading-tight text-xs  bg-gray-800 text-white hover:bg-gray-900 rounded py-2 px-4 move-up"
+                            href="">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lg:w-1/2 p-4 md:w-1/2  w-full mb-4">
+        <form  [formGroup]="addHotelForm" (ngSubmit)="onSubmit()" class="w-full flex flex-wrap items-center gap-2 justify-between example-container" >
+            <div class="w-full">
+                <mat-form-field class="w-full example-container">
+                  <mat-label>Image URL</mat-label>
+                  <input type="text" matInput formControlName="image" #image placeholder="Enter the image URL">
+                  <mat-error *ngIf="addHotelForm.get('image')?.hasError('required') && addHotelForm.get('image')?.touched">
+                    Image URL is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="w-full">
+                <mat-form-field class="w-full example-container">
+                  <mat-label>Hotel Name</mat-label>
+                  <input type="text" #hotelName matInput formControlName="hotelName" placeholder="Ex. John Doe">
+                  <mat-error *ngIf="addHotelForm.get('hotelName')?.hasError('required') && addHotelForm.get('hotelName')?.touched">
+                    Name is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="w-full">
+                <mat-form-field class="w-full example-container">
+                  <mat-label>Hotel Location</mat-label>
+                  <input type="text" #hotelLocation matInput formControlName="hotelLocation" placeholder="Enter the hotel location">
+                  <mat-error *ngIf="addHotelForm.get('hotelLocation')?.hasError('required') && addHotelForm.get('hotelLocation')?.touched">
+                    Location is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>              
+              <div class="w-full">
+                <mat-form-field class="w-full example-container">
+                  <mat-label>Description</mat-label>
+                  <textarea matInput #description formControlName="description" placeholder="Enter a description"></textarea>
+                  <mat-error *ngIf="addHotelForm.get('description')?.hasError('required') && addHotelForm.get('description')?.touched">
+                    Description is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="w-full">
+                <mat-form-field class="w-full example-container">
+                  <mat-label>Number of Beds</mat-label>
+                  <input type="number" #beds matInput formControlName="beds" placeholder="Enter the number of beds">
+                  <mat-error *ngIf="addHotelForm.get('beds')?.hasError('required') && addHotelForm.get('beds')?.touched">
+                    Number of beds is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            
+              <div class="w-full">
+                <mat-form-field class="w-full example-container">
+                  <mat-label>Number of Bath</mat-label>
+                  <input type="number" matInput formControlName="bath" placeholder="Enter the number of baths" #bath>
+                  <mat-error *ngIf="addHotelForm.get('bath')?.hasError('required') && addHotelForm.get('bath')?.touched">
+                    Number of baths is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              
+              <div class="w-full">
+                <mat-form-field class="w-full example-container">
+                  <mat-label>Price (INR)</mat-label>
+                  <input type="number" #price matInput formControlName="price" placeholder="Enter the price">
+                  <mat-error *ngIf="addHotelForm.get('price')?.hasError('required') && addHotelForm.get('price')?.touched">
+                    Price is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              
+              <div class="w-full flex flex-wrap items-center justify-center gap-2">
+                <mat-checkbox class="example-container" formControlName="wifiEnabled" >WiFi</mat-checkbox>
+                <mat-checkbox class="example-container" formControlName="privatePool">Private Pool</mat-checkbox>
+                <mat-checkbox class="example-container" formControlName="tv">TV</mat-checkbox>
+                <mat-checkbox class="example-container" formControlName="freeParking">Free Parking</mat-checkbox>
+              </div>
+            
+              <div class="flex w-full justify-center items-center">
+                <button class="inline-block align-middle text-center select-none border whitespace-no-wrap  no-underline  leading-tight text-sm  bg-mySkyBlue text-white font-semibold hover:bg-mySkyBlue rounded py-2 px-4 move-up" type="submit">Add Hotel</button>
+              </div>
+            </form>
+    </div>
+</div>
