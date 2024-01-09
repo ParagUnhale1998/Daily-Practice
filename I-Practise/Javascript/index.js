@@ -214,14 +214,238 @@ function newIncludeArray(array){
     const newArray = array.map(user => user.name)
     return newArray
 }
-console.log(newIncludeArray(users))
+// console.log(newIncludeArray(users))
 
 
 // Create a function to calculate the average length of user names in the users array.
-// Write a function to find the average age of users in the users array.
-// Find the user with the maximum age in the users array.
-// Check if all users have an email address in the users array.
-// Calculate the total number of characters in all user names in the users array.
-// Group users by their age in the users array.
-// Combine the names of all users into a single string separated by commas.
+function calculateAverageLength(array){
+    totalNameLength = array.reduce((sum,user) => {
+    return sum + user.name.length
+    },0)
+      const averageNameLength = totalNameLength / array.length;
+  return averageNameLength;
+}
+// console.log(calculateAverageLength(users))
 
+// Write a function to find the average age of users in the users array.
+function findAverageAge(usersArray){
+    const totalAge = usersArray.reduce((sum, user) => sum + user.age, 0);
+    const averageAge = totalAge / usersArray.length;
+  
+    return averageAge;
+}
+// console.log(findAverageAge(users))
+
+// Find the user with the maximum age in the users array.
+function maximumAge(array){
+    const maxAgeUser = array.reduce((maxUser,CurrUser) => {
+        return CurrUser.age > maxUser.age ? CurrUser : maxUser;
+    },array[0])
+    return maxAgeUser
+}
+// console.log(maximumAge(users))
+
+// Check if all users have an email address in the users array.
+function checkEmail(array){
+   const Checkemail =  array.every(user => user.email !== undefined && user.email !== null)
+   const Checkallemail =  array.map(user => user.email !== undefined && user.email !== null)
+   const userNotHaveEmail = array.filter(user => !user.email);
+   return userNotHaveEmail 
+}
+// console.log(checkEmail(users))
+
+// Calculate the total number of characters in all user names in the users array.
+function totalCharacters(array){
+    const totalNameCharacters = array.map(user => user.name.length).reduce((sum,user)=> sum + user,0)
+    const totalCharacters = array.reduce((sum, user) => sum + user.name.length, 0);
+
+    return totalCharacters
+}
+// console.log(totalCharacters(users))
+
+// Group users by their age in the users array.
+function groupUserByAge(array){
+   const userAgeArray = users.map(user => user.age )
+   return userAgeArray
+   const groupedByAge = array.reduce((result, user) => {
+    const { age } = user;
+    result[age] = result[age] || [];
+    result[age].push(user);
+    return result;
+  }, {});
+
+  return groupedByAge;
+}
+// console.log(groupUserByAge(users))
+
+// Combine the names of all users into a single string separated by commas.
+function combineNameString(array){
+   const allUsernames =  array.map(user => user.name).join(', ')
+   return allUsernames 
+}
+// console.log(combineNameString(users))
+
+
+//String Questions
+    var stringObject = "{'country':'Canada','state':'British Columbia','nexus':'Canada - British Columbia','registration':'1000-2733','taxCode':'CA_GST'}";
+// How would you convert the given string into a JavaScript object?
+function convertStrIntoObject(str){
+    var correctedString = str.replace(/'/g, '"');
+    return JSON.parse(correctedString)
+}
+// console.log(convertStrIntoObject(stringObject))
+// Can you access the value of the 'state' property in the object?
+function accessState(str){
+    var correctedString = str.replace(/'/g, '"');
+    var parsedObject = JSON.parse(correctedString);
+    var stateValue = parsedObject.state;
+     return stateValue
+}
+// console.log(accessState(stringObject))
+// What method can you use to check if the 'registration' property exists in the object?
+  function checkRegistration(){
+    const registration  = stringObject.includes('state')
+    return registration
+  }
+//   console.log(checkRegistration())
+// How do you update the value of the 'taxCode' property to 'CA_PST'?
+ function updateValues(str){
+    var correctedString = str.replace(/'/g, '"');
+    var parsedObject = JSON.parse(correctedString);
+    parsedObject.taxCode = 'CA_PST';
+    return parsedObject
+}
+//  console.log(updateValues(stringObject))
+// Write a code snippet to extract all the keys from the object and store them in an array.
+function getKeys(str){
+    var correctedString = str.replace(/'/g, '"');
+    var parsedObject = JSON.parse(correctedString);
+    var keysArray = Object.keys(parsedObject);
+    
+    return keysArray
+}
+// console.log(getKeys(stringObject))
+// Explain the purpose of using single quotes in the string and how it might affect parsing as compared to double quotes.
+// How would you check the length of the string?
+// console.log(stringObject.length)
+// What function can you use to validate if the string is a valid JSON format?
+try {
+    var parsedObject = JSON.parse(stringObject);
+    // console.log("The string is a valid JSON format.");
+  } catch (error) {
+    // console.error("The string is not a valid JSON format:", error.message);
+  }
+// Write a function to stringify the object back into a JSON-formatted string.
+// How can you check if the 'country' property is equal to 'Canada'?
+function checkProperty(){
+    var jsonObject = JSON.parse(stringObject.replace(/'/g, '"'));
+// Check if the 'country' property is equal to 'Canada'
+if (jsonObject.country === 'Canada') {
+    console.log('The country is Canada!');
+  } else {
+    console.log('The country is not Canada.');
+  }
+}
+// console.log(checkProperty())
+// Now, let's move on to some advanced questions:
+// Advanced Questions:
+// Implement a deep clone function for the given object, ensuring that the original and cloned objects are not linked.
+function deepClone(){
+    var jsonObject = JSON.parse(stringObject.replace(/'/g, '"'));
+    var newClone = {...jsonObject}
+    console.log(jsonObject)
+    return newClone
+}
+function deepClone(obj) {
+    if (obj === null || typeof obj !== 'object') {
+      return obj;
+    }
+    if (Array.isArray(obj)) {
+      return obj.map(deepClone);
+    }
+    return { ...obj, ...Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, deepClone(value)])) };
+  }  
+// console.log(deepClone())
+// Create a function that dynamically adds a new key-value pair to the object based on user input.
+function addData(str){
+    var jsonObject = JSON.parse(str.replace(/'/g, '"'));
+     const  name='parag'
+    const obj ={ ...jsonObject,name}
+         
+    return obj
+}
+function addKeyValuePairToObject(obj, key, value) {
+    // Parse the string into a JavaScript object
+    var jsonObject = JSON.parse(obj.replace(/'/g, '"'));
+
+    // Add the new key-value pair
+    jsonObject[key] = value;
+
+    return jsonObject;
+}
+// console.log(addKeyValuePairToObject(stringObject, 'classs', '12'));
+var stringObject = "{'country':'Canada','state':'British Columbia','nexus':'Canada - British Columbia','registration':'1000-2733','taxCode':'CA_GST'}";
+// Extract the substring from the 10th to the 20th character in the string.
+var extractedSubstring = stringObject.substring(9, 19);
+// Convert the entire string to uppercase.
+var uppercaseString = stringObject.toUpperCase();
+// Concatenate the value of "state" with the value of "country" and store it in a new variable.
+function concate(str){
+    var jsonObject = JSON.parse(str.replace(/'/g, '"'));
+    var concatenatedValue = jsonObject.state + jsonObject.country;
+    return concatenatedValue
+}
+// console.log(concate(stringObject))
+// Write a function to remove all spaces from the string.
+ stringObject.replace(/\s/g, '');
+// Extract all key-value pairs from the string and store them in an array.
+function keyValue(str){
+    const jsonObject = JSON.parse(str.replace(/'/g, '"'));
+    const keyValuePairs = Object.entries(jsonObject).map(([key, value]) => ({ key, value }));
+    return keyValuePairs
+}
+// console.log(keyValue(stringObject));
+// Determine if the string contains only alphanumeric characters.
+const isAlphanumeric = /^[a-zA-Z0-9]+$/.test(stringObject);
+// console.log(isAlphanumeric);
+// Reverse the characters in the string.
+function revestring(){
+const reversedString = stringObject.split('').reverse().join('');
+// console.log(reversedString);
+let reversedStrings = '';
+for (let i = stringObject.length - 1; i >= 0; i--) {
+  reversedStrings += originalString[i];
+}
+}
+// Replace the value for the key "registration" with a new value.
+function registrations() {
+    let jsonObject = JSON.parse(stringObject.replace(/'/g, '"'));
+    const newRegistrationValue = '2022-4567';
+    jsonObject = { ...jsonObject, registration: newRegistrationValue };
+    return jsonObject
+}
+// console.log(registrations())
+// Compare the original string with a modified version that has "Canada" replaced with "USA.
+const modifiedString = originalString.replace('Canada', 'USA');
+const isSame = originalString === modifiedString;
+console.log(isSame);
+// Substitute all occurrences of the letter 'a' with 'X' in the string.
+const modifiedStrings = originalString.replace(/a/g, 'X');
+// Extract and concatenate all numeric characters from the string.
+const numericCharacters = originalString.match(/\d/g).join('');
+// Split the string into an array using the comma as a delimiter.
+const stringArray = originalString.split(',');
+// Extract All Instances of "Canada"
+const canadaMatches = originalString.match(/Canada/g);
+// Convert to Array
+const stringArrays= originalString.split(/,|:/);
+// Convert to Object
+const jsonString = originalString.replace(/'/g, '"');
+const jsonObject = JSON.parse(jsonString);
+// Replace "state" with Something
+const jsonObjects = originalString.replace(/'/g, '"');
+jsonObjects.state = 'Something';
+// Remove "registration"
+delete jsonObjects.registration;
+// Create Array
+const keyValueArray = Object.entries(jsonObject).map(([key, value]) => ({ key, value }));
