@@ -15,6 +15,7 @@ export class TosterMessageService {
         positionClass: 'toast-top-right',
         timeOut: 2000,
         closeButton: true,
+        
       }
     );
   }
